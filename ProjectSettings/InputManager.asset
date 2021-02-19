@@ -42,9 +42,9 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: left ctrl
+    positiveButton: x
     altNegativeButton: 
-    altPositiveButton: mouse 0
+    altPositiveButton: left ctrl
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
@@ -90,9 +90,9 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: space
+    positiveButton: c
     altNegativeButton: 
-    altPositiveButton: 
+    altPositiveButton: space
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
@@ -283,6 +283,22 @@ InputManager:
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: escape
+    altNegativeButton: 
+    altPositiveButton: joystick button 1
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 0
+  - serializedVersion: 3
+    m_Name: Evasion
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: z
     altNegativeButton: 
     altPositiveButton: joystick button 1
     gravity: 1000
