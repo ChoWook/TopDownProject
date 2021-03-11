@@ -55,10 +55,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\FreePixelMob\Mobs.cs" />
+     <Compile Include="Assets\FreePixelMob\StateRandom.cs" />
      <Compile Include="Assets\Script\Player\CharacterContoller2D.cs" />
      <Compile Include="Assets\Script\Player\PlayerMovement.cs" />
      <None Include="Assets\Knight Files\Read Me.txt" />
      <None Include="Assets\Pixel2DCastleTileset\about.txt" />
+     <None Include="Assets\FreePixelMob\ReadMe.txt" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.18f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>

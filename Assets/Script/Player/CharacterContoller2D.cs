@@ -16,6 +16,7 @@ public class CharacterContoller2D : MonoBehaviour
     bool isGrounded = false;
     bool isBothInput = false;
     bool isEvasion = false;
+    bool isAttack = false;
 
     Vector3 cameraPos;
     Rigidbody2D r2d;
@@ -51,6 +52,19 @@ public class CharacterContoller2D : MonoBehaviour
             isEvasion = false;
         }
 
+        // Attack Check
+        if (isAttack && !anim.GetCurrentAnimatorStateInfo(0).IsName("Knight_attack"))
+        {
+            isAttack = false;
+        }
+
+        // Attack
+        if (Input.GetButtonDown("Fire1") && isGrounded && !isEvasion)
+        {
+            anim.SetTrigger("attackTrigger");
+            isAttack = true;
+        }
+
         // Movement controls
         if (!isEvasion)
         {
@@ -80,7 +94,7 @@ public class CharacterContoller2D : MonoBehaviour
         }
 
         // Change facing direction
-        if (moveDirection != 0)
+        if (moveDirection != 0 && !isAttack)
         {
             if (moveDirection > 0 && !facingRight)
             {
@@ -126,7 +140,6 @@ public class CharacterContoller2D : MonoBehaviour
             isEvasion = true;
             anim.SetTrigger("evasionTrigger");
         }
-
 
         // Apply movement velocity
         if (isEvasion)
