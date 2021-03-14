@@ -11,6 +11,13 @@ public class CharacterContoller2D : MonoBehaviour
     public float evasionSpeed = 2.5f;
     public Camera mainCamera;
 
+    // Attack var
+    public Transform attackPoint;
+    public float attackRange = 0.5f;
+    public LayerMask Enemy;
+    public int attack = 5;
+
+
     bool facingRight = true;
     float moveDirection = 0;
     bool isGrounded = false;
@@ -63,6 +70,16 @@ public class CharacterContoller2D : MonoBehaviour
         {
             anim.SetTrigger("attackTrigger");
             isAttack = true;
+
+
+            // Enemy를 찾아 범위 안에 있는 적들에게 대미지 입히기
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, Enemy);
+
+            foreach(Collider2D enemy in hitEnemies)
+            {
+                Debug.Log(enemy.name);
+                enemy.GetComponent<Mobs>().takeDamage(attack);
+            }
         }
 
         // Movement controls
@@ -185,5 +202,13 @@ public class CharacterContoller2D : MonoBehaviour
         // Simple debug
         Debug.DrawLine(groundCheckPos, groundCheckPos - new Vector3(0, colliderRadius, 0), isGrounded ? Color.green : Color.red);
         Debug.DrawLine(groundCheckPos, groundCheckPos - new Vector3(colliderRadius, 0, 0), isGrounded ? Color.green : Color.red);
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null)
+            return;
+
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }
