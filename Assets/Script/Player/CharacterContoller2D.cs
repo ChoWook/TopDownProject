@@ -14,8 +14,8 @@ public class CharacterContoller2D : MonoBehaviour
     // Attack var
     public Transform attackPoint;
     public float attackRange = 0.5f;
-    public LayerMask Enemy;
     public int attack = 5;
+    public LayerMask enemyLayer;
 
 
     bool facingRight = true;
@@ -53,35 +53,110 @@ public class CharacterContoller2D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Evasion Check
-        if (isEvasion && !anim.GetCurrentAnimatorStateInfo(0).IsName("Knight_dash"))
+        BehaviorCheck();
+        Attack();
+        MoveControl();
+        ChangeDirection();
+        WalkAnimation();
+        Jump();
+        JumpAnimation();
+        Evasion();
+        MoveVelocity();
+        CameraFlow();
+    }
+
+    private void CameraFlow()
+    {
+        // Camera follow
+        if (mainCamera)
         {
-            isEvasion = false;
+            mainCamera.transform.position = new Vector3(t.position.x, cameraPos.y, cameraPos.z);
         }
+    }
 
-        // Attack Check
-        if (isAttack && !anim.GetCurrentAnimatorStateInfo(0).IsName("Knight_attack"))
+    private void MoveVelocity()
+    {
+        // Apply movement velocity
+        if (isEvasion)
         {
-            isAttack = false;
+            moveDirection = facingRight ? 1 : -1;
+            r2d.velocity = new Vector2((moveDirection) * maxSpeed * evasionSpeed, r2d.velocity.y);
         }
-
-        // Attack
-        if (Input.GetButtonDown("Fire1") && isGrounded && !isEvasion)
+        else if(isAttack)
         {
-            anim.SetTrigger("attackTrigger");
-            isAttack = true;
+            r2d.velocity = new Vector2(0, r2d.velocity.y);
+        }
+        else
+        {
+            r2d.velocity = new Vector2((moveDirection) * maxSpeed, r2d.velocity.y);
+        }
+    }
 
+    private void Evasion()
+    {
+        // Evasion
+        if (Input.GetButtonDown("Evasion") && isGrounded && !isEvasion  && !isAttack)
+        {
+            isEvasion = true;
+            anim.SetTrigger("evasionTrigger");
+        }
+    }
 
-            // Enemy를 찾아 범위 안에 있는 적들에게 대미지 입히기
-            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, Enemy);
+    private void JumpAnimation()
+    {
+        // Jumping animation
+        if (isGrounded)
+        {
+            anim.SetBool("isJumping", false);
+        }
+        else
+        {
+            anim.SetBool("isJumping", true);
+        }
+    }
 
-            foreach(Collider2D enemy in hitEnemies)
+    private void Jump()
+    {
+        // Jumping
+        if (Input.GetButtonDown("Jump") && isGrounded && !isEvasion && !isAttack)
+        {
+            r2d.velocity = new Vector2(r2d.velocity.x, jumpHeight);
+        }
+    }
+
+    private void WalkAnimation()
+    {
+        // Walk Animation
+        if (moveDirection == 0)
+        {
+            anim.SetBool("isWalking", false);
+        }
+        else
+        {
+            anim.SetBool("isWalking", true);
+        }
+    }
+
+    private void ChangeDirection()
+    {
+        // Change facing direction
+        if (moveDirection != 0 && !isAttack)
+        {
+            if (moveDirection > 0 && !facingRight)
             {
-                Debug.Log(enemy.name);
-                enemy.GetComponent<Mobs>().takeDamage(attack);
+                facingRight = true;
+                t.localScale = new Vector3(Mathf.Abs(t.localScale.x), t.localScale.y, transform.localScale.z);
+            }
+            if (moveDirection < 0 && facingRight)
+            {
+                facingRight = false;
+                t.localScale = new Vector3(-Mathf.Abs(t.localScale.x), t.localScale.y, t.localScale.z);
             }
         }
+    }
 
+    private void MoveControl()
+    {
         // Movement controls
         if (!isEvasion)
         {
@@ -99,81 +174,50 @@ public class CharacterContoller2D : MonoBehaviour
                         moveDirection *= -1;
                         isBothInput = true;
                     }
-                    
+
                 }
                 else
                 {
                     isBothInput = false;
                     moveDirection = 0;
                 }
-                
+
             }
         }
+    }
 
-        // Change facing direction
-        if (moveDirection != 0 && !isAttack)
+    private void Attack()
+    {
+        // Attack
+        if (Input.GetButtonDown("Fire1") && !isEvasion)
         {
-            if (moveDirection > 0 && !facingRight)
+            anim.SetTrigger("attackTrigger");
+            isAttack = true;
+
+
+            // Enemy를 찾아 범위 안에 있는 적들에게 대미지 입히기
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
+
+            foreach (Collider2D enemy in hitEnemies)
             {
-                facingRight = true;
-                t.localScale = new Vector3(Mathf.Abs(t.localScale.x), t.localScale.y, transform.localScale.z);
-            }
-            if (moveDirection < 0 && facingRight)
-            {
-                facingRight = false;
-                t.localScale = new Vector3(-Mathf.Abs(t.localScale.x), t.localScale.y, t.localScale.z);
+                Debug.Log(enemy.name);
+                enemy.GetComponent<Mobs>().takeDamage(attack);
             }
         }
+    }
 
-        // Walk Animation
-        if (moveDirection == 0)
+    private void BehaviorCheck()
+    {
+        // Evasion Check
+        if (isEvasion && !anim.GetCurrentAnimatorStateInfo(0).IsName("Knight_dash"))
         {
-            anim.SetBool("isWalking", false);
-        }
-        else
-        {
-            anim.SetBool("isWalking", true);
-        }
-
-        // Jumping
-        if (Input.GetButtonDown("Jump") && isGrounded && !isEvasion)
-        {
-            r2d.velocity = new Vector2(r2d.velocity.x, jumpHeight);
+            isEvasion = false;
         }
 
-        // Jumping animation
-        if (isGrounded)
+        // Attack Check
+        if (isAttack && !anim.GetCurrentAnimatorStateInfo(0).IsName("Knight_attack"))
         {
-            anim.SetBool("isJumping", false);
-        }
-        else
-        {
-            anim.SetBool("isJumping", true);
-        }
-
-        // Evasion
-        if (Input.GetButtonDown("Evasion") && isGrounded && !isEvasion)
-        {
-            isEvasion = true;
-            anim.SetTrigger("evasionTrigger");
-        }
-
-        // Apply movement velocity
-        if (isEvasion)
-        {
-            moveDirection = facingRight ? 1 : -1;
-            r2d.velocity = new Vector2((moveDirection) * maxSpeed * evasionSpeed, r2d.velocity.y);
-        }
-        else
-        {
-            r2d.velocity = new Vector2((moveDirection) * maxSpeed, r2d.velocity.y);
-        }
-
-
-        // Camera follow
-        if (mainCamera)
-        {
-            mainCamera.transform.position = new Vector3(t.position.x, cameraPos.y, cameraPos.z);
+            isAttack = false;
         }
     }
 

@@ -7529,10 +7529,10 @@ MonoBehaviour:
   mainCamera: {fileID: 519420031}
   attackPoint: {fileID: 1881038599}
   attackRange: 0.8
-  Enemy:
+  attack: 5
+  enemyLayer:
     serializedVersion: 2
     m_Bits: 512
-  attack: 5
 --- !u!50 &1039046339
 Rigidbody2D:
   serializedVersion: 4
