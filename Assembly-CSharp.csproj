@@ -67,7 +67,6 @@
     <Compile Include="Assets\FreePixelMob\Mobs.cs" />
     <Compile Include="Assets\FreePixelMob\StateRandom.cs" />
     <Compile Include="Assets\Script\Player\CharacterContoller2D.cs" />
-    <Compile Include="Assets\Script\Player\PlayerMovement.cs" />
     <None Include="Assets\Knight Files\Read Me.txt" />
     <None Include="Assets\Pixel2DCastleTileset\about.txt" />
     <None Include="Assets\FreePixelMob\ReadMe.txt" />

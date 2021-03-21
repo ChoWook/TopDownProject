@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CharacterContoller2D : MonoBehaviour
 {
+    const int PLAYER_LAYER = 10;
+    const int PLAYER_INVINCIBLE_LAYER = 11;
+
     // Move player in 2D space
     public float maxSpeed = 6.0f;
     public float jumpHeight = 15f;
@@ -16,6 +19,7 @@ public class CharacterContoller2D : MonoBehaviour
     public float attackRange = 0.5f;
     public int attack = 5;
     public LayerMask enemyLayer;
+    public float invincibleTime = 1.0f;
 
 
     bool facingRight = true;
@@ -30,6 +34,7 @@ public class CharacterContoller2D : MonoBehaviour
     BoxCollider2D mainCollider;
     Transform t;
     Animator anim;
+    SpriteRenderer spriteRenderer;
 
     // Use this for initialization
     void Start()
@@ -38,6 +43,7 @@ public class CharacterContoller2D : MonoBehaviour
         r2d = GetComponent<Rigidbody2D>();
         mainCollider = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         r2d.freezeRotation = true;
         r2d.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
@@ -99,6 +105,8 @@ public class CharacterContoller2D : MonoBehaviour
         {
             isEvasion = true;
             anim.SetTrigger("evasionTrigger");
+
+            OnInvincible();
         }
     }
 
@@ -212,6 +220,7 @@ public class CharacterContoller2D : MonoBehaviour
         if (isEvasion && !anim.GetCurrentAnimatorStateInfo(0).IsName("Knight_dash"))
         {
             isEvasion = false;
+            EndInvincible();
         }
 
         // Attack Check
@@ -254,5 +263,39 @@ public class CharacterContoller2D : MonoBehaviour
             return;
 
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Enemy")
+        {
+            OnDamaged();
+        }
+    }
+
+    void OnDamaged()
+    {
+        OnInvincible();
+
+        // 1초 뒤에 무적 해제
+        Invoke("EndInvincible", invincibleTime);
+    }
+
+    void EndInvincible()
+    {
+        gameObject.layer = PLAYER_LAYER;
+
+        spriteRenderer.color = new Color(1, 1, 1, 1f);
+    }
+
+    void OnInvincible() // 무적
+    {
+        // Change layer
+        gameObject.layer = PLAYER_INVINCIBLE_LAYER;
+
+        // 살짝 밝게 변하기
+        spriteRenderer.color = new Color(1, 1, 1, 0.4f);
+
+        
     }
 }
