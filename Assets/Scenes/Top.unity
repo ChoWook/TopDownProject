@@ -154,10 +154,10 @@ RectTransform:
   m_Father: {fileID: 545303979}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 182, y: 23}
-  m_SizeDelta: {x: -470.14612, y: -117.92445}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -198, y: -25.002}
+  m_SizeDelta: {x: 298.3216, y: 399.99625}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &160833671
 MonoBehaviour:
@@ -174,11 +174,11 @@ MonoBehaviour:
   inventoryPrefab: {fileID: 2739048442143517224, guid: e801d15650e05e84d918de7b9781105f,
     type: 3}
   inventory: {fileID: 11400000, guid: 74982f1f08738c143b1b2e2cfe615dab, type: 2}
-  X_START: -50
-  Y_START: 85
-  X_SPACE_BETWEEN_ITEM: 10
-  NUMBER_OF_COLUMN: 6
-  Y_SPACE_BETWEEN_ITEMS: 10
+  X_START: -93
+  Y_START: 140
+  X_SPACE_BETWEEN_ITEM: 47
+  NUMBER_OF_COLUMN: 5
+  Y_SPACE_BETWEEN_ITEMS: 47
 --- !u!114 &160833672
 MonoBehaviour:
   m_ObjectHideFlags: 0

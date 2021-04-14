@@ -14,9 +14,9 @@ public class DisplayInventory : MonoBehaviour
     public InventoryObject inventory;
     public int X_START;
     public int Y_START;
-    public int X_SPACE_BETWEEN_ITEM = 35;
-    public int NUMBER_OF_COLUMN = 6;
-    public int Y_SPACE_BETWEEN_ITEMS = 35;
+    public int X_SPACE_BETWEEN_ITEM = 55;
+    public int NUMBER_OF_COLUMN = 5;
+    public int Y_SPACE_BETWEEN_ITEMS = 47;
     Dictionary<GameObject, InventorySlot> itemsDisplayed = new Dictionary<GameObject, InventorySlot>();
     void Start()
     {
@@ -31,6 +31,7 @@ public class DisplayInventory : MonoBehaviour
     public void CreateSlots()
     {
         itemsDisplayed = new Dictionary<GameObject, InventorySlot>();
+        Debug.Log(inventory.Container.Items.Length);
         for (int i = 0; i < inventory.Container.Items.Length; i++)
         {
             var obj = Instantiate(inventoryPrefab, Vector3.zero, Quaternion.identity, transform);
