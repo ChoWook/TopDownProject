@@ -56,6 +56,7 @@ public class CharacterContoller2D : MonoBehaviour
         }
     }
 
+
     // Update is called once per frame
     void Update()
     {
