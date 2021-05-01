@@ -38,7 +38,7 @@ public class SceneManager : MonoBehaviour
     void StartGame()
     {
         Time.timeScale = 1f;
-        //GameObject standingCamera = GameObject.FindGameObjectWithTag("MainCamera");
+       // GameObject standingCamera = GameObject.FindGameObjectWithTag("MCamera");
         //standingCamera.SetActive(false);
         startingPos = new Vector3(startingPos.x, startingPos.y, startingPos.z);
         Instantiate(player, startingPos, startingRotate);

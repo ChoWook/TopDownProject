@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - start
   - end
+  - camera
   layers:
   - Default
   - TransparentFX
