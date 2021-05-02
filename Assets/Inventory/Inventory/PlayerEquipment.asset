@@ -17,42 +17,32 @@ MonoBehaviour:
   Container:
     Items:
     - AllowedItems: 01000000
-      parent: {fileID: 0}
-      ID: -1
       item:
         Name: 
-        Id: 0
+        Id: -1
         buffs: []
       amount: 0
     - AllowedItems: 02000000
-      parent: {fileID: 0}
-      ID: -1
       item:
         Name: 
-        Id: 0
+        Id: -1
         buffs: []
       amount: 0
     - AllowedItems: 03000000
-      parent: {fileID: 0}
-      ID: -1
       item:
         Name: 
-        Id: 0
+        Id: -1
         buffs: []
       amount: 0
     - AllowedItems: 04000000
-      parent: {fileID: 0}
-      ID: -1
       item:
         Name: 
-        Id: 0
+        Id: -1
         buffs: []
       amount: 0
     - AllowedItems: 05000000
-      parent: {fileID: 0}
-      ID: -1
       item:
         Name: 
-        Id: 0
+        Id: -1
         buffs: []
       amount: 0
