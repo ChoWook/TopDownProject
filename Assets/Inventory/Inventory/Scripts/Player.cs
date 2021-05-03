@@ -9,20 +9,8 @@ public class Player : MonoBehaviour
 
     public InventoryObject inventory;
     public InventoryObject equipment;
-    // Start is called before the first frame update
-
-    public void OnTriggerEnter(Collider other)
-    {
-        var groundItem = other.GetComponent<GroundItem>();
-        if (groundItem)
-        {
-            Item _item = new Item(groundItem.item);
-            if (inventory.AddItem(_item, 1))
-            {
-                Destroy(other.gameObject);
-            }
-        }
-    }
+   
+    // 아이템 줍는건 CharacterConroller2D에서
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -38,7 +26,7 @@ public class Player : MonoBehaviour
     }
     private void OnApplicationQuit()
     {
-        //inventory.Container.Clear();
-        //equipment.Container.Clear();
+        inventory.Container.Clear();
+        equipment.Container.Clear();
     }
 }

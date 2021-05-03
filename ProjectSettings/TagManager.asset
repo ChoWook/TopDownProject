@@ -8,6 +8,7 @@ TagManager:
   - start
   - end
   - camera
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Enemy
   - Player
   - PlayerDamaged
-  - 
+  - Item
   - 
   - 
   - 

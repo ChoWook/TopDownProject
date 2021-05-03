@@ -72,8 +72,6 @@
     <Compile Include="Assets\Inventory\Inventory\Scripts\StaticInterface.cs" />
     <Compile Include="Assets\Inventory\Inventory\Scripts\UserInterface.cs" />
     <Compile Include="Assets\Inventory\Items\Scripts\DefaultObject.cs" />
-    <Compile Include="Assets\Inventory\Items\Scripts\EquipmentObject.cs" />
-    <Compile Include="Assets\Inventory\Items\Scripts\FoodObject.cs" />
     <Compile Include="Assets\Inventory\Items\Scripts\GroundItem.cs" />
     <Compile Include="Assets\Inventory\Items\Scripts\ItemDatabaseObject.cs" />
     <Compile Include="Assets\Inventory\Items\Scripts\ItemObject.cs" />

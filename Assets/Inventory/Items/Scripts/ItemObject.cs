@@ -20,6 +20,7 @@ public enum Attributes
     Stamina,
     Strength
 }
+
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory System/Items/item")]
 public class ItemObject : ScriptableObject
 {
@@ -36,7 +37,6 @@ public class ItemObject : ScriptableObject
         Item newItem = new Item(this);
         return newItem;
     }
-
 
 }
 

@@ -13,6 +13,7 @@ public class CharacterContoller2D : MonoBehaviour
     public float gravityScale = 1.5f;
     public float evasionSpeed = 2.5f;
     public Camera mainCamera;
+    public Canvas InventoryUI;
 
     // Attack var
     public Transform attackPoint;
@@ -28,6 +29,7 @@ public class CharacterContoller2D : MonoBehaviour
     bool isBothInput = false;
     bool isEvasion = false;
     bool isAttack = false;
+    bool isOpenInventory = false;
 
     Vector3 cameraPos;
     Rigidbody2D r2d;
@@ -44,6 +46,7 @@ public class CharacterContoller2D : MonoBehaviour
         mainCollider = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        InventoryUI.gameObject.SetActive(false);
 
         r2d.freezeRotation = true;
         r2d.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
@@ -60,6 +63,7 @@ public class CharacterContoller2D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ToggleInventoryUI();
         BehaviorCheck();
         Attack();
         MoveControl();
@@ -202,7 +206,7 @@ public class CharacterContoller2D : MonoBehaviour
     private void Attack()
     {
         // Attack
-        if (Input.GetButtonDown("Fire1") && !isEvasion)
+        if (Input.GetButtonDown("Fire1") && !isEvasion && !isAttack)
         {
             anim.SetTrigger("attackTrigger");
             isAttack = true;
@@ -232,6 +236,21 @@ public class CharacterContoller2D : MonoBehaviour
         if (isAttack && !anim.GetCurrentAnimatorStateInfo(0).IsName("Knight_attack"))
         {
             isAttack = false;
+        }
+    }
+
+    private void ToggleInventoryUI()
+    {
+        if (Input.GetButtonDown("InventoryToggle")){
+            isOpenInventory = !isOpenInventory;
+            InventoryUI.gameObject.SetActive(isOpenInventory);
+        }
+        if (Input.GetButtonDown("Cancel"))
+        {
+            if (isOpenInventory)
+            {
+                InventoryUI.gameObject.SetActive(false);
+            }
         }
     }
 
@@ -270,15 +289,26 @@ public class CharacterContoller2D : MonoBehaviour
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnTriggerEnter2D(Collider2D other)
     {
-        if(collision.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy")
         {
             OnDamaged();
         }
+        else if (other.gameObject.tag == "Item")
+        {
+            var groundItem = other.GetComponent<GroundItem>();
+            Item _item = new Item(groundItem.item);
+            var inventory = GetComponent<Player>().inventory;
+            if (inventory.AddItem(_item, 1))
+            {
+                Destroy(other.gameObject);
+            }
+        }
+
     }
 
-    void OnDamaged()
+    public void OnDamaged()
     {
         OnInvincible();
 
@@ -303,4 +333,6 @@ public class CharacterContoller2D : MonoBehaviour
 
         
     }
+
+    
 }
