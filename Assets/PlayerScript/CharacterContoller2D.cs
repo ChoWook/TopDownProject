@@ -305,6 +305,11 @@ public class CharacterContoller2D : MonoBehaviour
                 Destroy(other.gameObject);
             }
         }
+        else if (other.gameObject.tag == "end")
+        {
+            other.enabled = false;
+            SceneCnt.EndGame();
+        }
 
     }
 
