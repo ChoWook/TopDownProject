@@ -19,5 +19,5 @@ MonoBehaviour:
   description: 
   data:
     Name: BaseChest
-    Id: -1
+    Id: 5
     buffs: []
