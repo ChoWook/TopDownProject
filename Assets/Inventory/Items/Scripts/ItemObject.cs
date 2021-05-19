@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,17 +21,19 @@ public enum Attributes
     Stamina,
     Strength
 }
-
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory System/Items/item")]
 public class ItemObject : ScriptableObject
 {
 
     public Sprite uiDisplay;
+    public GameObject characterDisplay;
     public bool stackable;
     public ItemType type;
     [TextArea(15, 20)]
     public string description;
     public Item data = new Item();
+
+    public List<string> boneNames = new List<string>();
 
     public Item CreateItem()
     {
@@ -38,6 +41,24 @@ public class ItemObject : ScriptableObject
         return newItem;
     }
 
+
+    private void OnValidate()
+    {
+        boneNames.Clear();
+        if (characterDisplay == null)
+            return;
+        if (!characterDisplay.GetComponent<SkinnedMeshRenderer>())
+            return;
+
+        var renderer = characterDisplay.GetComponent<SkinnedMeshRenderer>();
+        var bones = renderer.bones;
+
+        foreach (var t in bones)
+        {
+            boneNames.Add(t.name);
+        }
+
+    }
 }
 
 [System.Serializable]
@@ -67,7 +88,7 @@ public class Item
 }
 
 [System.Serializable]
-public class ItemBuff
+public class ItemBuff : IModifier
 {
     public Attributes attribute;
     public int value;
@@ -79,6 +100,12 @@ public class ItemBuff
         max = _max;
         GenerateValue();
     }
+
+    public void AddValue(ref int baseValue)
+    {
+        baseValue += value;
+    }
+
     public void GenerateValue()
     {
         value = UnityEngine.Random.Range(min, max);

@@ -307,6 +307,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: 74982f1f08738c143b1b2e2cfe615dab, type: 2}
   equipment: {fileID: 11400000, guid: 1b7709662c2a0e944a1e1f06b8c3bcc3, type: 2}
+  attributes:
+  - type: 0
+    value:
+      baseValue: 0
+      modifiedValue: 0
+  - type: 1
+    value:
+      baseValue: 0
+      modifiedValue: 0
+  - type: 2
+    value:
+      baseValue: 0
+      modifiedValue: 0
+  - type: 3
+    value:
+      baseValue: 0
+      modifiedValue: 0
+  weaponTransform: {fileID: 5459970805527560437}
+  offhandWristTransform: {fileID: 5459970805527560437}
+  offhandHandTransform: {fileID: 5459970805527560437}
 --- !u!1 &7353600312958918367
 GameObject:
   m_ObjectHideFlags: 0

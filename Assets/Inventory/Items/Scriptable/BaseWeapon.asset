@@ -14,10 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiDisplay: {fileID: -5365385695610608141, guid: 4007bd4a3b9fc9048b6f18ad901ca44a,
     type: 3}
+  characterDisplay: {fileID: 0}
   stackable: 0
   type: 2
   description: 
   data:
     Name: BaseWeapon
-    Id: -1
-    buffs: []
+    Id: 2
+    buffs:
+    - attribute: 0
+      value: 0
+      min: 5
+      max: 10
+  boneNames: []
