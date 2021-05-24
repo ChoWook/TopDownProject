@@ -9,6 +9,7 @@ TagManager:
   - end
   - camera
   - Item
+  - tempCamera
   layers:
   - Default
   - TransparentFX

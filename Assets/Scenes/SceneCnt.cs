@@ -9,15 +9,13 @@ public class SceneCnt : MonoBehaviour
 
     Vector3 startingPos;
     Quaternion startingRotate;
-    bool isStarted = false;
-    static bool isEnded = false;
+    
 
     static int stageNum = 0;
 
     private void Awake()
     {
-       Time.timeScale = 0f;
-       StartGame();
+      Time.timeScale = 0f;
     }
 
 
@@ -26,7 +24,7 @@ public class SceneCnt : MonoBehaviour
     {
         startingPos = GameObject.FindGameObjectWithTag("start").transform.position;
         startingRotate = GameObject.FindGameObjectWithTag("start").transform.rotation;
-        if(stageNum > 0)
+        if(stageNum >= 0)
         {
             StartGame();
         }
@@ -56,7 +54,6 @@ public class SceneCnt : MonoBehaviour
 
 
         SceneManager.LoadScene(stageNum, LoadSceneMode.Single);
-        isEnded = true;
-
+       
     }
 }
