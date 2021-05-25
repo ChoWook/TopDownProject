@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/stage1.unity
+- path: Assets/Download/MonsterSprite/Demo/Demo.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

@@ -157,7 +157,7 @@ public class Player : MonoBehaviour
         }
     }
 
-
+    /*
     public void OnTriggerEnter(Collider other)
     {
         var groundItem = other.GetComponent<GroundItem>();
@@ -170,6 +170,7 @@ public class Player : MonoBehaviour
             }
         }
     }
+    */
 
     private void Update()
     {

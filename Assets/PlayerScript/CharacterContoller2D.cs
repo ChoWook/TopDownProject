@@ -46,6 +46,7 @@ public class CharacterContoller2D : MonoBehaviour
         mainCollider = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        InventoryUI.gameObject.SetActive(true);
         InventoryUI.gameObject.SetActive(false);
 
         r2d.freezeRotation = true;
@@ -298,11 +299,14 @@ public class CharacterContoller2D : MonoBehaviour
         else if (other.gameObject.tag == "Item")
         {
             var groundItem = other.GetComponent<GroundItem>();
-            Item _item = new Item(groundItem.item);
-            var inventory = GetComponent<Player>().inventory;
-            if (inventory.AddItem(_item, 1))
+            if (groundItem)
             {
-                Destroy(other.gameObject);
+                Item _item = new Item(groundItem.item);
+                var inventory = GetComponent<Player>().inventory;
+                if (inventory.AddItem(_item, 1))
+                {
+                    Destroy(other.gameObject);
+                }
             }
         }
         else if (other.gameObject.tag == "end")
