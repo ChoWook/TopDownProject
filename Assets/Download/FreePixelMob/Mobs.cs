@@ -5,14 +5,13 @@ public class Mobs : MonoBehaviour
 {
 	static int AnimatorWalk = Animator.StringToHash("Walk");
 	static int AnimatorAttack = Animator.StringToHash("Attack");
-	public int Hp_max = 10;
-	int Hp;
+	
 	Animator _animator;
 
 	void Awake()
 	{
 		_animator = GetComponentInChildren<Animator>();
-		Hp = Hp_max;
+		
 	}
 
 	void Start()
@@ -45,15 +44,5 @@ public class Mobs : MonoBehaviour
 		}
 	}
 
-	public int takeDamage(int dmg)
-    {
-		Hp -= dmg;
-		if(Hp <= 0)
-        {
-			Hp = 0;
-			Debug.Log("Destroyed");
-			Destroy(gameObject);
-        }
-		return Hp;
-    }
+	
 }
