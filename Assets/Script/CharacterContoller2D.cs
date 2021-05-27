@@ -8,7 +8,7 @@ public class CharacterContoller2D : MonoBehaviour
     const int PLAYER_INVINCIBLE_LAYER = 11;
 
     // Move player in 2D space
-    public float maxSpeed = 6.0f;
+    public float baseSpeed = 6.0f;
     public float jumpHeight = 15f;
     public float gravityScale = 1.5f;
     public float evasionSpeed = 2.5f;
@@ -18,7 +18,6 @@ public class CharacterContoller2D : MonoBehaviour
     // Attack var
     public Transform attackPoint;
     public float attackRange = 0.5f;
-    public int attack = 5;
     public LayerMask enemyLayer;
     public float invincibleTime = 1.0f;
 
@@ -37,6 +36,7 @@ public class CharacterContoller2D : MonoBehaviour
     Transform t;
     Animator anim;
     SpriteRenderer spriteRenderer;
+    Player player;
 
     // Use this for initialization
     void Start()
@@ -46,6 +46,7 @@ public class CharacterContoller2D : MonoBehaviour
         mainCollider = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        player = GetComponent<Player>();
         InventoryUI.gameObject.SetActive(true);
         InventoryUI.gameObject.SetActive(false);
 
@@ -92,7 +93,7 @@ public class CharacterContoller2D : MonoBehaviour
         if (isEvasion)
         {
             moveDirection = facingRight ? 1 : -1;
-            r2d.velocity = new Vector2((moveDirection) * maxSpeed * evasionSpeed, r2d.velocity.y);
+            r2d.velocity = new Vector2((moveDirection) * baseSpeed * evasionSpeed * player.getSpeed(), r2d.velocity.y);
         }
         else if(isAttack)
         {
@@ -100,7 +101,7 @@ public class CharacterContoller2D : MonoBehaviour
         }
         else
         {
-            r2d.velocity = new Vector2((moveDirection) * maxSpeed, r2d.velocity.y);
+            r2d.velocity = new Vector2((moveDirection) * baseSpeed * player.getSpeed(), r2d.velocity.y);
         }
     }
 
@@ -221,7 +222,7 @@ public class CharacterContoller2D : MonoBehaviour
                 Debug.Log(enemy.name);
                 if (enemy.isTrigger)    // 땅에 닿게 해주는 rigidbody는 제외
                 {
-                    enemy.GetComponent<Enemy>().takeDamage(attack);
+                    enemy.GetComponent<Enemy>().takeDamage(player.getAttack());
                 }
             }
         }
@@ -306,7 +307,7 @@ public class CharacterContoller2D : MonoBehaviour
             if (groundItem)
             {
                 Item _item = new Item(groundItem.item);
-                var inventory = GetComponent<Player>().inventory;
+                var inventory = player.inventory;
                 if (inventory.AddItem(_item, 1))
                 {
                     Destroy(other.gameObject);

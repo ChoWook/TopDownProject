@@ -198,6 +198,26 @@ public class Player : MonoBehaviour
         inventory.Clear();
         equipment.Clear();
     }
+
+    public int getAttack()
+    {
+        return attributes[0].value.ModifiedValue;
+    }
+
+    public int getHealth()
+    {
+        return attributes[1].value.ModifiedValue;
+    }
+
+    public float getSpeed()
+    {
+        return ((float)(attributes[2].value.ModifiedValue) / 5.0f);
+    }
+
+    public int getAttackSpeed()
+    {
+        return attributes[3].value.ModifiedValue;
+    }
 }
 
 [System.Serializable]
@@ -211,6 +231,23 @@ public class Attribute
     {
         parent = _parent;
         value = new ModifiableInt(AttributeModified);
+        switch (type)       // 기본 능력치 초기화
+        {
+            case Attributes.Attack:
+                value.BaseValue = 5;
+                break;
+            case Attributes.Health:
+                value.BaseValue = 6;
+                break;
+            case Attributes.Speed:
+                value.BaseValue = 5;
+                break;
+            case Attributes.AttackSpeed:
+                value.BaseValue = 5;
+                break;
+            default:
+                break;
+        }
     }
 
     public void AttributeModified()

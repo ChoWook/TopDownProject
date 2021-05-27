@@ -310,19 +310,19 @@ MonoBehaviour:
   attributes:
   - type: 0
     value:
-      baseValue: 0
+      baseValue: 1
       modifiedValue: 0
   - type: 1
     value:
-      baseValue: 0
+      baseValue: 5
       modifiedValue: 0
   - type: 2
     value:
-      baseValue: 0
+      baseValue: 5
       modifiedValue: 0
   - type: 3
     value:
-      baseValue: 0
+      baseValue: 5
       modifiedValue: 0
   weaponTransform: {fileID: 5459970805527560437}
   offhandWristTransform: {fileID: 5459970805527560437}

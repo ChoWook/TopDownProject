@@ -69,7 +69,6 @@
     <Compile Include="Assets\Inventory\Inventory\Scripts\BoneCombiner.cs" />
     <Compile Include="Assets\Inventory\Inventory\Scripts\DynamicInterface.cs" />
     <Compile Include="Assets\Inventory\Inventory\Scripts\InventoryObject.cs" />
-    <Compile Include="Assets\Inventory\Inventory\Scripts\ModifiableInt.cs" />
     <Compile Include="Assets\Inventory\Inventory\Scripts\Player.cs" />
     <Compile Include="Assets\Inventory\Inventory\Scripts\StaticInterface.cs" />
     <Compile Include="Assets\Inventory\Inventory\Scripts\UserInterface.cs" />
@@ -78,6 +77,7 @@
     <Compile Include="Assets\Inventory\Items\Scripts\IModifiers.cs" />
     <Compile Include="Assets\Inventory\Items\Scripts\ItemDatabaseObject.cs" />
     <Compile Include="Assets\Inventory\Items\Scripts\ItemObject.cs" />
+    <Compile Include="Assets\Inventory\Items\Scripts\ModifiableInt.cs" />
     <Compile Include="Assets\Scenes\SceneCnt.cs" />
     <Compile Include="Assets\Script\CharacterContoller2D.cs" />
     <Compile Include="Assets\Script\Enemy.cs" />
