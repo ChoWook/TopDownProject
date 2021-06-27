@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 9104749587940835622}
   - component: {fileID: 9104749587940835623}
   - component: {fileID: 9104749587940835620}
-  - component: {fileID: 7425591540563663353}
   - component: {fileID: 820733297174109436}
   - component: {fileID: 5031988103775968594}
   - component: {fileID: 5061991395938827592}
+  - component: {fileID: 548485208638528562}
   m_Layer: 9
   m_Name: Skeleton
   m_TagString: Enemy
@@ -106,19 +106,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7425591540563663353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9104749587940835621}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f4a7f61982cebf44be4f155b4732a42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hp_max: 10
 --- !u!61 &820733297174109436
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -192,3 +179,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &548485208638528562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9104749587940835621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f4a7f61982cebf44be4f155b4732a42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hp_max: 10
+  DetectRange: 10
+  AttackRange: 2
+  Speed: 2.5

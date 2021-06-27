@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2004996509596885951}
   - component: {fileID: 2004996509596885948}
   - component: {fileID: 2004996509596885949}
-  - component: {fileID: 1321457480793493582}
   - component: {fileID: 1676007977494807042}
   - component: {fileID: 4456448490463450379}
+  - component: {fileID: 5511847675012734955}
   m_Layer: 9
   m_Name: Flying eye
   m_TagString: Enemy
@@ -105,19 +105,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1321457480793493582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2004996509596885946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f4a7f61982cebf44be4f155b4732a42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hp_max: 10
 --- !u!61 &1676007977494807042
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -165,3 +152,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5511847675012734955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004996509596885946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f4a7f61982cebf44be4f155b4732a42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hp_max: 10
+  DetectRange: 10
+  AttackRange: 2
+  Speed: 2.5

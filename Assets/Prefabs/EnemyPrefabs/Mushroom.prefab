@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 212277007054383289}
   - component: {fileID: 212277007054383238}
   - component: {fileID: 212277007054383239}
-  - component: {fileID: 1127240940815697065}
   - component: {fileID: 8997997748788633311}
   - component: {fileID: 7762572947135782852}
   - component: {fileID: 8524766570884163088}
+  - component: {fileID: -5143118633367153677}
   m_Layer: 9
   m_Name: Mushroom
   m_TagString: Enemy
@@ -106,19 +106,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1127240940815697065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 212277007054383236}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f4a7f61982cebf44be4f155b4732a42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hp_max: 10
 --- !u!61 &8997997748788633311
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -192,3 +179,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.005}
   m_EdgeRadius: 0
+--- !u!114 &-5143118633367153677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212277007054383236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f4a7f61982cebf44be4f155b4732a42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hp_max: 10
+  DetectRange: 10
+  AttackRange: 2
+  Speed: 2.5
