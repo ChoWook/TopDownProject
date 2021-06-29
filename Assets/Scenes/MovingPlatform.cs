@@ -135,6 +135,23 @@ public class MovingPlatform : MonoBehaviour
         Gizmos.DrawLine(frontPoint, backPoint);
     }
 
+    //따로 움직이는 버그수정
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Player"))
+        {
+            collision.transform.SetParent(transform);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Player"))
+        {
+            collision.transform.SetParent(null);
+        }
+    }
+
 
 
 }
