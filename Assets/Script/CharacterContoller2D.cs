@@ -21,7 +21,6 @@ public class CharacterContoller2D : MonoBehaviour
     public LayerMask enemyLayer;
     public float invincibleTime = 1.0f;
 
-
     bool facingRight = true;
     float moveDirection = 0;
     bool isGrounded = false;
