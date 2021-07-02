@@ -41,7 +41,8 @@ public class SceneCnt : MonoBehaviour
     void StartGame()
     {
         Time.timeScale = 1f;
-       
+        
+
         startingPos = new Vector3(startingPos.x, startingPos.y, startingPos.z);
         Instantiate(player, startingPos, startingRotate);
       
@@ -50,6 +51,7 @@ public class SceneCnt : MonoBehaviour
     public static void  EndGame()
     {
         Time.timeScale = 0f;
+        stageNum = SceneManager.GetActiveScene().buildIndex;
         stageNum++;
 
 
