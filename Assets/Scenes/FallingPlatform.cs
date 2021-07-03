@@ -5,29 +5,25 @@ using UnityEngine;
 public class FallingPlatform : MonoBehaviour
 {
 
-    private Rigidbody2D rbd;
+    Rigidbody2D rb;
+    float DelayFall = 2f;
 
-    public float fallplat;
-
-    private void Start()
+    void Start()
     {
-        rbd = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
-
-    private void OnCollisionEnter2D(Collision2D col)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if (col.collider.CompareTag("Player"))
+        if (collision.gameObject.tag == ("Player"))
         {
-            StartCoroutine(Fall());
+            Invoke("Fall", DelayFall);
+            Debug.Log("Hit" + collision.gameObject.name);
         }
     }
-
-
-    IEnumerator Fall()
+    void Fall()
     {
-        yield return new WaitForSeconds(fallplat);
-        rbd.isKinematic = false;
-        GetComponent<Collider2D>().isTrigger = true;
-        yield return 0;
+        rb.isKinematic = false;
+
     }
+
 }
