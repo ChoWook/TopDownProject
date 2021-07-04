@@ -46,8 +46,9 @@ public class CharacterContoller2D : MonoBehaviour
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         player = GetComponent<Player>();
-        InventoryUI.gameObject.SetActive(true);
-        InventoryUI.gameObject.SetActive(false);
+
+        //InventoryUI.gameObject.SetActive(true);
+        //InventoryUI.gameObject.SetActive(false);
 
         r2d.freezeRotation = true;
         r2d.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
@@ -315,6 +316,9 @@ public class CharacterContoller2D : MonoBehaviour
         }
         else if (other.gameObject.tag == "end")
         {
+            UserInterface.firstOpen = true;
+            player.inventory.Save();
+            player.equipment.Save();
             other.enabled = false;
             SceneCnt.EndGame();
         }

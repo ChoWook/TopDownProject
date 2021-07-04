@@ -218,6 +218,8 @@ public class Player : MonoBehaviour
     {
         return attributes[3].value.ModifiedValue;
     }
+
+    
 }
 
 [System.Serializable]
@@ -254,4 +256,6 @@ public class Attribute
     {
         parent.AttributeModified(this);
     }
+
+    
 }

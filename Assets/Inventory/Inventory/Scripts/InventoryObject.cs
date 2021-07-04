@@ -125,6 +125,8 @@ public class InventoryObject : ScriptableObject
     public void Clear()
     {
         Container.Clear();
+        Save();
+
     }
 }
 [System.Serializable]
@@ -161,7 +163,7 @@ public class InventorySlot
     {
         get
         {
-            if (item.Id >= 0)
+            if (item.Id >= 0 && parent != null)
             {
                 return parent.inventory.database.ItemObjects[item.Id];
             }
