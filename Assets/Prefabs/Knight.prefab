@@ -190,7 +190,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 84ce2f114ad12bd4ebafc77060220324, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -280,7 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5bbe9e8c94e4de4b803f5a6d7fce96c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 6
+  baseSpeed: 6
   jumpHeight: 15
   gravityScale: 1.5
   evasionSpeed: 2.5
@@ -288,7 +288,6 @@ MonoBehaviour:
   InventoryUI: {fileID: 7353600312958918354}
   attackPoint: {fileID: 1695835153941771974}
   attackRange: 0.8
-  attack: 5
   enemyLayer:
     serializedVersion: 2
     m_Bits: 512
