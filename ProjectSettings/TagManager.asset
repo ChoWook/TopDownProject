@@ -10,6 +10,7 @@ TagManager:
   - camera
   - Item
   - tempCamera
+  - Jump_plat
   layers:
   - Default
   - TransparentFX

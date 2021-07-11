@@ -351,5 +351,23 @@ public class CharacterContoller2D : MonoBehaviour
         
     }
 
-    
+
+    //슈퍼점프
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Jump_plat"))
+        {
+            jumpHeight = 30f;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Jump_plat"))
+        {
+            jumpHeight = 15f;
+        }
+    }
+
+
 }
