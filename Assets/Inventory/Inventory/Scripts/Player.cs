@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -20,6 +21,12 @@ public class Player : MonoBehaviour
     public Transform offhandWristTransform;
     public Transform offhandHandTransform;
 
+    public Image[] hearts;  //하트는 최대 10칸임 (이미지를 10개밖에 안만들어놓음)
+    public Sprite fullHeart;
+    public Sprite halfHeart;
+    public Sprite emptyHeart;
+    public int HP;
+
 
     //private BoneCombiner boneCombiner;
 
@@ -31,6 +38,8 @@ public class Player : MonoBehaviour
         {
             attributes[i].SetParent(this);
         }
+
+        HP = getHealth();
 
         for (int i = 0; i < equipment.GetSlots.Length; i++)
         {
@@ -174,16 +183,49 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    inventory.Save();
+        //    equipment.Save();
+        //}
+
+        //if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        //{
+        //    inventory.Load();
+        //    equipment.Load();
+        //}
+
+        if(HP > getHealth())
         {
-            inventory.Save();
-            equipment.Save();
+            HP = getHealth();
         }
 
-        if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        for (int i = 0; i < hearts.Length; i++)
         {
-            inventory.Load();
-            equipment.Load();
+            // 현재 체력에 맞게 스프라이트 바꾸기
+            if(i < HP/2)
+            {
+                hearts[i].sprite = fullHeart;
+            }
+            else if(i == HP/2 && HP%2 == 1)
+            {
+                hearts[i].sprite = halfHeart;
+            }
+            else
+            {
+                hearts[i].sprite = emptyHeart;
+            }
+
+            // 전체 체력에 맞게 스프라이트 온오프
+            if (i < getHealth() / 2 + getHealth() % 2)
+            {
+                hearts[i].enabled = true;
+            }
+            else
+            {
+                hearts[i].enabled = false;
+            }
         }
     }
 
@@ -239,7 +281,7 @@ public class Attribute
                 value.BaseValue = 5;
                 break;
             case Attributes.Health:
-                value.BaseValue = 6;
+                value.BaseValue = 4;
                 break;
             case Attributes.Speed:
                 value.BaseValue = 5;

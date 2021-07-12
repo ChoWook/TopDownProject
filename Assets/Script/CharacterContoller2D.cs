@@ -328,7 +328,7 @@ public class CharacterContoller2D : MonoBehaviour
     public void OnDamaged()
     {
         OnInvincible();
-
+        player.HP--;
         // 1초 뒤에 무적 해제
         Invoke("EndInvincible", invincibleTime);
     }

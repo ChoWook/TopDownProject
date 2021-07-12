@@ -17,31 +17,31 @@ MonoBehaviour:
   type: 1
   Container:
     Slots:
-    - AllowedItems: 
+    - AllowedItems: 01000000
       item:
         Name: 
         Id: -1
         buffs: []
       amount: 0
-    - AllowedItems: 
+    - AllowedItems: 02000000
       item:
         Name: 
         Id: -1
         buffs: []
       amount: 0
-    - AllowedItems: 
+    - AllowedItems: 03000000
       item:
         Name: 
         Id: -1
         buffs: []
       amount: 0
-    - AllowedItems: 
+    - AllowedItems: 04000000
       item:
         Name: 
         Id: -1
         buffs: []
       amount: 0
-    - AllowedItems: 
+    - AllowedItems: 05000000
       item:
         Name: 
         Id: -1
