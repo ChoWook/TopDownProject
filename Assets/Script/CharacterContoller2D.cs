@@ -12,6 +12,7 @@ public class CharacterContoller2D : MonoBehaviour
     public float jumpHeight = 15f;
     public float gravityScale = 1.5f;
     public float evasionSpeed = 2.5f;
+    public float attackTiming = 0.04f;
     public Camera mainCamera;
     public Canvas InventoryUI;
 
@@ -210,20 +211,25 @@ public class CharacterContoller2D : MonoBehaviour
         // Attack
         if (Input.GetButtonDown("Fire1") && !isEvasion && !isAttack)
         {
+            anim.SetFloat("attackSpeed", player.getAttackSpeed());
             anim.SetTrigger("attackTrigger");
             isAttack = true;
 
+            Invoke("FindEnemy", attackTiming / player.getAttackSpeed());
+        }
+    }
 
-            // Enemy를 찾아 범위 안에 있는 적들에게 대미지 입히기
-            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
+    private void FindEnemy()
+    {
+        // Enemy를 찾아 범위 안에 있는 적들에게 대미지 입히기
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
-            foreach (Collider2D enemy in hitEnemies)
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            Debug.Log(enemy.name);
+            if (enemy.isTrigger)    // 땅에 닿게 해주는 rigidbody는 제외
             {
-                Debug.Log(enemy.name);
-                if (enemy.isTrigger)    // 땅에 닿게 해주는 rigidbody는 제외
-                {
-                    enemy.GetComponent<Enemy>().takeDamage(player.getAttack());
-                }
+                enemy.GetComponent<Enemy>().takeDamage(player.getAttack());
             }
         }
     }
@@ -348,7 +354,6 @@ public class CharacterContoller2D : MonoBehaviour
         // 살짝 밝게 변하기
         spriteRenderer.color = new Color(1, 1, 1, 0.4f);
 
-        
     }
 
 

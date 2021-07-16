@@ -257,9 +257,9 @@ public class Player : MonoBehaviour
         return ((float)(attributes[2].value.ModifiedValue) / 5.0f);
     }
 
-    public int getAttackSpeed()
+    public float getAttackSpeed()
     {
-        return attributes[3].value.ModifiedValue;
+        return ((float)(attributes[3].value.ModifiedValue) / 10.0f);
     }
 
     
@@ -288,7 +288,7 @@ public class Attribute
                 value.BaseValue = 5;
                 break;
             case Attributes.AttackSpeed:
-                value.BaseValue = 5;
+                value.BaseValue = 10;
                 break;
             default:
                 break;
