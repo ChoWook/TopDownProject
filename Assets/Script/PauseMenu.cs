@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PauseManu : MonoBehaviour
+public class PauseMenu : MonoBehaviour
 {
 
     public static bool isPaused = false;
-    public GameObject pauseManuCanvas; 
+    public GameObject pauseMenuCanvas; 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,14 +32,14 @@ public class PauseManu : MonoBehaviour
 
     public void Resume()
     {
-        pauseManuCanvas.SetActive(false);
+        pauseMenuCanvas.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
     }
 
     public void Pause()
     {
-        pauseManuCanvas.SetActive(true);
+        pauseMenuCanvas.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
     }
