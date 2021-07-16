@@ -218,7 +218,8 @@ public class Player : MonoBehaviour
             }
 
             // 전체 체력에 맞게 스프라이트 온오프
-            if (i < getHealth() / 2 + getHealth() % 2)
+            
+            if (i < getHealth()/2)        
             {
                 hearts[i].enabled = true;
             }
@@ -248,7 +249,7 @@ public class Player : MonoBehaviour
 
     public int getHealth()
     {
-        return attributes[1].value.ModifiedValue;
+        return attributes[1].value.ModifiedValue * 2;
     }
 
     public float getSpeed()

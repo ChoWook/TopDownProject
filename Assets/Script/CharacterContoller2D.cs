@@ -299,7 +299,7 @@ public class CharacterContoller2D : MonoBehaviour
 
         if (other.gameObject.tag == "Enemy")
         {
-            OnDamaged();
+            OnDamaged(1);
         }
         else if (other.gameObject.tag == "Item")
         {
@@ -325,10 +325,10 @@ public class CharacterContoller2D : MonoBehaviour
 
     }
 
-    public void OnDamaged()
+    public void OnDamaged(int dmg)
     {
         OnInvincible();
-        player.HP--;
+        player.HP -= dmg;
         // 1초 뒤에 무적 해제
         Invoke("EndInvincible", invincibleTime);
     }
