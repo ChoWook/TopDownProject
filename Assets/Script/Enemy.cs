@@ -8,12 +8,18 @@ public class Enemy : MonoBehaviour
     public float DetectRange = 10.0f;
     public float AttackRange = 2.0f;
     public float Speed = 2.5f;
+    public Transform AttackPoint;
+    public LayerMask PlayerLayer;
+    public int AttackDmg = 1;
+    public float AttackTiming = 0.5f;
+
     private bool isAttack = false;
     CharacterContoller2D player;
     Rigidbody2D r2d;
     Animator anim;
     SpriteRenderer spriteRenderer;
     int Hp;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -63,7 +69,7 @@ public class Enemy : MonoBehaviour
                 anim.SetBool("isWalking", false);
                 if (distance <= AttackRange)
                 {
-                    Debug.Log("Attack");
+                    Invoke("AttackPlayer", AttackTiming);
                     isAttack = true;
                     anim.SetTrigger("attackTrigger");
                 }
@@ -93,4 +99,14 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void AttackPlayer()
+    {
+        // Enemy를 찾아 범위 안에 있는 적들에게 대미지 입히기
+        Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(AttackPoint.position, AttackRange, PlayerLayer);
+
+        foreach (Collider2D player in hitPlayers)
+        {
+            player.GetComponent<CharacterContoller2D>().OnDamaged(AttackDmg);
+        }
+    }
 }

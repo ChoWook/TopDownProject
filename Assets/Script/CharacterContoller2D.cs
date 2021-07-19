@@ -47,7 +47,7 @@ public class CharacterContoller2D : MonoBehaviour
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         player = GetComponent<Player>();
-
+        
         //InventoryUI.gameObject.SetActive(true);
         //InventoryUI.gameObject.SetActive(false);
 
