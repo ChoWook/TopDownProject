@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.Events;
 using System;
 
-public abstract class UserInterface : MonoBehaviour
+public abstract class UserInterface : MonoBehaviour//, IPointerClickHandler
 {
 
     public InventoryObject inventory;
@@ -126,7 +126,6 @@ public abstract class UserInterface : MonoBehaviour
         if (MouseData.tempItemBeingDragged != null)
             MouseData.tempItemBeingDragged.GetComponent<RectTransform>().position = Input.mousePosition;
     }
-
 
 }
 public static class MouseData

@@ -19,9 +19,16 @@ public class StaticInterface : UserInterface
             AddEvent(obj, EventTriggerType.BeginDrag, delegate { OnDragStart(obj); });
             AddEvent(obj, EventTriggerType.EndDrag, delegate { OnDragEnd(obj); });
             AddEvent(obj, EventTriggerType.Drag, delegate { OnDrag(obj); });
+            AddEvent(obj, EventTriggerType.PointerClick, delegate { OnPointerClick(obj); });
             inventory.GetSlots[i].slotDisplay = obj;
             slotsOnInterface.Add(obj, inventory.GetSlots[i]);
 
         }
+    }
+
+    public void OnPointerClick(GameObject obj)
+    {
+        GetComponentInParent<Player>().inventory.AddItem(slotsOnInterface[obj].item, 1);
+        slotsOnInterface[obj].RemoveItem();
     }
 }

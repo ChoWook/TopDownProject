@@ -25,6 +25,7 @@ public class DynamicInterface : UserInterface
             AddEvent(obj, EventTriggerType.BeginDrag, delegate { OnDragStart(obj); });
             AddEvent(obj, EventTriggerType.EndDrag, delegate { OnDragEnd(obj); });
             AddEvent(obj, EventTriggerType.Drag, delegate { OnDrag(obj); });
+            AddEvent(obj, EventTriggerType.PointerClick, delegate { OnPointerClick(obj); });
 
             inventory.GetSlots[i].slotDisplay = obj;
 
@@ -34,5 +35,38 @@ public class DynamicInterface : UserInterface
     private Vector3 GetPosition(int i)
     {
         return new Vector3(X_START + (X_SPACE_BETWEEN_ITEM * (i % NUMBER_OF_COLUMN)), Y_START + (-Y_SPACE_BETWEEN_ITEMS * (i / NUMBER_OF_COLUMN)), 0f);
+    }
+
+    public void OnPointerClick(GameObject obj)
+    {
+        if(slotsOnInterface[obj].item.Id == -1)
+        {
+            return;
+        }
+
+        var inventory = GetComponentInParent<Player>().inventory;
+        var equipment = GetComponentInParent<Player>().equipment;
+        var type = inventory.database.ItemObjects[slotsOnInterface[obj].item.Id].type;
+        switch (type)
+        {
+            case ItemType.Food:
+                break;
+            case ItemType.Helmet:
+                inventory.SwapItems(slotsOnInterface[obj], equipment.GetSlots[0]);
+                break;
+            case ItemType.Weapon:
+                inventory.SwapItems(slotsOnInterface[obj], equipment.GetSlots[1]);
+                break;
+            case ItemType.Glove:
+                inventory.SwapItems(slotsOnInterface[obj], equipment.GetSlots[2]);
+                break;
+            case ItemType.Boots:
+                inventory.SwapItems(slotsOnInterface[obj], equipment.GetSlots[3]);
+                break;
+            case ItemType.Chest:
+                inventory.SwapItems(slotsOnInterface[obj], equipment.GetSlots[4]);
+                break;
+            default: break;
+        }
     }
 }

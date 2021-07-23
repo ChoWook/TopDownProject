@@ -313,8 +313,7 @@ public class CharacterContoller2D : MonoBehaviour
             if (groundItem)
             {
                 Item _item = new Item(groundItem.item);
-                var inventory = player.inventory;
-                if (inventory.AddItem(_item, 1))
+                if (player.inventory.AddItem(_item, 1))
                 {
                     Destroy(other.gameObject);
                 }
