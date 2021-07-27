@@ -24,7 +24,7 @@ public class SceneCnt : MonoBehaviour
     {
         startingPos = GameObject.FindGameObjectWithTag("start").transform.position;
         startingRotate = GameObject.FindGameObjectWithTag("start").transform.rotation;
-        if(stageNum >= 0)
+        if(stageNum >= 1)
         {
             StartGame();
         }
@@ -33,8 +33,9 @@ public class SceneCnt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        startingPos = GameObject.FindGameObjectWithTag("start").transform.position;
-        startingRotate = GameObject.FindGameObjectWithTag("start").transform.rotation;
+        
+            startingPos = GameObject.FindGameObjectWithTag("start").transform.position;
+            startingRotate = GameObject.FindGameObjectWithTag("start").transform.rotation;
 
     }
 
@@ -58,4 +59,8 @@ public class SceneCnt : MonoBehaviour
         SceneManager.LoadScene(stageNum, LoadSceneMode.Single);
        
     }
+
+    
+
+
 }
