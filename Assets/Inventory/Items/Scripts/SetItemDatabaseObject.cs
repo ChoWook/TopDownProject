@@ -28,6 +28,12 @@ public class SetItemDatabaseObject : ScriptableObject, ISerializationCallbackRec
 
 public class SetItem
 {
-    public Item[] Items;
+    public ItemObject[] Items;
     public int Id;
+    public SetItemBuff[] Buffs;
+}
+
+public class SetItemBuff
+{
+    //세트아이템 별 효과를 기술할 클래스 예정
 }
