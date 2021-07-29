@@ -52,6 +52,10 @@ public class Enemy : MonoBehaviour
     private void FindPlayer()
     {
         player = GameObject.FindObjectOfType<CharacterContoller2D>();
+        if(player == null)
+        {
+            return;
+        }
         var distanceX = Vector2.Distance(transform.position, new Vector2(player.transform.position.x, transform.position.y));
         var distance = Vector2.Distance(transform.position, player.transform.position);
         var facingDirection = player.transform.position.x - transform.position.x;

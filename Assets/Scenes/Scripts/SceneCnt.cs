@@ -22,6 +22,7 @@ public class SceneCnt : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        stageNum = SceneManager.GetActiveScene().buildIndex;
         startingPos = GameObject.FindGameObjectWithTag("start").transform.position;
         startingRotate = GameObject.FindGameObjectWithTag("start").transform.rotation;
         if(stageNum >= 1)
@@ -52,7 +53,7 @@ public class SceneCnt : MonoBehaviour
     public static void  EndGame()
     {
         Time.timeScale = 0f;
-        stageNum = SceneManager.GetActiveScene().buildIndex;
+        //stageNum = SceneManager.GetActiveScene().buildIndex;
         stageNum++;
 
 
