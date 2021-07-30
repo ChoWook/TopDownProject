@@ -79,6 +79,7 @@
     <Compile Include="Assets\Inventory\Items\Scripts\ItemObject.cs" />
     <Compile Include="Assets\Inventory\Items\Scripts\ModifiableInt.cs" />
     <Compile Include="Assets\Inventory\Items\Scripts\SetItemDatabaseObject.cs" />
+    <Compile Include="Assets\Inventory\Items\Scripts\SetItemObject.cs" />
     <Compile Include="Assets\Scenes\Scripts\FallingPlatform.cs" />
     <Compile Include="Assets\Scenes\Scripts\MovingPlatform.cs" />
     <Compile Include="Assets\Scenes\Scripts\SceneCnt.cs" />

@@ -269,6 +269,18 @@ public class Player : MonoBehaviour
     public void OnSetItemCheck()
     {
         //세트아이템 체크
+        for(int i = 0; i < equipment.GetSlots.Length; i++)
+        {
+            //if(equipment.GetSlots[i].item.Id >= 0)
+            //{
+            //    for(int j = 0; j < setItemDatabase.SetItems.Length; j++)
+            //    {
+            //        setItemDatabase.SetItems[j].
+            //    }
+            //}
+
+            //아이템마다 세트아이템을 연결해서 해야 루프를 적게 돌을거같음
+        }
     }
 }
 

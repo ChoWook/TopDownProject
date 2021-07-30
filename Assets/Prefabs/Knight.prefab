@@ -585,6 +585,7 @@ MonoBehaviour:
   jumpHeight: 15
   gravityScale: 1.5
   evasionSpeed: 2.5
+  attackTiming: 0.04
   mainCamera: {fileID: 2778759526491202950}
   InventoryUI: {fileID: 7353600312958918354}
   attackPoint: {fileID: 1695835153941771974}
@@ -607,6 +608,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: 74982f1f08738c143b1b2e2cfe615dab, type: 2}
   equipment: {fileID: 11400000, guid: 1b7709662c2a0e944a1e1f06b8c3bcc3, type: 2}
+  setItemDatabase: {fileID: 11400000, guid: a994d6dd0e28f16479c68ffd39474f80, type: 2}
   attributes:
   - type: 0
     value:

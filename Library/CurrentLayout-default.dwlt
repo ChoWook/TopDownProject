@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -112,10 +112,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 679, y: 492}
-  m_MaxSize: {x: 14002, y: 14042}
+  m_MinSize: {x: 678, y: 492}
+  m_MaxSize: {x: 14001, y: 14042}
   vertical: 0
-  controlID: 133
+  controlID: 135
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -211,8 +211,8 @@ MonoBehaviour:
     y: 0
     width: 1001
     height: 509
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -395,9 +395,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 28340000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 64fbffff
+      m_ExpandedIDs: 8ef3ffff68800000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -450,16 +450,16 @@ MonoBehaviour:
   m_ShowContextualTools: 0
   m_WindowGUID: 8cdf1d84aa6b30644b39b3bc90e08582
   m_Gizmos: 1
-  m_SceneIsLit: 1
+  m_SceneIsLit: 0
   m_SceneLighting: 1
   m_2DMode: 1
   m_isRotationLocked: 0
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 8.09728, y: 1.4191102, z: -61.92891}
+    m_Target: {x: -0.21476807, y: -0.47228214, z: -2.8398438}
     speed: 2
-    m_Value: {x: 8.09728, y: 1.4191102, z: -61.92891}
+    m_Value: {x: -0.21476807, y: -0.47228214, z: -2.8398438}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -472,7 +472,7 @@ MonoBehaviour:
   m_SceneViewState:
     showFog: 1
     showMaterialUpdate: 0
-    showSkybox: 1
+    showSkybox: 0
     showFlares: 1
     showImageEffects: 1
     showParticleSystems: 1
@@ -509,9 +509,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 7.503529
+    m_Target: 5.6443152
     speed: 2
-    m_Value: 7.503529
+    m_Value: 5.6443152
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -733,20 +733,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Inventory/Items/Scripts
+    - Assets/Inventory/Inventory/Scripts
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Inventory/Items/Scripts
+  - Assets/Inventory/Inventory/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\KCW\Desktop\Capston\TopDown
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 7}
-    m_SelectedIDs: fa700000
-    m_LastClickedID: 28922
-    m_ExpandedIDs: 00000000b4700000b6700000b8700000ba700000bc700000be700000c0700000c2700000c4700000c6700000c8700000ca700000cc700000ce70000004710000
+    scrollPos: {x: 0, y: 23}
+    m_SelectedIDs: f6700000
+    m_LastClickedID: 28918
+    m_ExpandedIDs: 00000000b4700000b6700000b8700000ba700000bc700000be700000c0700000c2700000c4700000c6700000c8700000ca700000cc700000ce700000f8700000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
