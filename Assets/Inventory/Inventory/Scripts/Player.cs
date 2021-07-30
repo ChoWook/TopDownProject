@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 {
     public InventoryObject inventory;
     public InventoryObject equipment;
+    public SetItemDatabaseObject setItemDatabase;
 
     public Attribute[] attributes;
 
@@ -92,6 +93,8 @@ public class Player : MonoBehaviour
                     }
                 }
 
+                OnSetItemCheck();
+
                 break;
             case InterfaceType.Chest:
                 break;
@@ -157,6 +160,7 @@ public class Player : MonoBehaviour
                     //}
                 }
 
+                OnSetItemCheck();
 
                 break;
             case InterfaceType.Chest:
@@ -262,7 +266,10 @@ public class Player : MonoBehaviour
         return ((float)(attributes[3].value.ModifiedValue) / 10.0f);
     }
 
-    
+    public void OnSetItemCheck()
+    {
+        //세트아이템 체크
+    }
 }
 
 [System.Serializable]

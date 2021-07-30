@@ -85,12 +85,6 @@ public class InventoryObject : ScriptableObject
             item2.UpdateSlot(item1.item, item1.amount);
             item1.UpdateSlot(temp.item, temp.amount);
         }
-        if (item1.parent == null || item2.parent == null) return;
-        if (item1.parent.inventory.type == InterfaceType.Equipment || item2.parent.inventory.type == InterfaceType.Equipment)
-        {
-            // 세트 아이템 체크하기
-
-        }
     }
 
 
@@ -188,11 +182,6 @@ public class InventorySlot
     }
     public void RemoveItem()
     {
-        if (parent == null) return;
-        if(parent.inventory.type == InterfaceType.Equipment)
-        {
-            //TODO 세트아이템 체크하기
-        }
         UpdateSlot(new Item(), 0);
     }
     public void AddAmount(int value)
