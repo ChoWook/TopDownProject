@@ -11,6 +11,7 @@ TagManager:
   - Item
   - tempCamera
   - Jump_plat
+  - Slow_trap
   layers:
   - Default
   - TransparentFX

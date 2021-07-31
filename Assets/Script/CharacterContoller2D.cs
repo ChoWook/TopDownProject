@@ -363,6 +363,11 @@ public class CharacterContoller2D : MonoBehaviour
         {
             jumpHeight = 30f;
         }
+
+	if (collision.transform.CompareTag("Slow_trap"))
+        {
+            baseSpeed = 2.0f;
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -370,6 +375,11 @@ public class CharacterContoller2D : MonoBehaviour
         if (collision.transform.CompareTag("Jump_plat"))
         {
             jumpHeight = 15f;
+        }
+
+	if (collision.transform.CompareTag("Slow_trap"))
+        {
+            baseSpeed = 6.0f;
         }
     }
 
