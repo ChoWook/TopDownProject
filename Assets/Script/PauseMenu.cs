@@ -46,7 +46,6 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitGame()
     {
-        Debug.Log("구현 중");
         Application.Quit();
     }
 }

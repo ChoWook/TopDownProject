@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class TitleManeger : MonoBehaviour
 {
+    public GameObject setWindow;
+    public static bool isSetWin = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +16,15 @@ public class TitleManeger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (isSetWin)
+        {
+            setWindow.SetActive(true);
+        }
+        else
+        {
+            
+        }
+     
     }
 
     public void clickStart()
@@ -29,7 +39,13 @@ public class TitleManeger : MonoBehaviour
 
     public void clickSetting()
     {
-        Debug.Log("구현예정");
+        isSetWin = true;
+    }
+    
+    public void endSetting()
+    {
+        isSetWin = false;
+        setWindow.SetActive(false);
     }
   
 
