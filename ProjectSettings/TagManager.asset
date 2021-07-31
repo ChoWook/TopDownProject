@@ -12,6 +12,7 @@ TagManager:
   - tempCamera
   - Jump_plat
   - Slow_trap
+  - Dmg_trap
   layers:
   - Default
   - TransparentFX

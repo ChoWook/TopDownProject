@@ -356,7 +356,7 @@ public class CharacterContoller2D : MonoBehaviour
     }
 
 
-    //슈퍼점프
+    //발판, 함정 상호작용
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.CompareTag("Jump_plat"))
@@ -367,6 +367,13 @@ public class CharacterContoller2D : MonoBehaviour
 	if (collision.transform.CompareTag("Slow_trap"))
         {
             baseSpeed = 2.0f;
+        }
+
+	if (collision.transform.CompareTag("Dmg_trap"))
+        {
+            OnInvincible();
+            player.HP -= 1;
+            Invoke("EndInvincible", invincibleTime);
         }
     }
 
