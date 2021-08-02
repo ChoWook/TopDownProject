@@ -333,7 +333,7 @@ public class CharacterContoller2D : MonoBehaviour
     public void OnDamaged(int dmg)
     {
         OnInvincible();
-        player.HP -= dmg;
+        Player.HP -= dmg;
         // 1초 뒤에 무적 해제
         Invoke("EndInvincible", invincibleTime);
     }
@@ -372,7 +372,7 @@ public class CharacterContoller2D : MonoBehaviour
 	if (collision.transform.CompareTag("Dmg_trap"))
         {
             OnInvincible();
-            player.HP -= 1;
+            Player.HP -= 1;
             Invoke("EndInvincible", invincibleTime);
         }
     }

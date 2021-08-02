@@ -26,7 +26,8 @@ public class Player : MonoBehaviour
     public Sprite fullHeart;
     public Sprite halfHeart;
     public Sprite emptyHeart;
-    public int HP;
+    public static int HP;
+    static bool isGameStart = true;
 
 
     //private BoneCombiner boneCombiner;
@@ -40,7 +41,11 @@ public class Player : MonoBehaviour
             attributes[i].SetParent(this);
         }
 
-        HP = getHealth();
+        if (isGameStart)
+        {
+            HP = getHealth();
+            isGameStart = false;
+        }
 
         for (int i = 0; i < equipment.GetSlots.Length; i++)
         {
