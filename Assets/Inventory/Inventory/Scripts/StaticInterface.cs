@@ -31,4 +31,5 @@ public class StaticInterface : UserInterface
         GetComponentInParent<Player>().inventory.AddItem(slotsOnInterface[obj].item, 1);
         slotsOnInterface[obj].RemoveItem();
     }
+
 }

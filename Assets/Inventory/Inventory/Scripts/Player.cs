@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     public Sprite halfHeart;
     public Sprite emptyHeart;
     public static int HP;
+    public static bool[] SetItemCheck;
     static bool isGameStart = true;
 
 
@@ -44,8 +45,10 @@ public class Player : MonoBehaviour
         if (isGameStart)
         {
             HP = getHealth();
+            SetItemCheck = new bool[setItemDatabase.SetItems.Length];
             isGameStart = false;
         }
+
 
         for (int i = 0; i < equipment.GetSlots.Length; i++)
         {
@@ -164,7 +167,7 @@ public class Player : MonoBehaviour
                     //        break;
                     //}
                 }
-
+                
                 OnSetItemCheck();
 
                 break;
@@ -276,15 +279,35 @@ public class Player : MonoBehaviour
         //세트아이템 체크
         for(int i = 0; i < equipment.GetSlots.Length; i++)
         {
-            //if(equipment.GetSlots[i].item.Id >= 0)
-            //{
-            //    for(int j = 0; j < setItemDatabase.SetItems.Length; j++)
-            //    {
-            //        setItemDatabase.SetItems[j].
-            //    }
-            //}
+            
+            if (equipment.GetSlots[i].item.Id >= 0)
+            {
+                var setItem = equipment.database.ItemObjects[equipment.GetSlots[i].item.Id].setItem;
+                if (setItem == null)
+                {
+                    continue;
+                }
+                bool isSet = true;
+                for(int j = 0; j < setItem.Items.Length; j++)
+                {
+                    if(equipment.GetSlots[(int)setItem.Items[j].type - 1].item.Id != setItem.Items[j].data.Id)
+                    {
+                        isSet = false;
+                        break;
+                    }
+                }
 
-            //아이템마다 세트아이템을 연결해서 해야 루프를 적게 돌을거같음
+                if (isSet)
+                {
+                    SetItemCheck[setItem.Id] = true;
+                    // SetItemCheck를 클래스로 만들어 set함수를 만들어야할 것 같음
+                }
+                else
+                {
+                    SetItemCheck[setItem.Id] = false;
+                }
+            }
+
         }
     }
 }
