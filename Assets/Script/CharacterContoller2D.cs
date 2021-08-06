@@ -29,6 +29,7 @@ public class CharacterContoller2D : MonoBehaviour
     bool isEvasion = false;
     bool isAttack = false;
     bool isOpenInventory = false;
+    bool isOnSlowTrap = false;
 
     Vector3 cameraPos;
     Rigidbody2D r2d;
@@ -109,7 +110,7 @@ public class CharacterContoller2D : MonoBehaviour
     private void Evasion()
     {
         // Evasion
-        if (Input.GetButtonDown("Evasion") && isGrounded && !isEvasion  && !isAttack)
+        if (Input.GetButtonDown("Evasion") && isGrounded && !isEvasion  && !isAttack && !isOnSlowTrap)
         {
             isEvasion = true;
             anim.SetTrigger("evasionTrigger");
@@ -134,7 +135,7 @@ public class CharacterContoller2D : MonoBehaviour
     private void Jump()
     {
         // Jumping
-        if (Input.GetButtonDown("Jump") && isGrounded && !isEvasion && !isAttack)
+        if (Input.GetButtonDown("Jump") && isGrounded && !isEvasion && !isAttack && !isOnSlowTrap)
         {
             r2d.velocity = new Vector2(r2d.velocity.x, jumpHeight);
         }
@@ -366,7 +367,8 @@ public class CharacterContoller2D : MonoBehaviour
 
 	if (collision.transform.CompareTag("Slow_trap"))
         {
-            baseSpeed = 2.0f;
+            isOnSlowTrap = true;
+            baseSpeed = 3.0f;
         }
 
 	if (collision.transform.CompareTag("Dmg_trap"))
@@ -386,6 +388,7 @@ public class CharacterContoller2D : MonoBehaviour
 
 	if (collision.transform.CompareTag("Slow_trap"))
         {
+            isOnSlowTrap = false;
             baseSpeed = 6.0f;
         }
     }
