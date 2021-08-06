@@ -7,6 +7,8 @@ public class TitleManeger : MonoBehaviour
 {
     public GameObject setWindow;
     public static bool isSetWin = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +49,7 @@ public class TitleManeger : MonoBehaviour
         isSetWin = false;
         setWindow.SetActive(false);
     }
-  
+ 
+
 
 }

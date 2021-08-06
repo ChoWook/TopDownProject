@@ -391,4 +391,25 @@ public class CharacterContoller2D : MonoBehaviour
     }
 
 
+    //GameSave
+    public void GameSave()
+    {
+        PlayerPrefs.SetFloat("PlayerX", player.transform.position.x);
+        PlayerPrefs.SetFloat("PlyaerY", player.transform.position.y);
+        PlayerPrefs.Save();
+
+    }
+
+    public void GameLoad()
+    {
+        if (!PlayerPrefs.HasKey("PlayerX"))
+        {
+            return;
+        }
+
+        float x = PlayerPrefs.GetFloat("PlayerX");
+        float y = PlayerPrefs.GetFloat("PlayerY");
+        player.transform.position = new Vector3(x, y, 0);
+
+    }
 }
