@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterContoller2D : MonoBehaviour
 {
@@ -397,6 +398,8 @@ public class CharacterContoller2D : MonoBehaviour
     //GameSave
     public void GameSave()
     {
+        int sn = SceneManager.GetActiveScene().buildIndex;
+        PlayerPrefs.SetInt("StageNum",sn);
         PlayerPrefs.SetFloat("PlayerX", player.transform.position.x);
         PlayerPrefs.SetFloat("PlyaerY", player.transform.position.y);
         PlayerPrefs.Save();
@@ -409,9 +412,10 @@ public class CharacterContoller2D : MonoBehaviour
         {
             return;
         }
-
+        int sn = PlayerPrefs.GetInt("StageNum");
         float x = PlayerPrefs.GetFloat("PlayerX");
         float y = PlayerPrefs.GetFloat("PlayerY");
+        SceneManager.LoadScene(sn, LoadSceneMode.Single);
         player.transform.position = new Vector3(x, y, 0);
 
     }
