@@ -26,8 +26,8 @@ public class Player : MonoBehaviour
     public Sprite fullHeart;
     public Sprite halfHeart;
     public Sprite emptyHeart;
+    public SetItemCheck setItemCheck;
     public static int HP;
-    public static bool[] SetItemCheck;
     static bool isGameStart = true;
 
 
@@ -45,7 +45,7 @@ public class Player : MonoBehaviour
         if (isGameStart)
         {
             HP = getHealth();
-            SetItemCheck = new bool[setItemDatabase.SetItems.Length];
+            setItemCheck = new SetItemCheck(setItemDatabase);
             isGameStart = false;
         }
 
@@ -167,7 +167,7 @@ public class Player : MonoBehaviour
                     //        break;
                     //}
                 }
-                
+
                 OnSetItemCheck();
 
                 break;
@@ -195,7 +195,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        
+
         //if (Input.GetKeyDown(KeyCode.Space))
         //{
         //    inventory.Save();
@@ -208,7 +208,7 @@ public class Player : MonoBehaviour
         //    equipment.Load();
         //}
 
-        if(HP > getHealth())
+        if (HP > getHealth())
         {
             HP = getHealth();
         }
@@ -216,11 +216,11 @@ public class Player : MonoBehaviour
         for (int i = 0; i < hearts.Length; i++)
         {
             // 현재 체력에 맞게 스프라이트 바꾸기
-            if(i < HP/2)
+            if (i < HP / 2)
             {
                 hearts[i].sprite = fullHeart;
             }
-            else if(i == HP/2 && HP%2 == 1)
+            else if (i == HP / 2 && HP % 2 == 1)
             {
                 hearts[i].sprite = halfHeart;
             }
@@ -230,8 +230,8 @@ public class Player : MonoBehaviour
             }
 
             // 전체 체력에 맞게 스프라이트 온오프
-            
-            if (i < getHealth()/2)        
+
+            if (i < getHealth() / 2)
             {
                 hearts[i].enabled = true;
             }
@@ -277,9 +277,9 @@ public class Player : MonoBehaviour
     public void OnSetItemCheck()
     {
         //세트아이템 체크
-        for(int i = 0; i < equipment.GetSlots.Length; i++)
+        for (int i = 0; i < equipment.GetSlots.Length; i++)
         {
-            
+
             if (equipment.GetSlots[i].item.Id >= 0)
             {
                 var setItem = equipment.database.ItemObjects[equipment.GetSlots[i].item.Id].setItem;
@@ -288,9 +288,9 @@ public class Player : MonoBehaviour
                     continue;
                 }
                 bool isSet = true;
-                for(int j = 0; j < setItem.Items.Length; j++)
+                for (int j = 0; j < setItem.Items.Length; j++)
                 {
-                    if(equipment.GetSlots[(int)setItem.Items[j].type - 1].item.Id != setItem.Items[j].data.Id)
+                    if (equipment.GetSlots[(int)setItem.Items[j].type - 1].item.Id != setItem.Items[j].data.Id)
                     {
                         isSet = false;
                         break;
@@ -299,12 +299,11 @@ public class Player : MonoBehaviour
 
                 if (isSet)
                 {
-                    SetItemCheck[setItem.Id] = true;
-                    // SetItemCheck를 클래스로 만들어 set함수를 만들어야할 것 같음
+                    setItemCheck.setChecked(setItem.Id, true);
                 }
                 else
                 {
-                    SetItemCheck[setItem.Id] = false;
+                    setItemCheck.setChecked(setItem.Id, false);
                 }
             }
 
@@ -347,5 +346,45 @@ public class Attribute
         parent.AttributeModified(this);
     }
 
-    
+
+}
+
+public class SetItemCheck
+{
+    static bool[] Checked;
+    SetItemDatabaseObject setItemDatabase;
+
+    public SetItemCheck(SetItemDatabaseObject setItemDatabase) {
+        Checked = new bool[setItemDatabase.SetItems.Length];
+        this.setItemDatabase = setItemDatabase;
+    }
+
+    public void setChecked(int index, bool isChecked)
+    {
+        if(Checked[index] != isChecked)
+        {
+            Checked[index] = isChecked;
+            if (isChecked)
+            {
+                //세트효과 발동
+                switch (index)
+                {
+                    default:break;
+                }
+            }
+            else
+            {
+                //세트효과 제거
+                switch (index)
+                {
+                    default: break;
+                }
+            }
+        }
+    }
+
+    public bool getChecked(int index)
+    {
+        return Checked[index];
+    }
 }

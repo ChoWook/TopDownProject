@@ -8,7 +8,7 @@ public class SetItem : ScriptableObject
     public ItemObject[] Items;
     public int Id;
     public SetItemBuff[] SetBuffs;
-    public ItemBuff[] Buffs;
+    //public ItemBuff[] Buffs;
 
     public SetItem()
     {
@@ -20,19 +20,19 @@ public class SetItem : ScriptableObject
         Items = setItem.Items;
         Id = setItem.Id;
         SetBuffs = new SetItemBuff[setItem.SetBuffs.Length];
-        for (int i = 0; i < Buffs.Length; i++)
+        for (int i = 0; i < setItem.SetBuffs.Length; i++)
         {
             // 세트 아이템 효과 복사
         }
 
-        Buffs = new ItemBuff[setItem.Buffs.Length];
-        for (int i = 0; i < Buffs.Length; i++)
-        {
-            Buffs[i] = new ItemBuff(setItem.Buffs[i].min, setItem.Buffs[i].max)
-            {
-                attribute = setItem.Buffs[i].attribute
-            };
-        }
+        //Buffs = new ItemBuff[setItem.Buffs.Length];
+        //for (int i = 0; i < Buffs.Length; i++)
+        //{
+        //    Buffs[i] = new ItemBuff(setItem.Buffs[i].min, setItem.Buffs[i].max)
+        //    {
+        //        attribute = setItem.Buffs[i].attribute
+        //    };
+        //}
     }
 }
 
