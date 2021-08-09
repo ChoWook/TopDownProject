@@ -329,6 +329,10 @@ public class CharacterContoller2D : MonoBehaviour
             other.enabled = false;
             SceneCnt.EndGame();
         }
+        else if (other.gameObject.tag == "CheckPoint")
+        {
+            GameSave();
+        }
 
     }
 
@@ -387,21 +391,23 @@ public class CharacterContoller2D : MonoBehaviour
             jumpHeight = 15f;
         }
 
-	if (collision.transform.CompareTag("Slow_trap"))
+	    if (collision.transform.CompareTag("Slow_trap"))
         {
             isOnSlowTrap = false;
             baseSpeed = 6.0f;
         }
+        
     }
 
 
     //GameSave
     public void GameSave()
     {
+        Debug.Log("Saved!");
         int sn = SceneManager.GetActiveScene().buildIndex;
         PlayerPrefs.SetInt("StageNum",sn);
         PlayerPrefs.SetFloat("PlayerX", player.transform.position.x);
-        PlayerPrefs.SetFloat("PlyaerY", player.transform.position.y);
+        PlayerPrefs.SetFloat("PlayerY", player.transform.position.y);
         PlayerPrefs.Save();
 
     }

@@ -13,6 +13,7 @@ TagManager:
   - Jump_plat
   - Slow_trap
   - Dmg_trap
+  - CheckPoint
   layers:
   - Default
   - TransparentFX
