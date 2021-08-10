@@ -9,7 +9,6 @@ public class SceneCnt : MonoBehaviour
 
     Vector3 startingPos;
     Quaternion startingRotate;
-    
 
     static int stageNum = 0;
 
@@ -34,9 +33,6 @@ public class SceneCnt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-            startingPos = GameObject.FindGameObjectWithTag("start").transform.position;
-            startingRotate = GameObject.FindGameObjectWithTag("start").transform.rotation;
 
     }
 
@@ -60,8 +56,21 @@ public class SceneCnt : MonoBehaviour
         SceneManager.LoadScene(stageNum, LoadSceneMode.Single);
        
     }
+    public void GameLoad()
+    {
+        if (!PlayerPrefs.HasKey("PlayerX"))
+        {
+            return;
+        }
+        int sn = PlayerPrefs.GetInt("StageNum");
+        float x = PlayerPrefs.GetFloat("PlayerX");
+        float y = PlayerPrefs.GetFloat("PlayerY");
+        Debug.Log(x);
+        Debug.Log(y);
+        SceneManager.LoadScene(sn, LoadSceneMode.Single);
 
-    
+    }
+
 
 
 }

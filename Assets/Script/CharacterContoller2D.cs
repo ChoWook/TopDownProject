@@ -412,17 +412,5 @@ public class CharacterContoller2D : MonoBehaviour
 
     }
 
-    public void GameLoad()
-    {
-        if (!PlayerPrefs.HasKey("PlayerX"))
-        {
-            return;
-        }
-        int sn = PlayerPrefs.GetInt("StageNum");
-        float x = PlayerPrefs.GetFloat("PlayerX");
-        float y = PlayerPrefs.GetFloat("PlayerY");
-        SceneManager.LoadScene(sn, LoadSceneMode.Single);
-        player.transform.position = new Vector3(x, y, 0);
-
-    }
+    
 }
