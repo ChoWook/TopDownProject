@@ -65,17 +65,17 @@ public class Enemy : MonoBehaviour
 
             if (distance <= DetectRange && distance >= AttackRange)
             {
-                anim.SetBool("isWalking", true);
+                anim.SetBool("Walk", true);
                 transform.position = Vector2.MoveTowards(transform.position, new Vector2(player.transform.position.x, transform.position.y), Speed * Time.deltaTime);
             }
             else
             {
-                anim.SetBool("isWalking", false);
+                anim.SetBool("Walk", false);
                 if (distance <= AttackRange)
                 {
                     Invoke("AttackPlayer", AttackTiming);
                     isAttack = true;
-                    anim.SetTrigger("attackTrigger");
+                    anim.SetTrigger("Attack");
                 }
             }
         }
@@ -86,18 +86,18 @@ public class Enemy : MonoBehaviour
         // Walk Animation
         if (r2d.velocity.x == 0)
         {
-            anim.SetBool("isWalking", false);
+            anim.SetBool("Walk", false);
         }
         else
         {
-            anim.SetBool("isWalking", true);
+            anim.SetBool("Walk", true);
         }
     }
 
     private void BehaviorCheck()
     {
         // Attack Check
-        if (isAttack && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
+        if (isAttack && !anim.GetCurrentAnimatorStateInfo(0).IsName("Attack") && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
         {
             isAttack = false;
         }
