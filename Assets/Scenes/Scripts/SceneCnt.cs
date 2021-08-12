@@ -8,6 +8,7 @@ public class SceneCnt : MonoBehaviour
     public GameObject player;
 
     Vector3 startingPos;
+    Vector3 loadedPos;
     Quaternion startingRotate;
 
     static int stageNum = 0;
@@ -39,10 +40,19 @@ public class SceneCnt : MonoBehaviour
     void StartGame()
     {
         Time.timeScale = 1f;
+        if (!PlayerPrefs.HasKey("PlayerX"))
+        {
+            startingPos = new Vector3(startingPos.x, startingPos.y, startingPos.z);
+            Instantiate(player, startingPos, startingRotate);
+        }
+        else
+        {
+            float x = PlayerPrefs.GetFloat("PlayerX");
+            float y = PlayerPrefs.GetFloat("PlayerY");
+            loadedPos = new Vector3(x, y, 0);
+            Instantiate(player, loadedPos, startingRotate);
+        }
         
-
-        startingPos = new Vector3(startingPos.x, startingPos.y, startingPos.z);
-        Instantiate(player, startingPos, startingRotate);
       
     }
 
@@ -63,10 +73,7 @@ public class SceneCnt : MonoBehaviour
             return;
         }
         int sn = PlayerPrefs.GetInt("StageNum");
-        float x = PlayerPrefs.GetFloat("PlayerX");
-        float y = PlayerPrefs.GetFloat("PlayerY");
-        Debug.Log(x);
-        Debug.Log(y);
+
         SceneManager.LoadScene(sn, LoadSceneMode.Single);
 
     }
