@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3842023496236339235}
   - component: {fileID: 3842023496236339237}
   - component: {fileID: 3842023496236339673}
-  - component: {fileID: 3842023496236339236}
   - component: {fileID: 3842023496236339239}
+  - component: {fileID: 3842023496236339236}
   - component: {fileID: 3842023496236339238}
   m_Layer: 9
   m_Name: _PixelMobBase
@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hp_max: 10
   DetectRange: 10
-  AttackRange: 2
+  AttackRange: 1.3
   Speed: 2.5
   AttackPoint: {fileID: 3842023496236339234}
   PlayerLayer:
@@ -58,6 +58,8 @@ MonoBehaviour:
     m_Bits: 1024
   AttackDmg: 1
   AttackTiming: 0.5
+  isFlip: 1
+  isFlying: 0
 --- !u!212 &3842023496236339237
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -127,32 +129,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &3842023496236339236
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3842023496236339672}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.25}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.5}
-  m_EdgeRadius: 0
 --- !u!61 &3842023496236339239
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -178,6 +154,32 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!61 &3842023496236339236
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3842023496236339672}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.25}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.9, y: 0.5}
   m_EdgeRadius: 0
 --- !u!50 &3842023496236339238
 Rigidbody2D:

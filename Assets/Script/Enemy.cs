@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
     public LayerMask PlayerLayer;
     public int AttackDmg = 1;
     public float AttackTiming = 0.5f;
+    public bool isFlip = false;
+    public bool isFlying = false;
 
     private bool isAttack = false;
     CharacterContoller2D player;
@@ -27,6 +29,11 @@ public class Enemy : MonoBehaviour
         r2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    private void Start()
+    {
+        r2d.gravityScale = (isFlying) ? 0 : 1;
     }
 
     private void Update()
@@ -61,7 +68,7 @@ public class Enemy : MonoBehaviour
         var facingDirection = player.transform.position.x - transform.position.x;
         if (!isAttack)
         {
-            spriteRenderer.flipX = (facingDirection >= 0.0f) ? false : true;
+            spriteRenderer.flipX = (facingDirection >= 0.0f) ? false^isFlip : true^isFlip;
 
             if (distance <= DetectRange && distance >= AttackRange)
             {
