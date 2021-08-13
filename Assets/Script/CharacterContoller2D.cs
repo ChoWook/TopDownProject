@@ -333,6 +333,7 @@ public class CharacterContoller2D : MonoBehaviour
         {
             GameSave();
         }
+       
 
     }
 
