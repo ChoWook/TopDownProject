@@ -31,7 +31,7 @@ public class DataCon : MonoBehaviour
 
     //==================
     //작업중! 지우지 마시오
-    /*
+    
     public string GameDataFileName = ".json";
     public GameData _gameData;
     public GameData gameData
@@ -71,8 +71,12 @@ public class DataCon : MonoBehaviour
         File.WriteAllText(filePath, ToJsonData);
         Debug.Log("Saved!");
     }
-  
-    */
+
+    private void OnApplicationQuit()
+    {
+        SaveGameData();
+    }
+
 
 
     // Start is called before the first frame update

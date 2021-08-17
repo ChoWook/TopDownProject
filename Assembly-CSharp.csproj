@@ -125,6 +125,7 @@
     <Compile Include="Assets\Script\CharacterContoller2D.cs" />
     <Compile Include="Assets\Script\DataCon.cs" />
     <Compile Include="Assets\Script\Enemy.cs" />
+    <Compile Include="Assets\Script\GameData.cs" />
     <Compile Include="Assets\Script\PauseMenu.cs" />
     <Compile Include="Assets\Script\TitleManeger.cs" />
     <None Include="Assets\Download\Knight Files\Read Me.txt" />
