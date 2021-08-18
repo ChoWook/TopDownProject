@@ -24,6 +24,7 @@ public class teleport : MonoBehaviour
     {
         if (other.gameObject.tag.Equals("Player"))
         {
+            Player = other.gameObject;
             StartCoroutine(Teleport());
         }
     }
