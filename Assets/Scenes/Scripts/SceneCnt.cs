@@ -8,9 +8,11 @@ public class SceneCnt : MonoBehaviour
     public GameObject player;
 
     Vector3 startingPos;
+    Vector3 loadPos;
     Quaternion startingRotate;
 
     static int stageNum = 0;
+    static bool isClear = false;
 
     private void Awake()
     {
@@ -39,8 +41,21 @@ public class SceneCnt : MonoBehaviour
     void StartGame()
     {
         Time.timeScale = 1f;
-         startingPos = new Vector3(startingPos.x, startingPos.y, startingPos.z);
-         Instantiate(player, startingPos, startingRotate);
+      
+        if (!PlayerPrefs.HasKey("PlayerX") && isClear==true)
+        {
+            startingPos = new Vector3(startingPos.x, startingPos.y, startingPos.z);
+            Instantiate(player, startingPos, startingRotate);
+            isClear = false;
+        }
+        else
+        {
+            float x = PlayerPrefs.GetFloat("PlayerX");
+            float y = PlayerPrefs.GetFloat("PlayerY");
+            loadPos = new Vector3(x, y, 0);
+            Instantiate(player, loadPos,startingRotate);
+
+        }
     }
 
     public static void  EndGame()
@@ -51,6 +66,7 @@ public class SceneCnt : MonoBehaviour
 
 
         SceneManager.LoadScene(stageNum, LoadSceneMode.Single);
+        isClear = true;
        
     }
     public void GameLoad()
