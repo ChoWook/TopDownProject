@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class CharacterContoller2D : MonoBehaviour
 {
+    string[] ignoredTag = { "CheckPoint" };
     const int PLAYER_LAYER = 10;
     const int PLAYER_INVINCIBLE_LAYER = 11;
 
@@ -280,14 +281,13 @@ public class CharacterContoller2D : MonoBehaviour
         {
             for (int i = 0; i < colliders.Length; i++)
             {
-                if (colliders[i] != mainCollider)
+                if (colliders[i] != mainCollider && IsGroundTagCheck(colliders[i]))
                 {
                     isGrounded = true;
                     break;
                 }
             }
         }
-
 
         // Simple debug
         Debug.DrawLine(groundCheckPos, groundCheckPos - new Vector3(0, colliderRadius, 0), isGrounded ? Color.green : Color.red);
@@ -413,5 +413,17 @@ public class CharacterContoller2D : MonoBehaviour
 
     }
 
+    bool IsGroundTagCheck(Collider2D collider)
+    {
+        for(int i = 0; i < ignoredTag.Length; i++)
+        {
+            if(collider.tag == ignoredTag[i])
+            {
+                return false;
+            }
+        }
+        
+        return true;
+    }
     
 }
