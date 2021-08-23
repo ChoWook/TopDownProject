@@ -42,7 +42,7 @@ public class SceneCnt : MonoBehaviour
     {
         Time.timeScale = 1f;
       
-        if (!PlayerPrefs.HasKey("PlayerX") && isClear==true)
+        if (!PlayerPrefs.HasKey("PlayerX"))
         {
             startingPos = new Vector3(startingPos.x, startingPos.y, startingPos.z);
             Instantiate(player, startingPos, startingRotate);
@@ -50,10 +50,19 @@ public class SceneCnt : MonoBehaviour
         }
         else
         {
-            float x = PlayerPrefs.GetFloat("PlayerX");
-            float y = PlayerPrefs.GetFloat("PlayerY");
-            loadPos = new Vector3(x, y, 0);
-            Instantiate(player, loadPos,startingRotate);
+            if (isClear == true)
+            {
+                startingPos = new Vector3(startingPos.x, startingPos.y, startingPos.z);
+                Instantiate(player, startingPos, startingRotate);
+                isClear = false;
+            }
+            else
+            {
+                float x = PlayerPrefs.GetFloat("PlayerX");
+                float y = PlayerPrefs.GetFloat("PlayerY");
+                loadPos = new Vector3(x, y, 0);
+                Instantiate(player, loadPos, startingRotate);
+            }
 
         }
     }

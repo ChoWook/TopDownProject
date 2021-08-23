@@ -7,6 +7,8 @@ public class TitleManeger : MonoBehaviour
 {
     public GameObject setWindow;
     public static bool isSetWin = false;
+    
+
 
 
     // Start is called before the first frame update
@@ -18,6 +20,8 @@ public class TitleManeger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
         if (isSetWin)
         {
             setWindow.SetActive(true);
@@ -31,6 +35,7 @@ public class TitleManeger : MonoBehaviour
 
     public void clickStart()
     {
+        PlayerPrefs.DeleteAll();
         SceneManager.LoadScene("Top");
     }
 
@@ -50,6 +55,17 @@ public class TitleManeger : MonoBehaviour
         setWindow.SetActive(false);
     }
  
-
+    public void clickContinue()
+    {
+        if (!PlayerPrefs.HasKey("PlayerX"))
+        {
+            return;
+        }
+        else
+        {
+            int sn = PlayerPrefs.GetInt("StageNum");
+            SceneManager.LoadScene(sn, LoadSceneMode.Single);
+        }
+    }
 
 }
