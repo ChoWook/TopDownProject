@@ -27,6 +27,9 @@ public class InventoryObject : ScriptableObject
     {
         if (EmptySlotCount <= 0)
             return false;
+        if (_item.Id < 0)
+            return false;
+    
         InventorySlot slot = FindItemOnInventory(_item);
         if (!database.ItemObjects[_item.Id].stackable || slot == null)
         {
