@@ -409,6 +409,9 @@ public class CharacterContoller2D : MonoBehaviour
         PlayerPrefs.SetInt("StageNum",sn);
         PlayerPrefs.SetFloat("PlayerX", player.transform.position.x);
         PlayerPrefs.SetFloat("PlayerY", player.transform.position.y);
+        //item 세이브 추가 지점--------------
+        
+        //-----------------------------------
         PlayerPrefs.Save();
 
     }
