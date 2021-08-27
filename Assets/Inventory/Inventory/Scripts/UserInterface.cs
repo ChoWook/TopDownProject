@@ -13,6 +13,12 @@ public abstract class UserInterface : MonoBehaviour//, IPointerClickHandler
     public InventoryObject inventory;
     public Dictionary<GameObject, InventorySlot> slotsOnInterface = new Dictionary<GameObject, InventorySlot>();
     public static bool firstOpen = true;
+    public Tooltip tooltip;
+
+    private void OnEnable()
+    {
+        tooltip.gameObject.SetActive(false);
+    }
     void Start()
     {
         for (int i = 0; i < inventory.GetSlots.Length; i++)
@@ -75,10 +81,18 @@ public abstract class UserInterface : MonoBehaviour//, IPointerClickHandler
     public void OnEnter(GameObject obj)
     {
         MouseData.slotHoveredOver = obj;
+        
+        if(slotsOnInterface[obj].item.Id >= 0)
+        {
+            tooltip.SetTooltipText(slotsOnInterface[obj]);
+            tooltip.gameObject.SetActive(true);
+        }
+        
     }
     public void OnExit(GameObject obj)
     {
         MouseData.slotHoveredOver = null;
+        tooltip.gameObject.SetActive(false);
     }
     public void OnEnterInterface(GameObject obj)
     {

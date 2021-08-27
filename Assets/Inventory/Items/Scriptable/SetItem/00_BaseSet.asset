@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
-  m_Name: 00BseicSet
+  m_Name: 00_BaseSet
   m_EditorClassIdentifier: Assembly-CSharp::SetItem
   Items:
   - {fileID: 11400000, guid: 96815b4059be0fc43bf1fc85578e647f, type: 2}
@@ -19,3 +19,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 633ac02381825b0479bc2e6c6f1e37f9, type: 2}
   - {fileID: 11400000, guid: c6eb61efd897a144d8e2fe22ecac2b2e, type: 2}
   Id: 0
+  Name: Base
+  SetBuffDescription: "\uC138\uD2B8 \uD6A8\uACFC \uC124\uBA85"

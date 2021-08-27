@@ -8,17 +8,23 @@ public class SetItem : ScriptableObject
     public ItemObject[] Items;
     public int Id;
     public SetItemBuff[] SetBuffs;
+    public string Name;
+    public string SetBuffDescription;
     //public ItemBuff[] Buffs;
 
     public SetItem()
     {
         Id = -1;
+        Name = "Base";
+        SetBuffDescription = "세트 효과 설명";
     }
 
     public SetItem(SetItem setItem)
     {
         Items = setItem.Items;
         Id = setItem.Id;
+        Name = setItem.Name;
+        SetBuffDescription = setItem.SetBuffDescription;
         SetBuffs = new SetItemBuff[setItem.SetBuffs.Length];
         for (int i = 0; i < setItem.SetBuffs.Length; i++)
         {
