@@ -8,17 +8,6 @@ public class teleport : MonoBehaviour
     public GameObject Portal;
     public GameObject Player;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void OnTriggerEnter2D(Collider2D other)
     {
@@ -31,7 +20,7 @@ public class teleport : MonoBehaviour
 
     IEnumerator Teleport()
     {
-        yield return new WaitForSeconds(1);
+        yield return null;
         Player.transform.position = new Vector2 (Portal.transform.position.x, Portal.transform.position.y);
     }
 
