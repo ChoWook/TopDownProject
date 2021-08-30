@@ -33,7 +33,6 @@ public class ItemObject : ScriptableObject
     [TextArea(15, 20)]
     public string description;
     public Item data = new Item();
-    public SetItem setItem;
 
     public List<string> boneNames = new List<string>();
 
@@ -69,16 +68,23 @@ public class Item
     public string Name;
     public int Id = -1;
     public ItemBuff[] buffs;
+    public int setItem;
+    public string description;
+
+
     public Item()
     {
         Name = "";
         Id = -1;
+        setItem = 0;
     }
+
     public Item(ItemObject item)
     {
         Name = item.name;
         Id = item.data.Id;
         buffs = new ItemBuff[item.data.buffs.Length];
+        description = item.description;
         for (int i = 0; i < buffs.Length; i++)
         {
             buffs[i] = new ItemBuff(item.data.buffs[i].min, item.data.buffs[i].max)

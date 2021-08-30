@@ -7,7 +7,8 @@ public class Tooltip : MonoBehaviour
 {
     private static Tooltip instance;
     public InventoryObject equipment;
-
+    public SetItemDatabaseObject setItemDatabase;
+    
     public Camera uiCamera;
 
     public Image ItemImage;
@@ -70,9 +71,11 @@ public class Tooltip : MonoBehaviour
 
     public void SetTooltipText(InventorySlot obj)
     {
-        ItemImage.sprite = obj.ItemObject.uiDisplay;
-        NameText.text = obj.ItemObject.data.Name;
-        SetNameText.text = obj.ItemObject.setItem.Name;
+        var itemObject = obj.ItemObject;
+        var setItem = setItemDatabase.SetItems[itemObject.data.setItem];
+        ItemImage.sprite = itemObject.uiDisplay;
+        NameText.text = itemObject.data.Name;
+        SetNameText.text = setItem.Name;
 
         DescriptionText.text = "";
         for (int i = 0; i < obj.item.buffs.Length; i++)
@@ -95,20 +98,20 @@ public class Tooltip : MonoBehaviour
             DescriptionText.text += "+" + obj.item.buffs[i].value.ToString() + "\n";
         }
 
-        SetItemCheckLabel.text = obj.ItemObject.setItem.Name;
+        SetItemCheckLabel.text = setItem.Name;
 
-        for(int i = 0; i < obj.ItemObject.setItem.Items.Length; i++)
+        for(int i = 0; i < setItem.Items.Length; i++)
         {
-            SetItemCheckText[i].text = obj.ItemObject.setItem.Items[i].data.Name;
+            SetItemCheckText[i].text = setItem.Items[i].data.Name;
             SetItemCheckText[i].color = gray;
 
             // 장비가 장착되어 있다면 색을 녹색으로 바꿈
-            if (equipment.GetSlots[(int)obj.ItemObject.setItem.Items[i].type - 1].item.Id == obj.ItemObject.setItem.Items[i].data.Id)
+            if (equipment.GetSlots[(int)setItem.Items[i].type - 1].item.Id == setItem.Items[i].data.Id)
             {
                 SetItemCheckText[i].color = green;
             }
         }
 
-        SetItemBuffText.text = obj.ItemObject.setItem.SetBuffDescription;
+        SetItemBuffText.text = setItem.SetBuffDescription;
     }
 }

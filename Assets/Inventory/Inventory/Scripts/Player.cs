@@ -282,7 +282,7 @@ public class Player : MonoBehaviour
 
             if (equipment.GetSlots[i].item.Id >= 0)
             {
-                var setItem = equipment.database.ItemObjects[equipment.GetSlots[i].item.Id].setItem;
+                var setItem = setItemDatabase.SetItems[equipment.database.ItemObjects[equipment.GetSlots[i].item.Id].data.setItem];
                 if (setItem == null)
                 {
                     continue;

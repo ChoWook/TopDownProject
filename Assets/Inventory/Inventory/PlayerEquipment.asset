@@ -22,28 +22,38 @@ MonoBehaviour:
         Name: 
         Id: -1
         buffs: []
+        setItem: 0
+        description: 
       amount: 0
     - AllowedItems: 02000000
       item:
         Name: 
         Id: -1
         buffs: []
+        setItem: 0
+        description: 
       amount: 0
     - AllowedItems: 03000000
       item:
         Name: 
         Id: -1
         buffs: []
+        setItem: 0
+        description: 
       amount: 0
     - AllowedItems: 04000000
       item:
         Name: 
         Id: -1
         buffs: []
+        setItem: 0
+        description: 
       amount: 0
     - AllowedItems: 05000000
       item:
         Name: 
         Id: -1
         buffs: []
+        setItem: 0
+        description: 
       amount: 0

@@ -3,13 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Set Item", menuName = "Inventory System/Items/set item")]
-public class SetItem : ScriptableObject
+[System.Serializable]
+public class SetItemObject : ScriptableObject
+{
+    public string SetBuffDescription;
+    [SerializeField]
+    public SetItem data = new SetItem();
+
+    public SetItem CreateSetItem()
+    {
+        SetItem newSetItem = new SetItem(this);
+        return newSetItem;
+    }
+
+}
+
+[System.Serializable]
+public class SetItem
 {
     public ItemObject[] Items;
     public int Id;
     public SetItemBuff[] SetBuffs;
     public string Name;
     public string SetBuffDescription;
+
     //public ItemBuff[] Buffs;
 
     public SetItem()
@@ -19,17 +36,20 @@ public class SetItem : ScriptableObject
         SetBuffDescription = "세트 효과 설명";
     }
 
-    public SetItem(SetItem setItem)
+    public SetItem(SetItemObject setItem)
     {
-        Items = setItem.Items;
-        Id = setItem.Id;
-        Name = setItem.Name;
+        Items = setItem.data.Items;
+        Id = setItem.data.Id;
+        Name = setItem.data.Name;
         SetBuffDescription = setItem.SetBuffDescription;
-        SetBuffs = new SetItemBuff[setItem.SetBuffs.Length];
-        for (int i = 0; i < setItem.SetBuffs.Length; i++)
+        
+        SetBuffs = new SetItemBuff[setItem.data.SetBuffs.Length];
+        /*
+        for (int i = 0; i < setItem.data.SetBuffs.Length; i++)
         {
             // 세트 아이템 효과 복사
         }
+        */
 
         //Buffs = new ItemBuff[setItem.Buffs.Length];
         //for (int i = 0; i < Buffs.Length; i++)
@@ -40,7 +60,9 @@ public class SetItem : ScriptableObject
         //    };
         //}
     }
+
 }
+
 
 public class SetItemBuff
 {

@@ -1647,6 +1647,12 @@ PrefabInstance:
       propertyPath: uiCamera
       value: 
       objectReference: {fileID: 2778759526491202950}
+    - target: {fileID: 5883668182182083090, guid: 1771ace6b5d0b82468d17c759b895ed6,
+        type: 3}
+      propertyPath: setItemDatabase
+      value: 
+      objectReference: {fileID: 11400000, guid: a994d6dd0e28f16479c68ffd39474f80,
+        type: 2}
     - target: {fileID: 9125815309555072287, guid: 1771ace6b5d0b82468d17c759b895ed6,
         type: 3}
       propertyPath: m_Name
@@ -1789,6 +1795,12 @@ PrefabInstance:
       propertyPath: uiCamera
       value: 
       objectReference: {fileID: 2778759526491202950}
+    - target: {fileID: 5883668182182083090, guid: 1771ace6b5d0b82468d17c759b895ed6,
+        type: 3}
+      propertyPath: setItemDatabase
+      value: 
+      objectReference: {fileID: 11400000, guid: a994d6dd0e28f16479c68ffd39474f80,
+        type: 2}
     - target: {fileID: 5893642763278547013, guid: 1771ace6b5d0b82468d17c759b895ed6,
         type: 3}
       propertyPath: m_Color.a

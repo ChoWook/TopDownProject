@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: SetItemDatabase
   m_EditorClassIdentifier: 
   SetItems:
-  - {fileID: 11400000, guid: 04b048defac10ac4290011c01b1b3c0f, type: 2}
+  - Items: []
+    Id: 0
+    Name: Base
+    SetBuffDescription: "\uC138\uD2B8 \uD6A8\uACFC \uC124\uBA85"
