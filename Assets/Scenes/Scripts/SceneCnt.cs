@@ -47,6 +47,14 @@ public class SceneCnt : MonoBehaviour
             startingPos = new Vector3(startingPos.x, startingPos.y, startingPos.z);
             Instantiate(player, startingPos, startingRotate);
             isClear = false;
+            Debug.Log("Saved!");
+            int sn = SceneManager.GetActiveScene().buildIndex;
+            PlayerPrefs.SetInt("StageNum", sn);
+            PlayerPrefs.SetFloat("PlayerX", startingPos.x);
+            PlayerPrefs.SetFloat("PlayerY", startingPos.y);
+            PlayerPrefs.Save();
+          
+
         }
         else
         {
@@ -55,6 +63,13 @@ public class SceneCnt : MonoBehaviour
                 startingPos = new Vector3(startingPos.x, startingPos.y, startingPos.z);
                 Instantiate(player, startingPos, startingRotate);
                 isClear = false;
+                Debug.Log("Saved!");
+                int sn = SceneManager.GetActiveScene().buildIndex;
+                PlayerPrefs.SetInt("StageNum", sn);
+                PlayerPrefs.SetFloat("PlayerX", startingPos.x);
+                PlayerPrefs.SetFloat("PlayerY", startingPos.y);
+                PlayerPrefs.Save();
+
             }
             else
             {
@@ -76,6 +91,7 @@ public class SceneCnt : MonoBehaviour
 
         SceneManager.LoadScene(stageNum, LoadSceneMode.Single);
         isClear = true;
+      
        
     }
     public void GameLoad()
@@ -90,6 +106,8 @@ public class SceneCnt : MonoBehaviour
 
     }
 
+   
 
 
-}
+    }
+
