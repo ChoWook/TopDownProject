@@ -68,7 +68,8 @@ public class Item
     public string Name;
     public int Id = -1;
     public ItemBuff[] buffs;
-    public int setItem;
+    public int SetItemId;
+    public int ValidFloor = 5;
     public string description;
 
 
@@ -76,7 +77,7 @@ public class Item
     {
         Name = "";
         Id = -1;
-        setItem = 0;
+        SetItemId = 0;
     }
 
     public Item(ItemObject item)

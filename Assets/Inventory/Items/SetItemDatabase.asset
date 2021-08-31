@@ -13,7 +13,72 @@ MonoBehaviour:
   m_Name: SetItemDatabase
   m_EditorClassIdentifier: 
   SetItems:
-  - Items: []
+  - Items:
+    - {fileID: 11400000, guid: 96815b4059be0fc43bf1fc85578e647f, type: 2}
+    - {fileID: 11400000, guid: e210af58960cf154e91da376fe839337, type: 2}
+    - {fileID: 11400000, guid: 347b378f895cb8541898a6960998392e, type: 2}
+    - {fileID: 11400000, guid: 633ac02381825b0479bc2e6c6f1e37f9, type: 2}
+    - {fileID: 11400000, guid: c6eb61efd897a144d8e2fe22ecac2b2e, type: 2}
     Id: 0
     Name: Base
     SetBuffDescription: "\uC138\uD2B8 \uD6A8\uACFC \uC124\uBA85"
+  - Items:
+    - {fileID: 11400000, guid: c8c05f64c3b05654ca2491214f63cba2, type: 2}
+    - {fileID: 11400000, guid: 69921974bf45cb04d835cd9c8bc08f06, type: 2}
+    - {fileID: 11400000, guid: 9295ba448cbee8e419fad10471afffd8, type: 2}
+    - {fileID: 11400000, guid: fd5f9cbb391a47f4ea0e79b47afc83ae, type: 2}
+    - {fileID: 11400000, guid: af0419c08a2146a44ad2482e470a66a9, type: 2}
+    Id: 1
+    Name: "\uBAA8\uD5D8\uAC00"
+    SetBuffDescription: "\uC138\uD2B8 \uD6A8\uACFC \uC124\uBA85"
+  - Items:
+    - {fileID: 11400000, guid: 919380d58fee739478bc1dfe152e3d37, type: 2}
+    - {fileID: 11400000, guid: 81978ff6be58db744ac4a7d4b9289dde, type: 2}
+    - {fileID: 11400000, guid: cb810d2adc78ff147930ac3b9b743894, type: 2}
+    - {fileID: 11400000, guid: 2778951b2ec746640b8aca22b5187297, type: 2}
+    - {fileID: 11400000, guid: bfbb4279016eb7e4ba4fae004eb5611a, type: 2}
+    Id: 2
+    Name: "\uAE30\uC0AC"
+    SetBuffDescription: "\uC62C\uC2A4\uD0EF + 1"
+  - Items:
+    - {fileID: 11400000, guid: ecb7574b0c3d3ae4abd2388294c70b83, type: 2}
+    - {fileID: 11400000, guid: 0bbf408520fec0743aabdd6f7ce16d62, type: 2}
+    - {fileID: 11400000, guid: f38c5d86625481a41b23743414a2cbcf, type: 2}
+    Id: 3
+    Name: "\uC0AC\uB0E5\uAFBC"
+    SetBuffDescription: "\uD568\uC815 \uB300\uBBF8\uC9C0 \uAC10\uC18C\\n\uD568\uC815
+      \uD68C\uD53C"
+  - Items:
+    - {fileID: 11400000, guid: 4b752b34ae5e526459b9aeca9ea75e45, type: 2}
+    - {fileID: 11400000, guid: aee1bd69606f04843aa2a624ec25d6fb, type: 2}
+    Id: 4
+    Name: "\uC554\uC0B4\uC790"
+    SetBuffDescription: "\uC774\uB3D9\uC18D\uB3C4 \uC99D\uAC00"
+  - Items: []
+    Id: 5
+    Name: "\uAD11\uC804\uC0AC"
+    SetBuffDescription: "\uACF5\uACA9\uB825 1.5\uBC30\\n\uD53C\uACA9 \uB300\uBBF8\uC9C0
+      2\uBC30"
+  - Items: []
+    Id: 6
+    Name: "\uAD11\uAE30"
+    SetBuffDescription: "\uACF5\uACA9\uC18D\uB3C4 \uC99D\uAC00"
+  - Items: []
+    Id: 7
+    Name: "\uC131\uC9C1\uC790"
+    SetBuffDescription: "\uD53C\uACA9\uC2DC \uC77C\uC815 \uD655\uB960\uB85C \uCCB4\uB825
+      \uD68C"
+  - Items: []
+    Id: 8
+    Name: "\uD761\uD608"
+    SetBuffDescription: "\uC77C\uC815 \uD69F\uC218\uC758 \uBAB9 \uCC98\uCE58 \uC2DC
+      \uCCB4\uB825 \uD68C\uBCF5"
+  - Items: []
+    Id: 9
+    Name: "\uB300\uB9C8\uBC95\uC0AC"
+    SetBuffDescription: "\uACF5\uACA9 \uC2DC \uC77C\uC815  \uD655\uB960\uB85C \uB9C8\uBC95
+      \uC2DC\uC804"
+  - Items: []
+    Id: 10
+    Name: "\uC804\uC124"
+    SetBuffDescription: "\uAC15\uD654 \uACF5\uACA9\\n2\uB2E8 \uC810\uD504"

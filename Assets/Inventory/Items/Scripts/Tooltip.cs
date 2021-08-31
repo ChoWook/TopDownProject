@@ -72,7 +72,7 @@ public class Tooltip : MonoBehaviour
     public void SetTooltipText(InventorySlot obj)
     {
         var itemObject = obj.ItemObject;
-        var setItem = setItemDatabase.SetItems[itemObject.data.setItem];
+        var setItem = setItemDatabase.SetItems[itemObject.data.SetItemId];
         ItemImage.sprite = itemObject.uiDisplay;
         NameText.text = itemObject.data.Name;
         SetNameText.text = setItem.Name;
