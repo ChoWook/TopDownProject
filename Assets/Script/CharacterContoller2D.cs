@@ -410,7 +410,8 @@ public class CharacterContoller2D : MonoBehaviour
         PlayerPrefs.SetFloat("PlayerX", player.transform.position.x);
         PlayerPrefs.SetFloat("PlayerY", player.transform.position.y);
         //item save code 추가 할 부분!!!-----
-
+        player.equipment.Save();
+        player.inventory.Save();
         //-----------------------------------
 
         PlayerPrefs.Save();
