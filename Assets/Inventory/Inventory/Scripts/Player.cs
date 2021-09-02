@@ -36,6 +36,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         //boneCombiner = new BoneCombiner(gameObject);
+        setItemCheck = new SetItemCheck(setItemDatabase);
 
         for (int i = 0; i < attributes.Length; i++)
         {
@@ -45,7 +46,6 @@ public class Player : MonoBehaviour
         if (isGameStart)
         {
             HP = getHealth();
-            setItemCheck = new SetItemCheck(setItemDatabase);
             isGameStart = false;
         }
 
@@ -295,6 +295,18 @@ public class Player : MonoBehaviour
                         isSet = false;
                         break;
                     }
+                }
+
+                if(setItemCheck == null)
+                {
+                    Debug.Log("setItemCheck is null");
+                    continue;
+                }
+
+                if (setItem == null)
+                {
+                    Debug.Log("setItem is null");
+                    continue;
                 }
 
                 if (isSet)
