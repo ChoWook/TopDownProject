@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0790727c256c54e43bb7abfdd2315872, type: 3}
+  m_Name: 44_LegendBoots
+  m_EditorClassIdentifier: 
+  uiDisplay: {fileID: 0}
+  characterDisplay: {fileID: 0}
+  stackable: 0
+  type: 4
+  description: 
+  data:
+    Name: "\uC804\uC124\uC758 \uC2E0\uBC1C : \uD5E4\uB974\uBA54\uC2A4"
+    Id: 44
+    buffs:
+    - attribute: 0
+      value: 2
+      min: 2
+      max: 2
+    - attribute: 2
+      value: 5
+      min: 5
+      max: 5
+    SetItemId: 11
+    ValidFloor: 4
+    description: "\uC804\uC124\uC758 \uC6A9\uC0AC\uAC00 \uC0AC\uC6A9\uD588\uB2E4\uACE0
+      \uC804\uD574\uC9C0\uB294 \uC2E0\uBC1C\uC774\uB2E4"
+  boneNames: []

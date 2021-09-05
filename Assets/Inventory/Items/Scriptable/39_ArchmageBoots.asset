@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0790727c256c54e43bb7abfdd2315872, type: 3}
+  m_Name: 39_ArchmageBoots
+  m_EditorClassIdentifier: 
+  uiDisplay: {fileID: 0}
+  characterDisplay: {fileID: 0}
+  stackable: 0
+  type: 4
+  description: 
+  data:
+    Name: "\uB300\uB9C8\uBC95\uC0AC\uC758 \uC7A5\uD654"
+    Id: 39
+    buffs:
+    - attribute: 0
+      value: 1
+      min: 1
+      max: 1
+    - attribute: 2
+      value: 4
+      min: 4
+      max: 4
+    SetItemId: 10
+    ValidFloor: 4
+    description: "\uB300\uB9C8\uBC95\uC0AC\uAC00 \uCC29\uC6A9\uD588\uB358 \uC7A5\uD654\uB2E4"
+  boneNames: []
