@@ -35,7 +35,7 @@ public abstract class UserInterface : MonoBehaviour//, IPointerClickHandler
         //InventoryUI.gameObject.SetActive(true);
         if (firstOpen)
         {
-            Debug.Log(firstOpen);
+            //Debug.Log(firstOpen);
             //gameObject.SetActive(false);
             gameObject.GetComponentInParent<Canvas>().gameObject.SetActive(false);
             firstOpen = false;

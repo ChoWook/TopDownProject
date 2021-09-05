@@ -67,8 +67,8 @@ public class Player : MonoBehaviour
             case InterfaceType.Inventory:
                 break;
             case InterfaceType.Equipment:
-                print(string.Concat("Removed ", _slot.ItemObject, " on ", _slot.parent.inventory.type,
-                    ", Allowed Items: ", string.Join(", ", _slot.AllowedItems)));
+                //print(string.Concat("Removed ", _slot.ItemObject, " on ", _slot.parent.inventory.type,
+                //    ", Allowed Items: ", string.Join(", ", _slot.AllowedItems)));
 
                 for (int i = 0; i < _slot.item.buffs.Length; i++)
                 {
@@ -79,32 +79,30 @@ public class Player : MonoBehaviour
                     }
                 }
 
-                if (_slot.ItemObject.characterDisplay != null)
-                {
-                    switch (_slot.AllowedItems[0])
-                    {
-                        case ItemType.Helmet:
-                            Destroy(helmet.gameObject);
-                            break;
-                        case ItemType.Weapon:
-                            Destroy(weapon.gameObject);
-                            break;
-                        case ItemType.Glove:
-                            Destroy(glove.gameObject);
-                            break;
-                        case ItemType.Boots:
-                            Destroy(boots.gameObject);
-                            break;
-                        case ItemType.Chest:
-                            Destroy(chest.gameObject);
-                            break;
-                    }
-                }
+                //if (_slot.ItemObject.characterDisplay != null)
+                //{
+                //    switch (_slot.AllowedItems[0])
+                //    {
+                //        case ItemType.Helmet:
+                //            Destroy(helmet.gameObject);
+                //            break;
+                //        case ItemType.Weapon:
+                //            Destroy(weapon.gameObject);
+                //            break;
+                //        case ItemType.Glove:
+                //            Destroy(glove.gameObject);
+                //            break;
+                //        case ItemType.Boots:
+                //            Destroy(boots.gameObject);
+                //            break;
+                //        case ItemType.Chest:
+                //            Destroy(chest.gameObject);
+                //            break;
+                //    }
+                //}
 
-                OnSetItemCheck();
+                OnSetItemCheck(_slot, true);
 
-                break;
-            case InterfaceType.Chest:
                 break;
             default:
                 break;
@@ -120,8 +118,8 @@ public class Player : MonoBehaviour
             case InterfaceType.Inventory:
                 break;
             case InterfaceType.Equipment:
-                print(
-                    $"Placed {_slot.ItemObject}  on {_slot.parent.inventory.type}, Allowed Items: {string.Join(", ", _slot.AllowedItems)}");
+                //print(
+                //    $"Placed {_slot.ItemObject}  on {_slot.parent.inventory.type}, Allowed Items: {string.Join(", ", _slot.AllowedItems)}");
 
                 for (int i = 0; i < _slot.item.buffs.Length; i++)
                 {
@@ -168,10 +166,8 @@ public class Player : MonoBehaviour
                     //}
                 }
 
-                OnSetItemCheck();
+                OnSetItemCheck(_slot, false);
 
-                break;
-            case InterfaceType.Chest:
                 break;
             default:
                 break;
@@ -244,7 +240,7 @@ public class Player : MonoBehaviour
 
     public void AttributeModified(Attribute attribute)
     {
-        Debug.Log(string.Concat(attribute.type, " was updated! Value is now ", attribute.value.ModifiedValue));
+        //Debug.Log(string.Concat(attribute.type, " was updated! Value is now ", attribute.value.ModifiedValue));
     }
 
 
@@ -274,52 +270,48 @@ public class Player : MonoBehaviour
         return ((float)(attributes[3].value.ModifiedValue) / 10.0f);
     }
 
-    public void OnSetItemCheck()
+    public void OnSetItemCheck(InventorySlot slot, bool isRemove)
     {
         //세트아이템 체크
-        for (int i = 0; i < equipment.GetSlots.Length; i++)
+        Debug.Log("SetItemCheck");
+        if(slot.item.Id < 0)
         {
+            return;
+        }
+        var setItem = setItemDatabase.SetItems[slot.item.SetItemId];
 
-            if (equipment.GetSlots[i].item.Id >= 0)
+        if (!isRemove)
+        {
+            if (slot.item.Id >= 0)
             {
-                var setItem = setItemDatabase.SetItems[equipment.database.ItemObjects[equipment.GetSlots[i].item.Id].data.SetItemId];
                 if (setItem == null)
                 {
-                    continue;
+                    Debug.Log("setItem is null");
+                    return;
                 }
+
                 bool isSet = true;
                 for (int j = 0; j < setItem.Items.Length; j++)
                 {
                     if (equipment.GetSlots[(int)setItem.Items[j].type - 1].item.Id != setItem.Items[j].data.Id)
                     {
+                        Debug.Log(setItemDatabase.SetItems[setItem.Id].Name + false);
                         isSet = false;
                         break;
                     }
-                }
-
-                if(setItemCheck == null)
-                {
-                    Debug.Log("setItemCheck is null");
-                    continue;
-                }
-
-                if (setItem == null)
-                {
-                    Debug.Log("setItem is null");
-                    continue;
                 }
 
                 if (isSet)
                 {
                     setItemCheck.setChecked(setItem.Id, true);
                 }
-                else
-                {
-                    setItemCheck.setChecked(setItem.Id, false);
-                }
             }
-
         }
+        else
+        {
+            setItemCheck.setChecked(setItem.Id, false);
+        }
+
     }
 }
 
@@ -371,15 +363,16 @@ public class SetItemCheck
         this.setItemDatabase = setItemDatabase;
     }
 
-    public void setChecked(int index, bool isChecked)
+    public void setChecked(int id, bool isChecked)
     {
-        if(Checked[index] != isChecked)
+        if(Checked[id] != isChecked)
         {
-            Checked[index] = isChecked;
+            Checked[id] = isChecked;
+            Debug.Log(setItemDatabase.SetItems[id].Name + isChecked);
             if (isChecked)
             {
                 //세트효과 발동
-                switch (index)
+                switch (id)
                 {
                     default:break;
                 }
@@ -387,7 +380,7 @@ public class SetItemCheck
             else
             {
                 //세트효과 제거
-                switch (index)
+                switch (id)
                 {
                     default: break;
                 }

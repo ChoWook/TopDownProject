@@ -39,10 +39,11 @@ public class DynamicInterface : UserInterface
 
     public void OnPointerClick(GameObject obj)
     {
-        if(slotsOnInterface[obj].item.Id == -1)
+        if (slotsOnInterface[obj].item.Id == -1)
         {
             return;
         }
+        tooltip.gameObject.SetActive(false);
 
         var inventory = GetComponentInParent<Player>().inventory;
         var equipment = GetComponentInParent<Player>().equipment;

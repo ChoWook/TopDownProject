@@ -28,6 +28,7 @@ public class StaticInterface : UserInterface
 
     public void OnPointerClick(GameObject obj)
     {
+        tooltip.gameObject.SetActive(false);
         GetComponentInParent<Player>().inventory.AddItem(slotsOnInterface[obj].item, 1);
         slotsOnInterface[obj].RemoveItem();
     }
