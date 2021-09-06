@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CharacterContoller2D : MonoBehaviour
+public class CharacterController2D : MonoBehaviour
 {
     string[] ignoredTag = { "CheckPoint" };
     const int PLAYER_LAYER = 10;
@@ -32,6 +32,8 @@ public class CharacterContoller2D : MonoBehaviour
     bool isAttack = false;
     bool isOpenInventory = false;
     bool isOnSlowTrap = false;
+    int KillCount = 0;
+    bool isDoubleJump = false;
 
     Vector3 cameraPos;
     Rigidbody2D r2d;
@@ -140,6 +142,16 @@ public class CharacterContoller2D : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded && !isEvasion && !isAttack && !isOnSlowTrap)
         {
             r2d.velocity = new Vector2(r2d.velocity.x, jumpHeight);
+            isDoubleJump = true;
+        }
+
+        if (isDoubleJump)                   // 2단 점프
+        {
+            if(SetItemCheck.getChecked(11)) // 전설 세트
+            {
+                r2d.velocity = new Vector2(r2d.velocity.x, jumpHeight);
+                isDoubleJump = false;
+            }
         }
     }
 
@@ -232,7 +244,31 @@ public class CharacterContoller2D : MonoBehaviour
             Debug.Log(enemy.name);
             if (enemy.isTrigger)    // 땅에 닿게 해주는 rigidbody는 제외
             {
-                enemy.GetComponent<Enemy>().takeDamage(player.getAttack());
+                var dmg = player.getAttack();
+
+                if (SetItemCheck.getChecked(9))     // 선택받은 자 세트
+                {
+
+                }
+
+                int enemy_hp = enemy.GetComponent<Enemy>().takeDamage(dmg);
+                if (enemy_hp == 0)
+                {
+                    if (SetItemCheck.getChecked(8))  // 흡혈귀 세트
+                    {
+                        KillCount++;
+                        if(KillCount >= 8)          // 8 마리 잡을 때 마다 피 1 회복
+                        {
+                            Player.HP += 1;
+                            KillCount = 0;
+                        }
+                    }
+                    else
+                    {
+                        KillCount = 0;
+                    }
+                }
+                
             }
         }
     }
@@ -284,6 +320,7 @@ public class CharacterContoller2D : MonoBehaviour
                 if (colliders[i] != mainCollider && IsGroundTagCheck(colliders[i]))
                 {
                     isGrounded = true;
+                    isDoubleJump = false;
                     break;
                 }
             }
@@ -334,14 +371,21 @@ public class CharacterContoller2D : MonoBehaviour
             GameSave();
         }
        
-
     }
 
     public void OnDamaged(int dmg)
     {
         OnInvincible();
+        if(SetItemCheck.getChecked(5))  // 광전사 세트
+        {
+            dmg *= 2;
+        }
         Player.HP -= dmg;
         // 1초 뒤에 무적 해제
+        if(SetItemCheck.getChecked(7))  // 성직자 세트
+        {
+            Player.HP += 1;
+        }
         Invoke("EndInvincible", invincibleTime);
     }
 
@@ -371,17 +415,22 @@ public class CharacterContoller2D : MonoBehaviour
             jumpHeight = 30f;
         }
 
-	if (collision.transform.CompareTag("Slow_trap"))
+	    if (collision.transform.CompareTag("Slow_trap") && !SetItemCheck.getChecked(3)) // 사냥꾼 세트는 슬로우 트랩에 걸리지 않음
         {
             isOnSlowTrap = true;
             baseSpeed = 3.0f;
         }
 
-	if (collision.transform.CompareTag("Dmg_trap"))
+	    if (collision.transform.CompareTag("Dmg_trap"))
         {
-            OnInvincible();
-            Player.HP -= 1;
-            Invoke("EndInvincible", invincibleTime);
+            if (SetItemCheck.getChecked(3))     // 사냥꾼 세트는 대미지 트랩의 대미지를 적게 받음
+            {
+                OnDamaged(1);
+            }
+            else
+            {
+                OnDamaged(2);
+            }
         }
     }
 

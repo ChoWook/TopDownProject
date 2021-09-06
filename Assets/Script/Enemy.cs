@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     public bool isFlying = false;
 
     private bool isAttack = false;
-    CharacterContoller2D player;
+    CharacterController2D player;
     Rigidbody2D r2d;
     Animator anim;
     SpriteRenderer spriteRenderer;
@@ -58,7 +58,7 @@ public class Enemy : MonoBehaviour
 
     private void FindPlayer()
     {
-        player = GameObject.FindObjectOfType<CharacterContoller2D>();
+        player = GameObject.FindObjectOfType<CharacterController2D>();
         if(player == null)
         {
             return;
@@ -117,7 +117,7 @@ public class Enemy : MonoBehaviour
 
         foreach (Collider2D player in hitPlayers)
         {
-            player.GetComponent<CharacterContoller2D>().OnDamaged(AttackDmg);
+            player.GetComponent<CharacterController2D>().OnDamaged(AttackDmg);
         }
     }
 }

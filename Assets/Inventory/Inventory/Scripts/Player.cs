@@ -252,22 +252,68 @@ public class Player : MonoBehaviour
 
     public int getAttack()
     {
-        return attributes[0].value.ModifiedValue;
+        int ret;
+        ret = attributes[0].value.ModifiedValue;
+
+        if (SetItemCheck.getChecked(2)) // 기사 세트
+        {
+            ret += 1;
+        }
+
+        if(SetItemCheck.getChecked(5))  // 광전사
+        {
+            ret = (int)((float)ret * 1.5f);
+        }
+        return ret;
     }
 
     public int getHealth()
     {
-        return attributes[1].value.ModifiedValue * 2;
+        int ret;
+        ret = attributes[1].value.ModifiedValue;
+
+        if (SetItemCheck.getChecked(2))     // 기사 세트
+        {
+            ret += 1;
+        }
+
+        return ret * 2;
     }
 
     public float getSpeed()
     {
-        return ((float)(attributes[2].value.ModifiedValue) / 5.0f);
+        float ret;
+        ret = (float)(attributes[2].value.ModifiedValue);
+
+        if (SetItemCheck.getChecked(2))     // 기사 세트
+        {
+            ret += 1;
+        }
+
+        if (SetItemCheck.getChecked(4))
+        {
+            ret += 3;
+        }
+
+        return ret / 5.0f;
     }
 
     public float getAttackSpeed()
     {
-        return ((float)(attributes[3].value.ModifiedValue) / 10.0f);
+        float ret;
+        ret = (float)(attributes[3].value.ModifiedValue);
+
+        if (SetItemCheck.getChecked(2))     // 기사 세트
+        {
+            ret += 1;
+        }
+
+        if (SetItemCheck.getChecked(6))     // 광기 세트
+        {
+            ret += 3;
+        }
+
+        return ret / 10.0f;
     }
 
     public void OnSetItemCheck(InventorySlot slot, bool isRemove)
@@ -303,13 +349,13 @@ public class Player : MonoBehaviour
 
                 if (isSet)
                 {
-                    setItemCheck.setChecked(setItem.Id, true);
+                    SetItemCheck.setChecked(setItem.Id, true);
                 }
             }
         }
         else
         {
-            setItemCheck.setChecked(setItem.Id, false);
+            SetItemCheck.setChecked(setItem.Id, false);
         }
 
     }
@@ -355,15 +401,18 @@ public class Attribute
 
 public class SetItemCheck
 {
+    static SetItemDatabaseObject setItemDatabase;
     static bool[] Checked;
-    SetItemDatabaseObject setItemDatabase;
 
     public SetItemCheck(SetItemDatabaseObject setItemDatabase) {
-        Checked = new bool[setItemDatabase.SetItems.Length];
-        this.setItemDatabase = setItemDatabase;
+        if (Checked == null)
+        {
+            Checked = new bool[setItemDatabase.SetItems.Length];
+        }
+        SetItemCheck.setItemDatabase = setItemDatabase;
     }
 
-    public void setChecked(int id, bool isChecked)
+    public static void setChecked(int id, bool isChecked)
     {
         if(Checked[id] != isChecked)
         {
@@ -388,8 +437,20 @@ public class SetItemCheck
         }
     }
 
-    public bool getChecked(int index)
+    public static bool getChecked(int id)
     {
-        return Checked[index];
+        return Checked[id];
+    }
+
+    public static bool getChecked(string name)
+    {
+        for(int i = 0; i < setItemDatabase.SetItems.Length; i++)
+        {
+            if(setItemDatabase.SetItems[i].Name == name)
+            {
+                return Checked[setItemDatabase.SetItems[i].Id];
+            }
+        }
+        return false;
     }
 }
