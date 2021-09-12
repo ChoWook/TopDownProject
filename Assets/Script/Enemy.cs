@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     public float AttackTiming = 0.5f;
     public bool isFlip = false;
     public bool isFlying = false;
+    public bool isAttach = false;
 
     private bool isAttack = false;
     CharacterController2D player;
@@ -69,7 +70,10 @@ public class Enemy : MonoBehaviour
         if (!isAttack)
         {
             spriteRenderer.flipX = (facingDirection >= 0.0f) ? false^isFlip : true^isFlip;
-
+            if (isAttach)   // 고정형 몹은 움직이지 않게 return
+            {
+                return;
+            }
             if (distance <= DetectRange && distance >= AttackRange)
             {
                 anim.SetBool("Walk", true);

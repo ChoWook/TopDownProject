@@ -15,6 +15,8 @@ public class CharacterController2D : MonoBehaviour
     public float gravityScale = 1.5f;
     public float evasionSpeed = 2.5f;
     public float attackTiming = 0.04f;
+    public float CameraZDistance = 0.0f;
+    public float CameraUpperDistance = 1.0f;
     public Camera mainCamera;
     public Canvas InventoryUI;
 
@@ -89,7 +91,7 @@ public class CharacterController2D : MonoBehaviour
         // Camera follow
         if (mainCamera)
         {
-            mainCamera.transform.position = new Vector3(t.position.x, t.position.y + 1f, cameraPos.z);
+            mainCamera.transform.position = new Vector3(t.position.x, t.position.y + CameraUpperDistance, cameraPos.z + CameraZDistance);
         }
     }
 
