@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     public bool isFlip = false;
     public bool isFlying = false;
     public bool isAttach = false;
+    public bool isInvincible = false;
 
     private bool isAttack = false;
     CharacterController2D player;
@@ -46,13 +47,17 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     public int takeDamage(int dmg)
     {
-        Hp -= dmg;
-        if (Hp <= 0)
+        if (!isInvincible)
         {
-            Hp = 0;
-            Debug.Log("Destroyed");
-            Destroy(gameObject);
+            Hp -= dmg;
+            if (Hp <= 0)
+            {
+                Hp = 0;
+                Debug.Log("Destroyed");
+                Destroy(gameObject);
+            }
         }
+
         return Hp;
     }
 
@@ -67,13 +72,10 @@ public class Enemy : MonoBehaviour
         var distanceX = Vector2.Distance(transform.position, new Vector2(player.transform.position.x, transform.position.y));
         var distance = Vector2.Distance(transform.position, player.transform.position);
         var facingDirection = player.transform.position.x - transform.position.x;
-        if (!isAttack)
+
+        if (!isAttack && !isAttach)     // 고정형 몹은 움직이지 않게 return
         {
-            spriteRenderer.flipX = (facingDirection >= 0.0f) ? false^isFlip : true^isFlip;
-            if (isAttach)   // 고정형 몹은 움직이지 않게 return
-            {
-                return;
-            }
+            spriteRenderer.flipX = (facingDirection >= 0.0f) ? false ^ isFlip : true ^ isFlip;
             if (distance <= DetectRange && distance >= AttackRange)
             {
                 anim.SetBool("Walk", true);
