@@ -28,7 +28,7 @@ TagManager:
   - Player
   - PlayerDamaged
   - Item
-  - 
+  - IgnoreEnemy
   - 
   - 
   - 

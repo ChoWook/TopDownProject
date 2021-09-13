@@ -15,9 +15,11 @@ public class Enemy : MonoBehaviour
     public bool isFlip = false;
     public bool isFlying = false;
     public bool isAttach = false;
+    public bool isWatching = true;
     public bool isInvincible = false;
 
-    private bool isAttack = false;
+    bool isAttack = false;
+    bool isDead = false;
     CharacterController2D player;
     Rigidbody2D r2d;
     Animator anim;
@@ -54,6 +56,7 @@ public class Enemy : MonoBehaviour
             {
                 Hp = 0;
                 Debug.Log("Destroyed");
+                isDead = true;
                 Destroy(gameObject);
             }
         }
@@ -73,9 +76,17 @@ public class Enemy : MonoBehaviour
         var distance = Vector2.Distance(transform.position, player.transform.position);
         var facingDirection = player.transform.position.x - transform.position.x;
 
-        if (!isAttack && !isAttach)     // 고정형 몹은 움직이지 않게 return
+        if (!isAttack)     
         {
-            spriteRenderer.flipX = (facingDirection >= 0.0f) ? false ^ isFlip : true ^ isFlip;
+            if (isWatching)
+            {
+                spriteRenderer.flipX = (facingDirection >= 0.0f) ? false ^ isFlip : true ^ isFlip;
+            }
+
+            if (isAttach)
+            {
+                return;         // 고정형 몹은 움직이지 않게 return
+            }
             if (distance <= DetectRange && distance >= AttackRange)
             {
                 anim.SetBool("Walk", true);
@@ -125,5 +136,10 @@ public class Enemy : MonoBehaviour
         {
             player.GetComponent<CharacterController2D>().OnDamaged(AttackDmg);
         }
+    }
+
+    public bool GetIsDead()
+    {
+        return isDead;
     }
 }
