@@ -9,8 +9,10 @@ public class Boss4 : MonoBehaviour
     public Machine[] Machines;
     public Tilemap[] tilemaps;
     public Transform[] OrbTransform;
-
+    public Transform PlayerStartTransform;
     public Orb OrbPrefab;
+
+    Player player;
     bool[] isClearStates = new bool[4];
 
     void Awake()
@@ -19,18 +21,23 @@ public class Boss4 : MonoBehaviour
         {
             tilemaps[i].gameObject.SetActive(false);
         }
-        
         NextState();
     }
 
     public void ChangeState(int state)
     {
-        if(state < 0 || state > 3)
+        if (state < 0 || state > 3)
         {
             return;
         }
 
-        for(int i = 0; i < 4; i++)
+        player = GameObject.FindObjectOfType<Player>();
+        if (player != null)
+        {
+            player.gameObject.transform.position = PlayerStartTransform.position;
+        }
+
+        for (int i = 0; i < 4; i++)
         {
             if(Orbs[i] != null)
             {

@@ -556,7 +556,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5}
+  m_Offset: {x: 0, y: -0.7}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -567,7 +567,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.4}
+  m_Size: {x: 0.8, y: 1.1}
   m_EdgeRadius: 0
 --- !u!114 &920075696574928741
 MonoBehaviour:
@@ -587,6 +587,7 @@ MonoBehaviour:
   evasionSpeed: 2.5
   attackTiming: 0.04
   CameraZDistance: -11
+  CameraUpperDistance: 1
   mainCamera: {fileID: 2778759526491202950}
   InventoryUI: {fileID: 7353600312958918354}
   attackPoint: {fileID: 1695835153941771974}

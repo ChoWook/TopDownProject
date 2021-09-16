@@ -372,7 +372,19 @@ public class CharacterController2D : MonoBehaviour
         {
             GameSave();
         }
-       
+        else if (other.gameObject.CompareTag("Jump_plat"))
+        {
+            jumpHeight = 34f;
+        }
+
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Jump_plat"))
+        {
+            jumpHeight = 15f;
+        }
     }
 
     public void OnDamaged(int dmg)
