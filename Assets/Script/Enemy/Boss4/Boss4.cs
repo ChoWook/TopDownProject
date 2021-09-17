@@ -34,7 +34,9 @@ public class Boss4 : MonoBehaviour
         player = GameObject.FindObjectOfType<Player>();
         if (player != null)
         {
+            player.transform.SetParent(null);
             player.gameObject.transform.position = PlayerStartTransform.position;
+
         }
 
         for (int i = 0; i < 4; i++)
