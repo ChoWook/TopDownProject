@@ -348,6 +348,10 @@ public class CharacterController2D : MonoBehaviour
         {
             OnDamaged(1);
         }
+        else if(other.gameObject.tag == "Projectile")
+        {
+            OnDamaged(1);
+        }
         else if (other.gameObject.tag == "Item")
         {
             var groundItem = other.GetComponent<GroundItem>();

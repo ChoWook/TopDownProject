@@ -14,6 +14,7 @@ TagManager:
   - Slow_trap
   - Dmg_trap
   - CheckPoint
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,7 @@ TagManager:
   - PlayerDamaged
   - Item
   - IgnoreEnemy
-  - 
+  - Projectile
   - 
   - 
   - 
