@@ -111,7 +111,9 @@ MonoBehaviour:
   isFlip: 1
   isFlying: 0
   isAttach: 0
+  isWatching: 1
   isInvincible: 0
+  isTouch: 1
 --- !u!95 &7934161695557506315
 Animator:
   serializedVersion: 3

@@ -12,11 +12,12 @@ public class Enemy : MonoBehaviour
     public LayerMask PlayerLayer;
     public int AttackDmg = 1;
     public float AttackTiming = 0.5f;
-    public bool isFlip = false;
-    public bool isFlying = false;
-    public bool isAttach = false;
-    public bool isWatching = true;
-    public bool isInvincible = false;
+    public bool isFlip = false;         // 스프라이트 X플립
+    public bool isFlying = false;       // 날아다니기
+    public bool isAttach = false;       // 범위 안에 들어오면 공격
+    public bool isWatching = true;      // 캐릭터 위치 바라보기
+    public bool isInvincible = false;   // 무적인 몹
+    public bool isTouch = true;        // 몸빵딜 유무
 
     bool isAttack = false;
     bool isDead = false;

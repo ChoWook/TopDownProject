@@ -346,7 +346,10 @@ public class CharacterController2D : MonoBehaviour
 
         if (other.gameObject.tag == "Enemy")
         {
-            OnDamaged(1);
+            if (other.GetComponent<Enemy>().isTouch)
+            {
+                OnDamaged(1);
+            }
         }
         else if(other.gameObject.tag == "Projectile")
         {
@@ -379,6 +382,17 @@ public class CharacterController2D : MonoBehaviour
         else if (other.gameObject.CompareTag("Jump_plat"))
         {
             jumpHeight = 34f;
+        }
+        else if (other.gameObject.CompareTag("Dmg_trap"))
+        {
+            if (SetItemCheck.getChecked(3))     // 사냥꾼 세트는 대미지 트랩의 대미지를 적게 받음
+            {
+                OnDamaged(1);
+            }
+            else
+            {
+                OnDamaged(2);
+            }
         }
 
     }

@@ -72,7 +72,6 @@ public class MovingPlatform : MonoBehaviour
     ///대기시간
     [SerializeField] private float waitTime;
 
-    /// 시작
     private void Start()
     {
         // 처음 시작 위치 저장
@@ -80,7 +79,11 @@ public class MovingPlatform : MonoBehaviour
 
         //움직일 거리 조정
         this.SetPos();
+    }
 
+    /// 시작
+    private void OnEnable()
+    {
         StartCoroutine(this.Move());
     }
 

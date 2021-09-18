@@ -61,7 +61,9 @@ MonoBehaviour:
   isFlip: 1
   isFlying: 0
   isAttach: 0
+  isWatching: 1
   isInvincible: 0
+  isTouch: 1
 --- !u!212 &2837655020956676455
 SpriteRenderer:
   m_ObjectHideFlags: 0

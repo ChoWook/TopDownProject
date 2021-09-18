@@ -60,6 +60,7 @@ MonoBehaviour:
   isAttach: 0
   isWatching: 1
   isInvincible: 0
+  isTouch: 1
 --- !u!212 &5353099017658409971
 SpriteRenderer:
   m_ObjectHideFlags: 0
