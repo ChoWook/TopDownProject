@@ -15,8 +15,10 @@ public class CharacterController2D : MonoBehaviour
     public float gravityScale = 1.5f;
     public float evasionSpeed = 2.5f;
     public float attackTiming = 0.04f;
+    public float CameraXDistance = 0.0f;
     public float CameraZDistance = 0.0f;
     public float CameraUpperDistance = 1.0f;
+    public bool isWarrior = false;
     public Camera mainCamera;
     public Canvas InventoryUI;
 
@@ -91,7 +93,7 @@ public class CharacterController2D : MonoBehaviour
         // Camera follow
         if (mainCamera)
         {
-            mainCamera.transform.position = new Vector3(t.position.x, t.position.y + CameraUpperDistance, cameraPos.z + CameraZDistance);
+            mainCamera.transform.position = new Vector3(t.position.x + CameraXDistance, t.position.y + CameraUpperDistance, cameraPos.z + CameraZDistance);
         }
     }
 
@@ -175,18 +177,25 @@ public class CharacterController2D : MonoBehaviour
         // Change facing direction
         if (moveDirection != 0 && !isAttack)
         {
-            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Knight_jump_attack"))  // 점프 공격중에는 애니메이션 방향을 바꾸지 않음 
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("JumpAttack"))  // 점프 공격중에는 애니메이션 방향을 바꾸지 않음 
             { 
 
                 if (moveDirection > 0 && !facingRight)
                 {
                     facingRight = true;
                     t.localScale = new Vector3(Mathf.Abs(t.localScale.x), t.localScale.y, transform.localScale.z);
+                    t.localPosition = new Vector3(transform.position.x + 0.3f, transform.position.y, 0);
+                    CameraXDistance = 0.0f;
                 }
                 if (moveDirection < 0 && facingRight)
                 {
                     facingRight = false;
                     t.localScale = new Vector3(-Mathf.Abs(t.localScale.x), t.localScale.y, t.localScale.z);
+                    t.localPosition = new Vector3(transform.position.x - 0.3f, transform.position.y, 0);
+                    if (isWarrior)
+                    {
+                        CameraXDistance = 0.3f;
+                    }
                 }
             }
         }
@@ -278,14 +287,14 @@ public class CharacterController2D : MonoBehaviour
     private void BehaviorCheck()
     {
         // Evasion Check
-        if (isEvasion && !anim.GetCurrentAnimatorStateInfo(0).IsName("Knight_dash"))
+        if (isEvasion && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Dash"))
         {
             isEvasion = false;
             EndInvincible();
         }
 
         // Attack Check
-        if (isAttack && !anim.GetCurrentAnimatorStateInfo(0).IsName("Knight_attack"))
+        if (isAttack && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
         {
             isAttack = false;
         }
