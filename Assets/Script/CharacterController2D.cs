@@ -15,7 +15,7 @@ public class CharacterController2D : MonoBehaviour
     public float gravityScale = 1.5f;
     public float evasionSpeed = 2.5f;
     public float attackTiming = 0.04f;
-    public float CameraXDistance = 0.0f;
+    public float WarriorXDistance = 0.5f;
     public float CameraZDistance = 0.0f;
     public float CameraUpperDistance = 1.0f;
     public bool isWarrior = false;
@@ -28,6 +28,7 @@ public class CharacterController2D : MonoBehaviour
     public LayerMask enemyLayer;
     public float invincibleTime = 1.0f;
 
+    float CameraDistance = 0.0f;
     bool facingRight = true;
     float moveDirection = 0;
     bool isGrounded = false;
@@ -93,7 +94,7 @@ public class CharacterController2D : MonoBehaviour
         // Camera follow
         if (mainCamera)
         {
-            mainCamera.transform.position = new Vector3(t.position.x + CameraXDistance, t.position.y + CameraUpperDistance, cameraPos.z + CameraZDistance);
+            mainCamera.transform.position = new Vector3(t.position.x + CameraDistance, t.position.y + CameraUpperDistance, cameraPos.z + CameraZDistance);
         }
     }
 
@@ -184,17 +185,17 @@ public class CharacterController2D : MonoBehaviour
                 {
                     facingRight = true;
                     t.localScale = new Vector3(Mathf.Abs(t.localScale.x), t.localScale.y, transform.localScale.z);
-                    t.localPosition = new Vector3(transform.position.x + 0.3f, transform.position.y, 0);
-                    CameraXDistance = 0.0f;
+                    t.localPosition = new Vector3(transform.position.x + WarriorXDistance, transform.position.y, 0);
+                    CameraDistance = 0.0f;
                 }
                 if (moveDirection < 0 && facingRight)
                 {
                     facingRight = false;
                     t.localScale = new Vector3(-Mathf.Abs(t.localScale.x), t.localScale.y, t.localScale.z);
-                    t.localPosition = new Vector3(transform.position.x - 0.3f, transform.position.y, 0);
+                    t.localPosition = new Vector3(transform.position.x - WarriorXDistance, transform.position.y, 0);
                     if (isWarrior)
                     {
-                        CameraXDistance = 0.3f;
+                        CameraDistance = WarriorXDistance;
                     }
                 }
             }
@@ -286,6 +287,12 @@ public class CharacterController2D : MonoBehaviour
 
     private void BehaviorCheck()
     {
+        if (!isAttack && anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
+        {
+            isAttack = true;
+        }
+
+
         // Evasion Check
         if (isEvasion && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Dash"))
         {
@@ -297,6 +304,11 @@ public class CharacterController2D : MonoBehaviour
         if (isAttack && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
         {
             isAttack = false;
+        }
+
+        if (anim.GetCurrentAnimatorStateInfo(0).IsTag("JumpAttack") && isGrounded)
+        {
+            isAttack = true;
         }
     }
 

@@ -665,18 +665,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: -0.25, y: -0.2}
+  m_Offset: {x: -0.4, y: -0.23}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.4642856, y: 1.5714285}
+    oldSize: {x: 3.45, y: 2.2}
     newSize: {x: 5.12, y: 2.56}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 1.1}
+  m_Size: {x: 0.6, y: 1.65}
   m_EdgeRadius: 0
 --- !u!114 &784707848941803889
 MonoBehaviour:
@@ -695,7 +695,7 @@ MonoBehaviour:
   gravityScale: 1.5
   evasionSpeed: 2.5
   attackTiming: 0.04
-  CameraXDistance: 0
+  WarriorXDistance: 0.7
   CameraZDistance: -11
   CameraUpperDistance: 1
   isWarrior: 1
