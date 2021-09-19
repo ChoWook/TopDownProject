@@ -18,6 +18,7 @@ public class CharacterController2D : MonoBehaviour
     public float WarriorXDistance = 0.5f;
     public float CameraZDistance = 0.0f;
     public float CameraUpperDistance = 1.0f;
+    public float EvasionCoolTime = 0.5f;
     public bool isWarrior = false;
     public Camera mainCamera;
     public Canvas InventoryUI;
@@ -39,6 +40,7 @@ public class CharacterController2D : MonoBehaviour
     bool isOnSlowTrap = false;
     int KillCount = 0;
     bool isDoubleJump = false;
+    bool isEvasionCoolTime = false;
 
     Vector3 cameraPos;
     Rigidbody2D r2d;
@@ -119,7 +121,7 @@ public class CharacterController2D : MonoBehaviour
     private void Evasion()
     {
         // Evasion
-        if (Input.GetButtonDown("Evasion") && isGrounded && !isEvasion  && !isAttack && !isOnSlowTrap)
+        if (Input.GetButtonDown("Evasion") && isGrounded && !isEvasion  && !isAttack && !isOnSlowTrap && !isEvasionCoolTime)
         {
             isEvasion = true;
             anim.SetTrigger("evasionTrigger");
@@ -297,6 +299,8 @@ public class CharacterController2D : MonoBehaviour
         if (isEvasion && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Dash"))
         {
             isEvasion = false;
+            isEvasionCoolTime = true;
+            Invoke("EndEvasionCoolTime", EvasionCoolTime);
             EndInvincible();
         }
 
@@ -310,6 +314,11 @@ public class CharacterController2D : MonoBehaviour
         {
             isAttack = true;
         }
+    }
+
+    void EndEvasionCoolTime()
+    {
+        isEvasionCoolTime = false;
     }
 
     private void ToggleInventoryUI()
