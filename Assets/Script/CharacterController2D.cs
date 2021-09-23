@@ -187,14 +187,14 @@ public class CharacterController2D : MonoBehaviour
                 {
                     facingRight = true;
                     t.localScale = new Vector3(Mathf.Abs(t.localScale.x), t.localScale.y, transform.localScale.z);
-                    t.localPosition = new Vector3(transform.position.x + WarriorXDistance, transform.position.y, 0);
+                    t.position = new Vector3(transform.position.x + WarriorXDistance, transform.position.y, 0);
                     CameraDistance = 0.0f;
                 }
                 if (moveDirection < 0 && facingRight)
                 {
                     facingRight = false;
                     t.localScale = new Vector3(-Mathf.Abs(t.localScale.x), t.localScale.y, t.localScale.z);
-                    t.localPosition = new Vector3(transform.position.x - WarriorXDistance, transform.position.y, 0);
+                    t.position = new Vector3(transform.position.x - WarriorXDistance, transform.position.y, 0);
                     if (isWarrior)
                     {
                         CameraDistance = WarriorXDistance;
