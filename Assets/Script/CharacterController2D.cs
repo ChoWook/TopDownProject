@@ -238,10 +238,21 @@ public class CharacterController2D : MonoBehaviour
     private void Attack()
     {
         // Attack
-        if (Input.GetButtonDown("Fire1") && !isEvasion && !isAttack)
+        if (Input.GetButtonDown("Fire1") && !isEvasion)
         {
             anim.SetFloat("attackSpeed", player.getAttackSpeed());
-            anim.SetTrigger("attackTrigger");
+            
+            if (isAttack && isGrounded)
+            {
+                anim.SetBool("isSecondAttack", true);
+            }
+
+            if (!anim.GetBool("isSecondAttack") && !anim.GetCurrentAnimatorStateInfo(0).IsTag("JumpAttack"))
+            {
+                anim.SetTrigger("attackTrigger");
+            }
+
+
             isAttack = true;
 
             Invoke("FindEnemy", attackTiming / player.getAttackSpeed());
@@ -308,6 +319,7 @@ public class CharacterController2D : MonoBehaviour
         if (isAttack && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
         {
             isAttack = false;
+            anim.SetBool("isSecondAttack", false);
         }
 
         if (anim.GetCurrentAnimatorStateInfo(0).IsTag("JumpAttack") && isGrounded)
