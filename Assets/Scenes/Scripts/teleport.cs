@@ -9,18 +9,21 @@ public class teleport : MonoBehaviour
     public GameObject Player;
 
 
-    public void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.tag.Equals("Player"))
-        {
-            Player = other.gameObject;
-            StartCoroutine(Teleport());
-        }
+            if (other.gameObject.CompareTag("Player")&& Input.GetKey(KeyCode.UpArrow))
+            {
+                {
+                    Player = other.gameObject;
+                    StartCoroutine(Teleport());
+                }
+            }        
     }
+
 
     IEnumerator Teleport()
     {
-        yield return null;
+        yield return new WaitForSeconds(0.2f);
         Player.transform.position = new Vector2 (Portal.transform.position.x, Portal.transform.position.y);
     }
 
