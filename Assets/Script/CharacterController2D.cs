@@ -506,6 +506,19 @@ public class CharacterController2D : MonoBehaviour
                 OnDamaged(2);
             }
         }
+
+        if (collision.transform.CompareTag("Fall_trap"))
+        {
+            if (SetItemCheck.getChecked(3))     // 사냥꾼 세트는 대미지 트랩의 대미지를 적게 받음
+            {
+                OnDamaged(1);
+            }
+            else
+            {
+                OnDamaged(2);
+            }
+        }
+
     }
 
     private void OnCollisionExit2D(Collision2D collision)

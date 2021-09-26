@@ -15,6 +15,7 @@ TagManager:
   - Dmg_trap
   - CheckPoint
   - Projectile
+  - Fall_trap
   layers:
   - Default
   - TransparentFX
