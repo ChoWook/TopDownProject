@@ -361,7 +361,7 @@ public class CharacterController2D : MonoBehaviour
         {
             for (int i = 0; i < colliders.Length; i++)
             {
-                if (colliders[i] != mainCollider && IsGroundTagCheck(colliders[i]))
+                if (colliders[i] != mainCollider && IsGroundTagCheck(colliders[i]) && r2d.velocity.y < 0.1f)
                 {
                     isGrounded = true;
                     isDoubleJump = false;
