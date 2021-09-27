@@ -141,7 +141,15 @@ public class MovingPlatform : MonoBehaviour
     //따로 움직이는 버그수정
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.CompareTag("Player"))
+        //if (collision.transform.CompareTag("Player"))
+        //{
+        //    collision.transform.SetParent(transform);
+        //}
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Player") && collision.gameObject.GetComponent<CharacterController2D>().GetIsGrounded())
         {
             collision.transform.SetParent(transform);
         }

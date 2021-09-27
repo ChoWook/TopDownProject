@@ -567,4 +567,8 @@ public class CharacterController2D : MonoBehaviour
         return true;
     }
     
+    public bool GetIsGrounded()
+    {
+        return isGrounded;
+    }
 }
