@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Boss3 : MonoBehaviour
 {
-    public GameObject FallingGrid;
     // Start is called before the first frame update
     void Start()
     {

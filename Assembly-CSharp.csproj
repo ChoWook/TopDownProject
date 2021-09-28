@@ -94,6 +94,7 @@
     <Compile Include="Assets\Script\CharacterController2D.cs" />
     <Compile Include="Assets\Script\DataCon.cs" />
     <Compile Include="Assets\Script\Enemy\Boss3\Boss3.cs" />
+    <Compile Include="Assets\Script\Enemy\Boss3\FallingGrid.cs" />
     <Compile Include="Assets\Script\Enemy\Boss4\Boss4.cs" />
     <Compile Include="Assets\Script\Enemy\Boss4\Machine.cs" />
     <Compile Include="Assets\Script\Enemy\Boss4\Orb.cs" />

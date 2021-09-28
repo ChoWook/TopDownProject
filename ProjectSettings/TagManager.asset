@@ -16,6 +16,7 @@ TagManager:
   - CheckPoint
   - Projectile
   - Fall_trap
+  - EndPoint
   layers:
   - Default
   - TransparentFX
