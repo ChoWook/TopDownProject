@@ -628,6 +628,7 @@ GameObject:
   - component: {fileID: 546656174}
   - component: {fileID: 546656173}
   - component: {fileID: 546656172}
+  - component: {fileID: 546656178}
   m_Layer: 0
   m_Name: mov_plat
   m_TagString: Untagged
@@ -679,7 +680,7 @@ CompositeCollider2D:
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 636e18b90987c114f8217d60baad49c9, type: 2}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_GeometryType: 0
@@ -1061,6 +1062,25 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!251 &546656178
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546656170}
+  m_Enabled: 1
+  m_UseColliderMask: 0
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 1
+  m_SurfaceArc: 90
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &664417816
 GameObject:
   m_ObjectHideFlags: 0
@@ -1076,6 +1096,7 @@ GameObject:
   - component: {fileID: 664417820}
   - component: {fileID: 664417819}
   - component: {fileID: 664417818}
+  - component: {fileID: 664417824}
   m_Layer: 0
   m_Name: fall_plat
   m_TagString: Untagged
@@ -1122,7 +1143,7 @@ CompositeCollider2D:
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 636e18b90987c114f8217d60baad49c9, type: 2}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_GeometryType: 0
@@ -1327,6 +1348,25 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!251 &664417824
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664417816}
+  m_Enabled: 1
+  m_UseColliderMask: 0
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 1
+  m_SurfaceArc: 90
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1001 &668691131
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1642,6 +1682,7 @@ GameObject:
   - component: {fileID: 1114500679}
   - component: {fileID: 1114500678}
   - component: {fileID: 1114500677}
+  - component: {fileID: 1114500682}
   m_Layer: 0
   m_Name: platform
   m_TagString: Untagged
@@ -1674,7 +1715,7 @@ CompositeCollider2D:
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 636e18b90987c114f8217d60baad49c9, type: 2}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_GeometryType: 0
@@ -2117,6 +2158,25 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!251 &1114500682
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114500675}
+  m_Enabled: 1
+  m_UseColliderMask: 0
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 1
+  m_SurfaceArc: 90
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1001 &1160770448
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51169,6 +51229,7 @@ GameObject:
   - component: {fileID: 1999983984}
   - component: {fileID: 1999983983}
   - component: {fileID: 1999983982}
+  - component: {fileID: 1999983987}
   m_Layer: 0
   m_Name: jump_plat
   m_TagString: Jump_plat
@@ -51201,7 +51262,7 @@ CompositeCollider2D:
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 636e18b90987c114f8217d60baad49c9, type: 2}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_GeometryType: 0
@@ -51833,6 +51894,25 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!251 &1999983987
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999983980}
+  m_Enabled: 1
+  m_UseColliderMask: 0
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 1
+  m_SurfaceArc: 90
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1001 &2032187044
 PrefabInstance:
   m_ObjectHideFlags: 0
