@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FallingGrid : MonoBehaviour
 {
-    public float FallingSpeed = 2.5f;
+    public float FallingSpeed = 1.5f;
 
     // Update is called once per frame
     void Update()

@@ -20,6 +20,7 @@ public class CharacterController2D : MonoBehaviour
     public float CameraUpperDistance = 1.0f;
     public float EvasionCoolTime = 0.5f;
     public bool isWarrior = false;
+    public bool isBossStage = false;
     public Camera mainCamera;
     public Canvas InventoryUI;
 
@@ -94,7 +95,7 @@ public class CharacterController2D : MonoBehaviour
     private void CameraFlow()
     {
         // Camera follow
-        if (mainCamera)
+        if (mainCamera && !isBossStage)
         {
             mainCamera.transform.position = new Vector3(t.position.x + CameraDistance, t.position.y + CameraUpperDistance, cameraPos.z + CameraZDistance);
         }
