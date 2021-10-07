@@ -21,11 +21,13 @@ public class Enemy : MonoBehaviour
 
     bool isAttack = false;
     bool isDead = false;
+    bool isDamaged = false;
     CharacterController2D player;
     Rigidbody2D r2d;
     Animator anim;
     SpriteRenderer spriteRenderer;
     int Hp;
+    float facingDirection;
 
     // Start is called before the first frame update
     void Awake()
@@ -45,6 +47,7 @@ public class Enemy : MonoBehaviour
     {
         BehaviorCheck();
         FindPlayer();
+        KnockBack();
     }
 
     // Update is called once per frame
@@ -59,6 +62,13 @@ public class Enemy : MonoBehaviour
                 Debug.Log("Destroyed");
                 isDead = true;
                 Destroy(gameObject);
+            }
+            else
+            {
+                // 피격시 뒤로 밀려나기
+                isDamaged = true;
+                spriteRenderer.color = new Color(1, 1, 1, 0.6f);
+                Invoke("ResetDamaged", 0.3f);
             }
         }
 
@@ -75,7 +85,7 @@ public class Enemy : MonoBehaviour
         }
         var distanceX = Vector2.Distance(transform.position, new Vector2(player.transform.position.x, transform.position.y));
         var distance = Vector2.Distance(transform.position, player.transform.position);
-        var facingDirection = player.transform.position.x - transform.position.x;
+        facingDirection = player.transform.position.x - transform.position.x;
 
         if (!isAttack)     
         {
@@ -88,7 +98,7 @@ public class Enemy : MonoBehaviour
             {
                 return;         // 고정형 몹은 움직이지 않게 return
             }
-            if (distance <= DetectRange && distance >= AttackRange)
+            if (distance <= DetectRange && distance >= AttackRange && !isDamaged)
             {
                 anim.SetBool("Walk", true);
                 transform.position = Vector2.MoveTowards(transform.position, new Vector2(player.transform.position.x, transform.position.y), Speed * Time.deltaTime);
@@ -142,5 +152,23 @@ public class Enemy : MonoBehaviour
     public bool GetIsDead()
     {
         return isDead;
+    }
+
+    private void KnockBack()
+    {
+        if (isDamaged)
+        {
+            float KnockBackSpeed = 4.0f;
+
+            int KnockBackDirection = (facingDirection >= 0.0f) ? -1 : 1;
+
+            r2d.position = new Vector2(transform.position.x + KnockBackDirection * Time.deltaTime * KnockBackSpeed, transform.position.y);
+        }
+    }
+
+    private void ResetDamaged()
+    {
+        isDamaged = false;
+        spriteRenderer.color = new Color(1, 1, 1, 1f);
     }
 }

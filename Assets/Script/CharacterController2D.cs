@@ -14,7 +14,7 @@ public class CharacterController2D : MonoBehaviour
     public float jumpHeight = 15f;
     public float gravityScale = 1.5f;
     public float evasionSpeed = 2.5f;
-    public float attackTiming = 0.04f;
+    public float attackTiming = 0.3f;
     public float WarriorXDistance = 0.5f;
     public float CameraZDistance = 0.0f;
     public float CameraUpperDistance = 1.0f;

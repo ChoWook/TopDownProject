@@ -694,12 +694,13 @@ MonoBehaviour:
   jumpHeight: 15
   gravityScale: 1.5
   evasionSpeed: 2.5
-  attackTiming: 0.04
+  attackTiming: 0.3
   WarriorXDistance: 0.7
   CameraZDistance: -11
   CameraUpperDistance: 1
   EvasionCoolTime: 0.5
   isWarrior: 1
+  isBossStage: 0
   mainCamera: {fileID: 2357413713214909330}
   InventoryUI: {fileID: 6929395915483287750}
   attackPoint: {fileID: 1274454163805386962}
