@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
     public LayerMask PlayerLayer;
     public int AttackDmg = 1;
     public float AttackTiming = 0.5f;
+    public float KnockBackSpeed = 4.0f;
+    public float KnockBackTime = 0.3f;
     public bool isFlip = false;         // 스프라이트 X플립
     public bool isFlying = false;       // 날아다니기
     public bool isAttach = false;       // 범위 안에 들어오면 공격
@@ -27,6 +29,7 @@ public class Enemy : MonoBehaviour
     Animator anim;
     SpriteRenderer spriteRenderer;
     int Hp;
+    int KnockBackDirection;
     float facingDirection;
 
     // Start is called before the first frame update
@@ -68,7 +71,7 @@ public class Enemy : MonoBehaviour
                 // 피격시 뒤로 밀려나기
                 isDamaged = true;
                 spriteRenderer.color = new Color(1, 1, 1, 0.6f);
-                Invoke("ResetDamaged", 0.3f);
+                Invoke("ResetDamaged", KnockBackTime);
             }
         }
 
@@ -158,9 +161,7 @@ public class Enemy : MonoBehaviour
     {
         if (isDamaged)
         {
-            float KnockBackSpeed = 4.0f;
-
-            int KnockBackDirection = (facingDirection >= 0.0f) ? -1 : 1;
+            KnockBackDirection = (facingDirection >= 0.0f) ? -1 : 1;
 
             r2d.position = new Vector2(transform.position.x + KnockBackDirection * Time.deltaTime * KnockBackSpeed, transform.position.y);
         }
