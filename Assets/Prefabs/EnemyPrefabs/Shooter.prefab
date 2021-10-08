@@ -47,6 +47,7 @@ MonoBehaviour:
   - {fileID: 3536347313511602624, guid: 96e7a3c4a31b5964a980fa86415b6de7, type: 3}
   - {fileID: 1244829987535970905, guid: 1cb13464ff9386242bd430d06485a1c9, type: 3}
   - {fileID: 5265733808476280155, guid: 0c5819277e3f1e84c97e2316c6c6cefa, type: 3}
+  - {fileID: 1514740698458690416, guid: f0bf9844f7c716e47a1dbd03e9c1a6c6, type: 3}
   - {fileID: 6499770700553992378, guid: 16f6752ce02bc644d92d3651671a2bfc, type: 3}
   ProjectileType: 0
   Rotation: 0

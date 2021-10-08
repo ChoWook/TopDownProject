@@ -277,7 +277,7 @@ public class CharacterController2D : MonoBehaviour
 
                 }
 
-                int enemy_hp = enemy.GetComponent<Enemy>().takeDamage(dmg);
+                int enemy_hp = enemy.GetComponent<TakableDamage>().TakeDamage(dmg);
                 if (enemy_hp == 0)
                 {
                     if (SetItemCheck.getChecked(8))  // 흡혈귀 세트

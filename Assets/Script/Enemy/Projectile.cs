@@ -26,6 +26,10 @@ public class Projectile : MonoBehaviour
         // 실시간으로 방향과 속도를 바꾸고 싶으면 여기에 작성
 
         // 스프라이트 방향 바꾸기
+        if (!r2d)
+        {
+            r2d = GetComponent<Rigidbody2D>();
+        }
         r2d.rotation = rotation;
 
         // 날아가는 동작
@@ -34,6 +38,10 @@ public class Projectile : MonoBehaviour
         r2d.position = new Vector2(r2d.position.x + DelX, r2d.position.y + DelY);
 
         // 속도에 맞춰 스프라이트 속도 조절
+        if (!animator)
+        {
+            animator = GetComponent<Animator>();
+        }
         animator.speed = Speed / AnimationSpeed;
     }
 

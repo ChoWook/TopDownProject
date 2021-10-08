@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, TakableDamage
 {
     public int Hp_max = 10;
     public float DetectRange = 10.0f;
@@ -44,6 +44,17 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         r2d.gravityScale = (isFlying) ? 0 : 1;
+        if (isFlying)
+        {
+            var cols = GetComponents<BoxCollider2D>();
+            foreach(var col in cols)
+            {
+                if (!col.isTrigger)
+                {
+                    col.enabled = false;
+                }
+            }
+        }
     }
 
     private void Update()
@@ -54,7 +65,7 @@ public class Enemy : MonoBehaviour
     }
 
     // Update is called once per frame
-    public int takeDamage(int dmg)
+    public int TakeDamage(int dmg)
     {
         if (!isInvincible)
         {
