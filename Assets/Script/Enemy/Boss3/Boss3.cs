@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 public class Boss3 : MonoBehaviour
 {
     enum Boss3State
@@ -16,15 +14,24 @@ public class Boss3 : MonoBehaviour
     public Transform CameraPosition;
     public Transform LeftPosition;
     public Transform RightPosition;
+    public Boss3Shooters LeftPatternShooters;
+    public Boss3Shooters RightPatternShooters;
+    public Boss3Shooters BothPatternShooters;
     public int[] StateHp = {50, 50, 100};
+    public float AttackDelay = 1.8f;
 
     bool isPlyerFound = false;
     Boss3State state = Boss3State.Left;
-
+    Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
+        AttackTrriger();
+
+        RightPatternShooters.gameObject.SetActive(false);
+        BothPatternShooters.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -34,6 +41,7 @@ public class Boss3 : MonoBehaviour
         {
             PlayerCameraFound();
         }
+        
     }
 
     public void PlayerCameraFound()
@@ -44,6 +52,7 @@ public class Boss3 : MonoBehaviour
             player.isBossStage = true;
             player.mainCamera.transform.position = new Vector3(CameraPosition.position.x, CameraPosition.position.y, player.CameraZDistance);
             player.mainCamera.transform.SetParent(null);
+            player.jumpHeight *= 0.9f;
             isPlyerFound = true;
         }
     }
@@ -62,6 +71,7 @@ public class Boss3 : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        
         if (collision.GetComponent<ReflectProjectile>() == null)
         {
             return;
@@ -94,7 +104,7 @@ public class Boss3 : MonoBehaviour
                     break;
             }
 
-            collision.gameObject.SetActive(false);
+            Destroy(collision.gameObject);
         }
     }
 
@@ -105,10 +115,14 @@ public class Boss3 : MonoBehaviour
             case Boss3State.Left:
                 state = Boss3State.Right;
                 ChangeToRightPosition(true);
+                LeftPatternShooters.gameObject.SetActive(false);
+                RightPatternShooters.gameObject.SetActive(true);
                 break;
             case Boss3State.Right:
                 state = Boss3State.Both;
                 ChangeToRightPosition(false);
+                RightPatternShooters.gameObject.SetActive(false);
+                BothPatternShooters.gameObject.SetActive(true);
                 break;
             case Boss3State.Both:
                 // 보스 클리어시 할 행동
@@ -127,5 +141,12 @@ public class Boss3 : MonoBehaviour
             case Boss3State.Both:
                 break;
         }
+    }
+
+    public void AttackTrriger()
+    {
+        animator.SetTrigger("Attack");
+
+        Invoke("AttackTrriger", AttackDelay);
     }
 }

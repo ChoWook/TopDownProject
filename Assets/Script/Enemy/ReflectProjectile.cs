@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class ReflectProjectile : Projectile, TakableDamage
 {
+    public bool isDamaged = false;
+
+    const int REFLECTED_PROJECTILE_LAYER = 15;
     Boss3 boss3;
 
-    public bool isDamaged = false;
 
     public void Start()
     {
@@ -23,9 +25,11 @@ public class ReflectProjectile : Projectile, TakableDamage
         {
             rotation = Mathf.Atan2(boss3.transform.position.y - transform.position.y, boss3.transform.position.x - transform.position.x);
             rotation = rotation * 180.0f / Mathf.PI;
+            Speed *= 2;
+            gameObject.layer = REFLECTED_PROJECTILE_LAYER;
+            isDamaged = true;
         }
 
-        isDamaged = true;
         return 1;
     }
 
