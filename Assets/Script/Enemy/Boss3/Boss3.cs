@@ -30,8 +30,9 @@ public class Boss3 : MonoBehaviour
         animator = GetComponent<Animator>();
         AttackTrriger();
 
-        RightPatternShooters.gameObject.SetActive(false);
-        BothPatternShooters.gameObject.SetActive(false);
+        LeftPatternShooters.gameObject.SetActive(true);
+        //RightPatternShooters.gameObject.SetActive(true);
+        //BothPatternShooters.gameObject.SetActive(true);
     }
 
     // Update is called once per frame

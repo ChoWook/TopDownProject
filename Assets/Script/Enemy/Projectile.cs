@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour
     public float Speed;
     public float AnimationSpeed = 5;
     public float LifeTime = 20.0f;
+    public float ChangeRotationPerUpdate = 0;
     Rigidbody2D r2d;
     Animator animator;
 
@@ -24,6 +25,7 @@ public class Projectile : MonoBehaviour
     {
 
         // 실시간으로 방향과 속도를 바꾸고 싶으면 여기에 작성
+        rotation += ChangeRotationPerUpdate / 100.0f;
 
         // 스프라이트 방향 바꾸기
         if (!r2d)

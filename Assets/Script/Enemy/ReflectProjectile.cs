@@ -9,9 +9,9 @@ public class ReflectProjectile : Projectile, TakableDamage
     const int REFLECTED_PROJECTILE_LAYER = 15;
     Boss3 boss3;
 
-
     public void Start()
     {
+        Invoke("DestroySelf", LifeTime);
     }
 
     public int TakeDamage(int dmg)
@@ -27,6 +27,10 @@ public class ReflectProjectile : Projectile, TakableDamage
             rotation = rotation * 180.0f / Mathf.PI;
             Speed *= 2;
             gameObject.layer = REFLECTED_PROJECTILE_LAYER;
+            LifeTime = 20.0f;
+            ChangeRotationPerUpdate = 0;
+            CancelInvoke();
+            Invoke("DestorySelf", LifeTime);
             isDamaged = true;
         }
 

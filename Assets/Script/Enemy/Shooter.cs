@@ -10,8 +10,10 @@ public class Shooter : MonoBehaviour
     public float Rotation;
     public float Speed = 4.0f;
     public float ShootDelay = 1.0f;
-    public bool isReflectAttack = false;
     public float ReflectProbability = 15.0f;
+    public float ChangeRotationPerUpdate = 0;
+    public float ProjectileLifeTime = 20.0f;
+    public bool isReflectAttack = false;
     public bool isGuided = false;
 
     bool isDisalbed = false;
@@ -63,6 +65,8 @@ public class Shooter : MonoBehaviour
         }
         projectile.rotation = Rotation;
         projectile.Speed = Speed;
+        projectile.ChangeRotationPerUpdate = ChangeRotationPerUpdate;
+        projectile.LifeTime = ProjectileLifeTime;
         projectile.transform.SetParent(null);
 
         Invoke("Shoot", ShootDelay);
