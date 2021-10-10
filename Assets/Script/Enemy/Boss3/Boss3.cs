@@ -30,9 +30,9 @@ public class Boss3 : MonoBehaviour
         animator = GetComponent<Animator>();
         AttackTrriger();
 
-        LeftPatternShooters.gameObject.SetActive(true);
+        //LeftPatternShooters.gameObject.SetActive(true);
         //RightPatternShooters.gameObject.SetActive(true);
-        //BothPatternShooters.gameObject.SetActive(true);
+        BothPatternShooters.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
@@ -42,7 +42,6 @@ public class Boss3 : MonoBehaviour
         {
             PlayerCameraFound();
         }
-        
     }
 
     public void PlayerCameraFound()
@@ -124,6 +123,7 @@ public class Boss3 : MonoBehaviour
                 ChangeToRightPosition(false);
                 RightPatternShooters.gameObject.SetActive(false);
                 BothPatternShooters.gameObject.SetActive(true);
+                GetComponent<SpriteRenderer>().color = new Color(1, 0.6f, 0.6f, 1);
                 break;
             case Boss3State.Both:
                 // 보스 클리어시 할 행동

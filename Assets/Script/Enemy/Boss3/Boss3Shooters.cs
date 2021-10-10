@@ -5,6 +5,7 @@ using UnityEngine;
 public class Boss3Shooters : MonoBehaviour
 {
     public GameObject[] Shooters;
+
     int state = -1;
 
     public void OnEnable()
@@ -31,7 +32,11 @@ public class Boss3Shooters : MonoBehaviour
         {
             if (i == state)
             {
+                Shooters[i].SetActive(false);
                 Shooters[i].SetActive(true);
+                var boss3 = FindObjectOfType<Boss3>();
+                boss3.ChangeToRightPosition(Shooters[i].tag == "Boss3_Right");
+                boss3.AttackDelay = Shooters[i].GetComponentInChildren<Shooter>().ShootDelay;
             }
             else
             {

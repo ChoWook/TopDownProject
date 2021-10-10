@@ -17,6 +17,8 @@ TagManager:
   - Projectile
   - Fall_trap
   - EndPoint
+  - Boss3_Right
+  - Boss3_left
   layers:
   - Default
   - TransparentFX

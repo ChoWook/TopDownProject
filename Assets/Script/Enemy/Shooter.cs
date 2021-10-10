@@ -13,20 +13,25 @@ public class Shooter : MonoBehaviour
     public float ReflectProbability = 15.0f;
     public float ChangeRotationPerUpdate = 0;
     public float ProjectileLifeTime = 20.0f;
+    public float EnableDelay = 0.0f;
+    public int LimitShoot = 100;
     public bool isReflectAttack = false;
     public bool isGuided = false;
 
     bool isDisalbed = false;
+    int ShootCnt = 0;
     // Start is called before the first frame update
     void OnEnable()
     {
         isDisalbed = false;
-        Shoot();
+        Invoke("Shoot", EnableDelay);
     }
 
     private void OnDisable()
     {
         isDisalbed = true;
+        ShootCnt = 0;
+        CancelInvoke();
     }
 
     void Shoot()
@@ -68,8 +73,11 @@ public class Shooter : MonoBehaviour
         projectile.ChangeRotationPerUpdate = ChangeRotationPerUpdate;
         projectile.LifeTime = ProjectileLifeTime;
         projectile.transform.SetParent(null);
-
-        Invoke("Shoot", ShootDelay);
+        ShootCnt++;
+        if(ShootCnt < LimitShoot)
+        {
+            Invoke("Shoot", ShootDelay);
+        }
         return;
     }
 }
