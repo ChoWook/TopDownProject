@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class TitleManeger : MonoBehaviour
 {
     public GameObject setWindow;
+    public GameObject warning;
     public static bool isSetWin = false;
     
 
@@ -35,9 +36,18 @@ public class TitleManeger : MonoBehaviour
 
     public void clickStart()
     {
+        warning.SetActive(true);
+    }
+    public void clickYes()
+    {
         PlayerPrefs.DeleteAll();
         SceneManager.LoadScene("Top");
     }
+    public void clickNo()
+    {
+        warning.SetActive(false);
+    }
+
 
     public void clickExit()
     {
