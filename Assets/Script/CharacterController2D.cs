@@ -42,6 +42,7 @@ public class CharacterController2D : MonoBehaviour
     int KillCount = 0;
     bool isDoubleJump = false;
     bool isEvasionCoolTime = false;
+    float AttackDuration = 0.0f;
 
     Vector3 cameraPos;
     Rigidbody2D r2d;
@@ -239,24 +240,30 @@ public class CharacterController2D : MonoBehaviour
     private void Attack()
     {
         // Attack
-        if (Input.GetButtonDown("Fire1") && !isEvasion)
+        if (Input.GetButtonDown("Fire1") && !isEvasion && !anim.GetCurrentAnimatorStateInfo(0).IsTag("JumpAttack"))
         {
             anim.SetFloat("attackSpeed", player.getAttackSpeed());
-            
-            if (isAttack && isGrounded)
+
+            if (isAttack && isGrounded && !anim.GetBool("isSecondAttack"))  // 두번째 공격
             {
+                var info = anim.GetCurrentAnimatorStateInfo(0);
                 anim.SetBool("isSecondAttack", true);
+
+                Invoke("FindEnemy", attackTiming / player.getAttackSpeed()  
+                    + info.length / (player.getAttackSpeed() * info.speed)  // 첫번째 애니메이션 총 시간
+                    + AttackDuration - Time.time);                          // 첫번째 애니메이션 경과시간 빼주기
             }
 
-            if (!anim.GetBool("isSecondAttack") && !anim.GetCurrentAnimatorStateInfo(0).IsTag("JumpAttack"))
+            if (!anim.GetBool("isSecondAttack"))                            // 첫번째 공격
             {
                 anim.SetTrigger("attackTrigger");
-            }
+                AttackDuration = Time.time;
 
+                Invoke("FindEnemy", attackTiming / player.getAttackSpeed());
+            }
 
             isAttack = true;
 
-            Invoke("FindEnemy", attackTiming / player.getAttackSpeed());
         }
     }
 
@@ -267,7 +274,6 @@ public class CharacterController2D : MonoBehaviour
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            Debug.Log(enemy.name);
             if (enemy.isTrigger)    // 땅에 닿게 해주는 rigidbody는 제외
             {
                 var dmg = player.getAttack();
