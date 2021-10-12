@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/downBoss.unity
+- path: Assets/Scenes/upfloor4.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
