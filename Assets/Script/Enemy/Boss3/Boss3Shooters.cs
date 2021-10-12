@@ -15,7 +15,7 @@ public class Boss3Shooters : MonoBehaviour
 
     public void OnDisable()
     {
-        //CancelInvoke();
+        CancelInvoke();
     }
 
     public void ChangePattern()

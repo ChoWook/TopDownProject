@@ -23,16 +23,18 @@ public class Boss3 : MonoBehaviour
     bool isPlyerFound = false;
     Boss3State state = Boss3State.Left;
     Animator animator;
+    AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         AttackTrriger();
 
-        //LeftPatternShooters.gameObject.SetActive(true);
+        LeftPatternShooters.gameObject.SetActive(true);
         //RightPatternShooters.gameObject.SetActive(true);
-        BothPatternShooters.gameObject.SetActive(true);
+        //BothPatternShooters.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
@@ -79,6 +81,7 @@ public class Boss3 : MonoBehaviour
 
         if (collision.GetComponent<ReflectProjectile>().isDamaged)
         {
+            audioSource.Play();
             switch (state)
             {
                 case Boss3State.Left:
