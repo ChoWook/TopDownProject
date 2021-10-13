@@ -108,6 +108,7 @@
     <Compile Include="Assets\Script\PauseMenu.cs" />
     <Compile Include="Assets\Script\PlayAudio.cs" />
     <Compile Include="Assets\Script\TitleManeger.cs" />
+    <Compile Include="Assets\Script\audiosetting.cs" />
     <None Include="Assets\Download\Knight Files\Read Me.txt" />
     <None Include="Assets\Download\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\Download\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
