@@ -19,6 +19,7 @@ TagManager:
   - EndPoint
   - Boss3_Right
   - Boss3_left
+  - Boss2_TurningPoint
   layers:
   - Default
   - TransparentFX

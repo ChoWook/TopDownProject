@@ -20,7 +20,7 @@ public class Boss3 : MonoBehaviour
     public int[] StateHp = {50, 50, 100};
     public float AttackDelay = 1.8f;
 
-    bool isPlyerFound = false;
+    bool isPlayerFound = false;
     Boss3State state = Boss3State.Left;
     Animator animator;
     AudioSource audioSource;
@@ -40,7 +40,7 @@ public class Boss3 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isPlyerFound)
+        if (!isPlayerFound)
         {
             PlayerCameraFound();
         }
@@ -55,7 +55,7 @@ public class Boss3 : MonoBehaviour
             player.mainCamera.transform.position = new Vector3(CameraPosition.position.x, CameraPosition.position.y, player.CameraZDistance);
             player.mainCamera.transform.SetParent(null);
             player.jumpHeight *= 0.9f;
-            isPlyerFound = true;
+            isPlayerFound = true;
         }
     }
 
