@@ -7,8 +7,9 @@ public class TitleManeger : MonoBehaviour
 {
     public GameObject setWindow;
     public GameObject warning;
+    public GameObject GameOverCanvas;
     public static bool isSetWin = false;
-    
+    public static bool isDead = false;
 
 
 
@@ -29,11 +30,24 @@ public class TitleManeger : MonoBehaviour
         }
         else
         {
-            
+           
         }
-     
-    }
+        checkHP();
+        if (isDead)
+        {
+            GameOverCanvas.SetActive(true);
+        }
 
+
+    }
+    public void checkHP()
+    {
+        if (Player.HP <= 0)
+        {
+            isDead = true;
+            Time.timeScale = 0f;
+        }
+    }
     public void clickStart()
     {
         warning.SetActive(true);
@@ -53,6 +67,12 @@ public class TitleManeger : MonoBehaviour
     {
         Application.Quit();
     }
+    public void clickMain()
+    {
+        SceneManager.LoadScene("title");
+        isDead = false;
+    }
+
 
     public void clickSetting()
     {
@@ -78,4 +98,14 @@ public class TitleManeger : MonoBehaviour
         }
     }
 
+    public void clickRetry()
+    {
+        Time.timeScale = 1f;
+        int hp = PlayerPrefs.GetInt("HP");
+        Player.HP = hp;
+        isDead = false;
+        int sn = PlayerPrefs.GetInt("StageNum");
+        SceneManager.LoadScene(sn, LoadSceneMode.Single);
+    }
+    
 }

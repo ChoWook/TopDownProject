@@ -549,12 +549,15 @@ public class CharacterController2D : MonoBehaviour
     {
         Debug.Log("Saved!");
         int sn = SceneManager.GetActiveScene().buildIndex;
+
         PlayerPrefs.SetInt("StageNum",sn);
         PlayerPrefs.SetFloat("PlayerX", player.transform.position.x);
         PlayerPrefs.SetFloat("PlayerY", player.transform.position.y);
+        PlayerPrefs.SetInt("HP", Player.HP);
         //item save code 추가 할 부분!!!-----
         player.equipment.Save();
         player.inventory.Save();
+        
         //-----------------------------------
 
         PlayerPrefs.Save();

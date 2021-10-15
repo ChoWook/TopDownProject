@@ -89,9 +89,10 @@ public class SceneCnt : MonoBehaviour
             return;
         }
         int sn = PlayerPrefs.GetInt("StageNum");
-
+        int hp = PlayerPrefs.GetInt("HP");
+        Player.HP = hp;
         SceneManager.LoadScene(sn, LoadSceneMode.Single);
-
+      
     }
 
    
