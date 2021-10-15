@@ -19,8 +19,10 @@ public class Boss2 : MonoBehaviour
     RaycastHit2D Hit;
     bool isCircleRotation = true;
     bool isAttack = false;
+    int AttackWeight = 3;
+    Player player;
 
-    string[] AttackName = { "WaveAttack", "GroundWaveAttack", "SpreadSparkAttack" };
+    string[] AttackName = { "WaveAttack", "SpreadSparkAttack", "GroundWaveAttack", "GroundWaveAttack", "GroundWaveAttack" };
 
     public void OnParentStart()
     {
@@ -87,8 +89,8 @@ public class Boss2 : MonoBehaviour
         anim.SetTrigger("Attack");
         isAttack = true;
 
-        Invoke(AttackName[Random.Range(0,3)], 1.1f);
-        Invoke("Attack", 4.0f);
+        Invoke(AttackName[Random.Range(0, AttackWeight)], 1.1f);
+        Invoke("NextPattern", 5.0f);
     }
 
     public void WaveAttack()
@@ -103,7 +105,7 @@ public class Boss2 : MonoBehaviour
         wave.transform.localScale = new Vector3(Hit.distance * 1.25f, 3, 1);
 
         wave.transform.SetParent(null);
-        Destroy(wave, 2.0f);
+        Destroy(wave, 5.0f);
     }
 
     public void GroundWaveAttack()
@@ -134,7 +136,30 @@ public class Boss2 : MonoBehaviour
     {
         isCircleRotation = !isCircleRotation;
         NextTarget();
+
+        Invoke("NextPattern", 2.5f);
     }
 
-    
+    public void NextPattern()
+    {
+        if (!player)
+        {
+            player = FindObjectOfType<Player>();
+        }
+
+        AttackWeight = 3;                                           // 1:1:1 비율
+        if(player.transform.position.y - transform.position.y < 3 && r2d.rotation != 90 && r2d.rotation != -90)
+        {
+            AttackWeight = 5;                                       // 1:1:3(GroundAttack) 비율 
+        }
+
+        if(Random.Range(0, 4) < 1)
+        {
+            TurnCircleRotation();
+        }
+        else
+        {
+            Attack();
+        }
+    }
 }

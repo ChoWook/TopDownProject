@@ -21,7 +21,7 @@ MonoBehaviour:
   Wave: {fileID: 3697432929830092933, guid: 2bb87397d9f23f04da0b7d103cead7e8, type: 3}
   GroundWave: {fileID: 3966104118093368342}
   SpreadSpark: {fileID: 5325490434152812419}
-  Speed: 3
+  Speed: 5
 --- !u!114 &496011345079110963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43,7 +43,7 @@ MonoBehaviour:
   Wave: {fileID: 8103688983157311280, guid: 37dd45f1cc9f8ad428ebc0982afc9a77, type: 3}
   GroundWave: {fileID: 4944713131221513615}
   SpreadSpark: {fileID: 1634908499616453962}
-  Speed: 3
+  Speed: 5
 --- !u!1 &496011344475786346
 GameObject:
   m_ObjectHideFlags: 0
@@ -99,7 +99,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
 --- !u!1 &496011344535983748
 GameObject:
@@ -156,7 +156,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
 --- !u!1 &496011344548308047
 GameObject:
@@ -256,7 +256,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
 --- !u!1 &496011345146387606
 GameObject:
@@ -313,7 +313,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
 --- !u!1 &496011345557607612
 GameObject:
@@ -910,6 +910,16 @@ PrefabInstance:
       propertyPath: AttackRange
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 222033728006325491, guid: 3408ca29a0c2f9148aa07b3cd0fddd9e,
+        type: 3}
+      propertyPath: KnockBackTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 222033728006325491, guid: 3408ca29a0c2f9148aa07b3cd0fddd9e,
+        type: 3}
+      propertyPath: KnockBackSpeed
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 222033728006325492, guid: 3408ca29a0c2f9148aa07b3cd0fddd9e,
         type: 3}
       propertyPath: m_Enabled
@@ -918,17 +928,22 @@ PrefabInstance:
     - target: {fileID: 222033728006325495, guid: 3408ca29a0c2f9148aa07b3cd0fddd9e,
         type: 3}
       propertyPath: m_Size.x
-      value: 0.7
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 222033728006325495, guid: 3408ca29a0c2f9148aa07b3cd0fddd9e,
         type: 3}
       propertyPath: m_Size.y
-      value: 0.8
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 222033728006325495, guid: 3408ca29a0c2f9148aa07b3cd0fddd9e,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.25
       objectReference: {fileID: 0}
     - target: {fileID: 222033728006325495, guid: 3408ca29a0c2f9148aa07b3cd0fddd9e,
         type: 3}
       propertyPath: m_EdgeRadius
-      value: 0.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 222033728006325512, guid: 3408ca29a0c2f9148aa07b3cd0fddd9e,
         type: 3}
@@ -1029,7 +1044,7 @@ PrefabInstance:
     - target: {fileID: 222033728006325491, guid: 3408ca29a0c2f9148aa07b3cd0fddd9e,
         type: 3}
       propertyPath: isTouch
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 222033728006325491, guid: 3408ca29a0c2f9148aa07b3cd0fddd9e,
         type: 3}
@@ -1051,6 +1066,16 @@ PrefabInstance:
       propertyPath: AttackRange
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 222033728006325491, guid: 3408ca29a0c2f9148aa07b3cd0fddd9e,
+        type: 3}
+      propertyPath: KnockBackTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 222033728006325491, guid: 3408ca29a0c2f9148aa07b3cd0fddd9e,
+        type: 3}
+      propertyPath: KnockBackSpeed
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 222033728006325492, guid: 3408ca29a0c2f9148aa07b3cd0fddd9e,
         type: 3}
       propertyPath: m_Enabled
@@ -1059,17 +1084,22 @@ PrefabInstance:
     - target: {fileID: 222033728006325495, guid: 3408ca29a0c2f9148aa07b3cd0fddd9e,
         type: 3}
       propertyPath: m_Size.x
-      value: 0.7
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 222033728006325495, guid: 3408ca29a0c2f9148aa07b3cd0fddd9e,
         type: 3}
       propertyPath: m_Size.y
-      value: 0.8
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 222033728006325495, guid: 3408ca29a0c2f9148aa07b3cd0fddd9e,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.25
       objectReference: {fileID: 0}
     - target: {fileID: 222033728006325495, guid: 3408ca29a0c2f9148aa07b3cd0fddd9e,
         type: 3}
       propertyPath: m_EdgeRadius
-      value: 0.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 222033728006325512, guid: 3408ca29a0c2f9148aa07b3cd0fddd9e,
         type: 3}
@@ -1251,7 +1281,7 @@ PrefabInstance:
     - target: {fileID: 5302088462606204458, guid: 0d3a92772dbfebc43a518a46dd87d929,
         type: 3}
       propertyPath: Speed
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5302088462606204458, guid: 0d3a92772dbfebc43a518a46dd87d929,
         type: 3}
@@ -1352,7 +1382,7 @@ PrefabInstance:
     - target: {fileID: 5302088462606204458, guid: 0d3a92772dbfebc43a518a46dd87d929,
         type: 3}
       propertyPath: Speed
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5302088462606204458, guid: 0d3a92772dbfebc43a518a46dd87d929,
         type: 3}
@@ -1660,7 +1690,7 @@ PrefabInstance:
     - target: {fileID: 5302088462606204458, guid: 0d3a92772dbfebc43a518a46dd87d929,
         type: 3}
       propertyPath: Speed
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5302088462606204458, guid: 0d3a92772dbfebc43a518a46dd87d929,
         type: 3}
@@ -2145,7 +2175,7 @@ PrefabInstance:
     - target: {fileID: 5302088462606204458, guid: 0d3a92772dbfebc43a518a46dd87d929,
         type: 3}
       propertyPath: Speed
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5302088462606204458, guid: 0d3a92772dbfebc43a518a46dd87d929,
         type: 3}

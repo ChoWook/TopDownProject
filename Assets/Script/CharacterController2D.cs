@@ -43,6 +43,7 @@ public class CharacterController2D : MonoBehaviour
     bool isDoubleJump = false;
     bool isEvasionCoolTime = false;
     float AttackDuration = 0.0f;
+    float lastDamaged = 0.0f;
 
     Vector3 cameraPos;
     Rigidbody2D r2d;
@@ -457,6 +458,13 @@ public class CharacterController2D : MonoBehaviour
     public void OnDamaged(int dmg)
     {
         OnInvincible();
+        var time = Time.time;
+        if(time - lastDamaged < invincibleTime)
+        {
+            return;
+        }
+        lastDamaged = time;
+
         if(SetItemCheck.getChecked(5))  // 광전사 세트
         {
             dmg *= 2;
