@@ -20,6 +20,8 @@ public class Boss2 : MonoBehaviour
     bool isCircleRotation = true;
     bool isAttack = false;
 
+    string[] AttackName = { "WaveAttack", "GroundWaveAttack", "SpreadSparkAttack" };
+
     public void OnParentStart()
     {
         anim = GetComponent<Animator>();
@@ -27,7 +29,7 @@ public class Boss2 : MonoBehaviour
         r2d = GetComponent<Rigidbody2D>();
         anim.SetBool("Walk", true);
 
-        Invoke("Attack", 7.0f);
+        Invoke("Attack", 1.0f);
     }
 
     void Update()
@@ -39,6 +41,11 @@ public class Boss2 : MonoBehaviour
         if (!isAttack)
         {
             transform.position = Vector2.MoveTowards(transform.position, new Vector2(TurningPoints[target].transform.position.x, TurningPoints[target].transform.position.y), Speed * Time.deltaTime);
+        }
+
+        if (Hit)
+        {
+            Debug.DrawLine(AttackPoint.position, Hit.point);
         }
     }
 
@@ -80,7 +87,8 @@ public class Boss2 : MonoBehaviour
         anim.SetTrigger("Attack");
         isAttack = true;
 
-        Invoke("GroundWaveAttack", 1.1f);
+        Invoke(AttackName[Random.Range(0,3)], 1.1f);
+        Invoke("Attack", 4.0f);
     }
 
     public void WaveAttack()
@@ -88,10 +96,11 @@ public class Boss2 : MonoBehaviour
         Hit = Physics2D.Raycast(AttackPoint.position, transform.up, 30f, LayerMask.GetMask("Platform"));
 
         var wave = Instantiate(Wave, AttackPoint);
-        wave.transform.rotation = new Quaternion(0, 0, r2d.rotation, 0);
-        wave.transform.position = new Vector3((AttackPoint.position.x - Hit.point.x) / 2.0f,
-                                    ((AttackPoint.position.y - Hit.point.y) / 2.0f), 0);
-        wave.transform.localScale = new Vector3(Hit.distance * 1.1f, 1, 1);
+        var waveR2d = wave.GetComponent<Rigidbody2D>();
+        wave.transform.position = new Vector2((Hit.point.x + AttackPoint.position.x) / 2.0f,
+                                    ((Hit.point.y + AttackPoint.position.y) / 2.0f));
+        waveR2d.rotation = r2d.rotation;
+        wave.transform.localScale = new Vector3(Hit.distance * 1.25f, 3, 1);
 
         wave.transform.SetParent(null);
         Destroy(wave, 2.0f);
@@ -99,14 +108,14 @@ public class Boss2 : MonoBehaviour
 
     public void GroundWaveAttack()
     {
-        GroundWave.transform.rotation = new Quaternion(0, 0, r2d.rotation, 0);
+        GroundWave.GetComponent<Rigidbody2D>().rotation = r2d.rotation;
         GroundWave.SetActive(true);
         Invoke("EndGroundWaveAttack", 0.5f);
     }
 
     public void SpreadSparkAttack()
     {
-        SpreadSpark.transform.rotation = new Quaternion(0, 0, r2d.rotation, 0);
+        SpreadSpark.GetComponent<Rigidbody2D>().rotation = r2d.rotation;
         SpreadSpark.SetActive(true);
         Invoke("EndSpreadSparkAttack", 0.5f);
     }

@@ -20,10 +20,12 @@ public class Shooter : MonoBehaviour
 
     bool isDisalbed = false;
     int ShootCnt = 0;
+    Rigidbody2D parentR2d;
     // Start is called before the first frame update
     void OnEnable()
     {
         isDisalbed = false;
+        parentR2d = GetComponentInParent<Rigidbody2D>();
         Invoke("Shoot", EnableDelay);
     }
 
@@ -68,7 +70,13 @@ public class Shooter : MonoBehaviour
                 Rotation = Rotation * 180.0f / Mathf.PI;
             }
         }
+        
         projectile.rotation = Rotation;
+        if (parentR2d)
+        {
+            projectile.rotation += parentR2d.rotation;
+        }
+
         projectile.Speed = Speed;
         projectile.ChangeRotationPerUpdate = ChangeRotationPerUpdate;
         projectile.LifeTime = ProjectileLifeTime;
