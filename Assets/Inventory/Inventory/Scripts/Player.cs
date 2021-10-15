@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
     public Sprite halfHeart;
     public Sprite emptyHeart;
     public SetItemCheck setItemCheck;
-    public static int HP;
+    public static int HP = 20;
     static bool isGameStart = true;
 
 
