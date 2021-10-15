@@ -20,10 +20,10 @@ public class Enemy : MonoBehaviour, TakableDamage
     public bool isWatching = true;      // 캐릭터 위치 바라보기
     public bool isInvincible = false;   // 무적인 몹
     public bool isTouch = true;        // 몸빵딜 유무
+    public bool isDamaged = false;
 
     bool isAttack = false;
     bool isDead = false;
-    bool isDamaged = false;
     CharacterController2D player;
     Rigidbody2D r2d;
     Animator anim;
