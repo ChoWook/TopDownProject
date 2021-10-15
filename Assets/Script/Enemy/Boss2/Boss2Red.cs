@@ -8,8 +8,14 @@ public class Boss2Red : Boss2
     void Start()
     {
         OnParentStart();
-        GetComponent<SpriteRenderer>().color = new Color(1, 0.6f, 0.6f, 1);
         target = 2;
     }
 
+    private void FixedUpdate()
+    {
+        if (!enemy.isDamaged)
+        {
+            GetComponent<SpriteRenderer>().color = new Color(1, 0.6f, 0.6f, 1);
+        }
+    }
 }
