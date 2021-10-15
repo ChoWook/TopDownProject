@@ -439,6 +439,10 @@ public class SetItemCheck
 
     public static bool getChecked(int id)
     {
+        if (Checked == null)
+        {
+            return false;
+        }
         return Checked[id];
     }
 
