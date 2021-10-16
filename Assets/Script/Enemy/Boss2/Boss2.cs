@@ -9,6 +9,7 @@ public class Boss2 : MonoBehaviour
     public GameObject Wave;
     public GameObject GroundWave;
     public GameObject SpreadSpark;
+    public GameObject TargetDown;
     public float Speed = 3f;
 
     protected int target = 0;
@@ -20,9 +21,10 @@ public class Boss2 : MonoBehaviour
     bool isCircleRotation = true;
     bool isAttack = false;
     int AttackWeight = 3;
+    int TargetDownCnt = 0;
     Player player;
 
-    string[] AttackName = { "WaveAttack", "SpreadSparkAttack", "GroundWaveAttack", "GroundWaveAttack", "GroundWaveAttack" };
+    string[] AttackName = { "WaveAttack", "SpreadSparkAttack", "TargetDownAttack", "GroundWaveAttack", "GroundWaveAttack", "GroundWaveAttack" };
 
     public void OnParentStart()
     {
@@ -132,6 +134,26 @@ public class Boss2 : MonoBehaviour
         SpreadSpark.SetActive(false);
     }
 
+    public void TargetDownAttack()
+    {
+        if (!player)
+        {
+            player = FindObjectOfType<Player>();
+        }
+
+        Instantiate(TargetDown, player.GetComponent<Collider2D>().transform).transform.SetParent(null);
+
+        if(TargetDownCnt < 3)
+        {
+            TargetDownCnt++;
+            Invoke("TargetDownAttack", 0.3f);
+        }
+        else
+        {
+            TargetDownCnt = 0;
+        }
+    }
+
     public void TurnCircleRotation()
     {
         isCircleRotation = !isCircleRotation;
@@ -147,10 +169,10 @@ public class Boss2 : MonoBehaviour
             player = FindObjectOfType<Player>();
         }
 
-        AttackWeight = 3;                                           // 1:1:1 비율
+        AttackWeight = 4;                                           // 1:1:1:1 비율
         if(player.transform.position.y - transform.position.y < 3 && r2d.rotation != 90 && r2d.rotation != -90)
         {
-            AttackWeight = 5;                                       // 1:1:3(GroundAttack) 비율 
+            AttackWeight = 6;                                       // 1:1:1:3(GroundAttack) 비율 
         }
 
         if(Random.Range(0, 4) < 1)

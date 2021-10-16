@@ -97,6 +97,7 @@
     <Compile Include="Assets\Script\Enemy\Boss2\Boss2Blue.cs" />
     <Compile Include="Assets\Script\Enemy\Boss2\Boss2Red.cs" />
     <Compile Include="Assets\Script\Enemy\Boss2\CameraPosition.cs" />
+    <Compile Include="Assets\Script\Enemy\Boss2\TargetDown.cs" />
     <Compile Include="Assets\Script\Enemy\Boss2\TeleportTrigger.cs" />
     <Compile Include="Assets\Script\Enemy\Boss3\Boss3.cs" />
     <Compile Include="Assets\Script\Enemy\Boss3\Boss3Shooters.cs" />

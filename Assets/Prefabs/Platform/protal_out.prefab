@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6984350335532037504}
   - component: {fileID: 6984350335532037505}
   - component: {fileID: 6984350335532037507}
+  - component: {fileID: 5692879583240622854}
   m_Layer: 0
   m_Name: protal_out
   m_TagString: Untagged
@@ -204,3 +205,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Portal: {fileID: 7891013788336416564, guid: 298266f8f10337d40a0d6f20dec28a67, type: 3}
   Player: {fileID: 6392392014033579594, guid: 4e28b9533eee6874f899cbc2e18019dd, type: 3}
+--- !u!95 &5692879583240622854
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6984350335532037509}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 675595b31b0284be597928669156d722, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

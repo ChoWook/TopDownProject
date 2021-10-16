@@ -131,7 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 379212076}
   - component: {fileID: 379212075}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2314,6 +2314,12 @@ PrefabInstance:
       propertyPath: isTouch
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 496011345079110963, guid: ce67ab0969cb24046a158e7eda6d81ca,
+        type: 3}
+      propertyPath: TargetDown
+      value: 
+      objectReference: {fileID: 3028442542778178929, guid: e2bac2f2d57f67f48bbeb8a33f299022,
+        type: 3}
     - target: {fileID: 496011345557607612, guid: ce67ab0969cb24046a158e7eda6d81ca,
         type: 3}
       propertyPath: m_Name
@@ -2374,6 +2380,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 496011345609070755, guid: ce67ab0969cb24046a158e7eda6d81ca,
+        type: 3}
+      propertyPath: TargetDown
+      value: 
+      objectReference: {fileID: 7796087528093466281, guid: 7e3fda43067fc864b93d8c2a6543dc17,
+        type: 3}
     - target: {fileID: 1799937169853975307, guid: ce67ab0969cb24046a158e7eda6d81ca,
         type: 3}
       propertyPath: Speed
