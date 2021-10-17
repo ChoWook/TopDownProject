@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0790727c256c54e43bb7abfdd2315872, type: 3}
   m_Name: 28_BloodWeapon
   m_EditorClassIdentifier: 
-  uiDisplay: {fileID: 0}
+  uiDisplay: {fileID: 21300000, guid: 7eaf3bc9665b03740be9349771cf2c9a, type: 3}
   characterDisplay: {fileID: 0}
   stackable: 0
   type: 2

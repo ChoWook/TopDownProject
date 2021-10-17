@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0790727c256c54e43bb7abfdd2315872, type: 3}
   m_Name: 25_MadnessBoots
   m_EditorClassIdentifier: 
-  uiDisplay: {fileID: 0}
+  uiDisplay: {fileID: 21300000, guid: 59404f171a3d5694fa1650a8c37fc39f, type: 3}
   characterDisplay: {fileID: 0}
   stackable: 0
   type: 4

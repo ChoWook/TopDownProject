@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0790727c256c54e43bb7abfdd2315872, type: 3}
   m_Name: 44_LegendBoots
   m_EditorClassIdentifier: 
-  uiDisplay: {fileID: 0}
+  uiDisplay: {fileID: 6471586766639389086, guid: 4007bd4a3b9fc9048b6f18ad901ca44a,
+    type: 3}
   characterDisplay: {fileID: 0}
   stackable: 0
   type: 4
@@ -31,6 +32,7 @@ MonoBehaviour:
       max: 5
     SetItemId: 11
     ValidFloor: 4
-    description: "\uC804\uC124\uC758 \uC6A9\uC0AC\uAC00 \uC0AC\uC6A9\uD588\uB2E4\uACE0
-      \uC804\uD574\uC9C0\uB294 \uC2E0\uBC1C\uC774\uB2E4"
+    description: "\uBAA8\uC591\uC0C8\uC640\uB294 \uB2E4\uB974\uAC8C\n\uC804\uC124\uC758
+      \uC6A9\uC0AC\uAC00 \uC0AC\uC6A9\uD588\uB2E4\uACE0 \uC804\uD574\uC9C0\uB294
+      \uC2E0\uBC1C\uC774\uB2E4"
   boneNames: []

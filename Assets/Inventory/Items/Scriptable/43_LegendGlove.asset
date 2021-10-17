@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0790727c256c54e43bb7abfdd2315872, type: 3}
   m_Name: 43_LegendGlove
   m_EditorClassIdentifier: 
-  uiDisplay: {fileID: 0}
+  uiDisplay: {fileID: 21300000, guid: 68cdc208b8e0e6d4295685628b7f99db, type: 3}
   characterDisplay: {fileID: 0}
   stackable: 0
   type: 3
   description: 
   data:
-    Name: "\uC804\uC124\uC758 \uC7A5\uAC11 : \uB2E4\uC774\uB2EC\uB85C\uC2A4"
+    Name: "\uC804\uC124\uC758 \uBC29\uD328 : \uB2E4\uC774\uB2EC\uB85C\uC2A4"
     Id: 43
     buffs:
     - attribute: 0
@@ -29,6 +29,10 @@ MonoBehaviour:
       value: 5
       min: 5
       max: 5
+    - attribute: 1
+      value: 2
+      min: 2
+      max: 2
     SetItemId: 11
     ValidFloor: 4
     description: "\uC804\uC124\uC758 \uC6A9\uC0AC\uAC00 \uC0AC\uC6A9\uD588\uB2E4\uACE0

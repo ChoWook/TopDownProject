@@ -64,6 +64,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Download\FantasyIconsPackFree\Demo\IconViewer.cs" />
     <Compile Include="Assets\Download\FreePixelMob\Mobs.cs" />
     <Compile Include="Assets\Download\FreePixelMob\StateRandom.cs" />
     <Compile Include="Assets\Download\PixelMobs\Script\Ease.cs" />

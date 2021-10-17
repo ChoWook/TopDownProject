@@ -30,7 +30,6 @@ public class ItemObject : ScriptableObject
     public GameObject characterDisplay;
     public bool stackable;
     public ItemType type;
-    [TextArea(15, 20)]
     public string description;
     public Item data = new Item();
 
@@ -70,6 +69,7 @@ public class Item
     public ItemBuff[] buffs;
     public int SetItemId;
     public int ValidFloor = 5;
+    [TextArea(15, 20)]
     public string description;
 
 

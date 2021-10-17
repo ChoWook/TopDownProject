@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0790727c256c54e43bb7abfdd2315872, type: 3}
   m_Name: 14_KnightBoots
   m_EditorClassIdentifier: 
-  uiDisplay: {fileID: 0}
+  uiDisplay: {fileID: 21300000, guid: ae3208216b9856e408dcff020513465f, type: 3}
   characterDisplay: {fileID: 0}
   stackable: 0
   type: 4
