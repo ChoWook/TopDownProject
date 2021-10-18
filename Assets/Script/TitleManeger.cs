@@ -55,7 +55,7 @@ public class TitleManeger : MonoBehaviour
     public void clickYes()
     {
         PlayerPrefs.DeleteAll();
-        SceneManager.LoadScene("Top");
+        LoadSceneController.LoadScene(1);
     }
     public void clickNo()
     {
@@ -69,7 +69,7 @@ public class TitleManeger : MonoBehaviour
     }
     public void clickMain()
     {
-        SceneManager.LoadScene("title");
+        LoadSceneController.LoadScene(0);
         isDead = false;
     }
 

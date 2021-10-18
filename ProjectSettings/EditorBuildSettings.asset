@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/upfloor4.unity
     guid: 41a30828872ac5444a6802471aea6692
+  - enabled: 1
+    path: Assets/Scenes/LoadingScene.unity
+    guid: af06899efc0b44c4d98ea20188bcdcb9
   m_configObjects: {}

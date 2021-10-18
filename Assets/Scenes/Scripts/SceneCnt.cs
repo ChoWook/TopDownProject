@@ -75,9 +75,7 @@ public class SceneCnt : MonoBehaviour
         Time.timeScale = 0f;
         //stageNum = SceneManager.GetActiveScene().buildIndex;
         stageNum++;
-
-
-        SceneManager.LoadScene(stageNum, LoadSceneMode.Single);
+        LoadSceneController.LoadScene(stageNum);
         isClear = true;
       
        
