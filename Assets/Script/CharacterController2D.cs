@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class CharacterController2D : MonoBehaviour
 {
-    string[] ignoredTag = { "CheckPoint" };
+    string[] ignoredTag = { "CheckPoint" , "Player"};
     const int PLAYER_LAYER = 10;
     const int PLAYER_INVINCIBLE_LAYER = 11;
 
@@ -111,7 +111,7 @@ public class CharacterController2D : MonoBehaviour
             moveDirection = facingRight ? 1 : -1;
             r2d.velocity = new Vector2((moveDirection) * baseSpeed * evasionSpeed * player.getSpeed(), r2d.velocity.y);
         }
-        else if(isAttack)
+        else if(isAttack && isGrounded)
         {
             r2d.velocity = new Vector2(0, r2d.velocity.y);
         }
