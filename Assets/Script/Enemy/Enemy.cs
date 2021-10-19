@@ -28,7 +28,8 @@ public class Enemy : MonoBehaviour, TakableDamage
     Rigidbody2D r2d;
     Animator anim;
     SpriteRenderer spriteRenderer;
-    AudioSource audioSource;
+    AudioSource hitSound;
+    AudioSource DeadSound;
     int Hp;
     int KnockBackDirection;
     float facingDirection;
@@ -40,8 +41,12 @@ public class Enemy : MonoBehaviour, TakableDamage
         r2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        audioSource = GetComponent<AudioSource>();
-        audioSource.volume = 0.8f;
+
+
+        hitSound = GameObject.Find("hitSound").GetComponent<AudioSource>();
+        DeadSound = GameObject.Find("DeadSound").GetComponent<AudioSource>();
+        
+        // audioSource.volume = 0.8f;
     }
 
     private void Start()
@@ -78,6 +83,7 @@ public class Enemy : MonoBehaviour, TakableDamage
                 Hp = 0;
                 Debug.Log("Destroyed");
                 isDead = true;
+                DeadSound.Play();
                 Destroy(gameObject);
             }
             else
@@ -85,7 +91,7 @@ public class Enemy : MonoBehaviour, TakableDamage
                 // 피격시 뒤로 밀려나기
                 isDamaged = true;
                 spriteRenderer.color = new Color(1, 1, 1, 0.6f);
-                audioSource.Play();
+               hitSound.Play();
                 Invoke("ResetDamaged", KnockBackTime);
             }
         }

@@ -11,20 +11,28 @@ public class audiosetting : MonoBehaviour
     private float backVol = 1f;
     private float effectVol = 1f;
 
+    //background sound
     public AudioSource bgmAudio;
+    public AudioSource bossMusic;
 
+    //player's sound
     public AudioSource AttackAudio;
-    public AudioSource hitAudio;
-    public AudioSource deadAudio;
     public AudioSource dashAudio;
     public AudioSource dmgAudio;
 
+    //monster's sound
+    public AudioSource hitAudio;
+    public AudioSource deadAudio;
+    
+    
+    
     // Start is called before the first frame update
     void Start()
     {
         backVol = PlayerPrefs.GetFloat("backVol", 1f);
         bgmVolumn.value = backVol;
         bgmAudio.volume = bgmVolumn.value;
+        bossMusic.volume = bgmVolumn.value;
 
         effectVol = PlayerPrefs.GetFloat("effectVol", 1f);
         effectVolumn.value = effectVol;
@@ -46,6 +54,8 @@ public class audiosetting : MonoBehaviour
     public void SoundSlider()
     {
         bgmAudio.volume = bgmVolumn.value;
+        bossMusic.volume = bgmVolumn.value;
+
         backVol = bgmVolumn.value;
         PlayerPrefs.SetFloat("backVol", backVol);
 
@@ -56,6 +66,7 @@ public class audiosetting : MonoBehaviour
         dashAudio.volume = effectVolumn.value;
 
         effectVol = effectVolumn.value;
+        
         PlayerPrefs.SetFloat("effectVol", effectVol);
 
     }
