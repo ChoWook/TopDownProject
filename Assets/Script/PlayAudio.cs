@@ -12,11 +12,12 @@ public class PlayAudio : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-
         if (stateInfo.IsTag("Attack") || stateInfo.IsTag("JumpAttack"))
         {
             var audioSource = animator.GetComponent<AudioSource>();
+            audioSource.volume = audiosetting.effectVol;
             audioSource.clip = clip;
+            
             audioSource.PlayDelayed(Delay);
         }    
     }

@@ -8,8 +8,8 @@ public class audiosetting : MonoBehaviour
     public Slider bgmVolumn;
     public Slider effectVolumn;
 
-    private float backVol = 1f;
-    private float effectVol = 1f;
+    public static float backVol = 1f;
+    public static float effectVol = 1f;
 
     //background sound
     public AudioSource bgmAudio;

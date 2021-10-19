@@ -1610,6 +1610,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: setWIndow
       objectReference: {fileID: 0}
+    - target: {fileID: 2463610546373070770, guid: 4829ffa36c0e9bb47bdfb2ae41bb84c8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2463610546373070782, guid: 4829ffa36c0e9bb47bdfb2ae41bb84c8,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1715,6 +1720,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2463610546373070783, guid: 4829ffa36c0e9bb47bdfb2ae41bb84c8,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2463610547059034096, guid: 4829ffa36c0e9bb47bdfb2ae41bb84c8,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1723,22 +1733,22 @@ PrefabInstance:
     - target: {fileID: 3489551509890263535, guid: 4829ffa36c0e9bb47bdfb2ae41bb84c8,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3973068796828782551, guid: 4829ffa36c0e9bb47bdfb2ae41bb84c8,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5016278882250886343, guid: 4829ffa36c0e9bb47bdfb2ae41bb84c8,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5444231411226444839, guid: 4829ffa36c0e9bb47bdfb2ae41bb84c8,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4829ffa36c0e9bb47bdfb2ae41bb84c8, type: 3}

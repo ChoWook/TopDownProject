@@ -101,11 +101,21 @@ public class TitleManeger : MonoBehaviour
     public void clickRetry()
     {
         Time.timeScale = 1f;
-        int hp = PlayerPrefs.GetInt("HP");
-        Player.HP = hp;
-        isDead = false;
-        int sn = PlayerPrefs.GetInt("StageNum");
-        SceneManager.LoadScene(sn, LoadSceneMode.Single);
+        if (!PlayerPrefs.HasKey("HP"))
+        {
+            isDead = false;
+            Player.HP = 6;
+            LoadSceneController.LoadScene(1);
+        }
+        else
+        {
+            int hp = PlayerPrefs.GetInt("HP");
+            Player.HP = hp;
+            isDead = false;
+            int sn = PlayerPrefs.GetInt("StageNum");
+            SceneManager.LoadScene(sn, LoadSceneMode.Single);
+        }
+       
     }
     
 }
