@@ -15,7 +15,6 @@ public class CharacterController2D : MonoBehaviour
     public float gravityScale = 1.5f;
     public float evasionSpeed = 2.5f;
     public float attackTiming = 0.3f;
-    public float WarriorXDistance = 0.5f;
     public float CameraZDistance = 0.0f;
     public float CameraUpperDistance = 1.0f;
     public float EvasionCoolTime = 0.5f;
@@ -23,6 +22,7 @@ public class CharacterController2D : MonoBehaviour
     public bool isBossStage = false;
     public Camera mainCamera;
     public Canvas InventoryUI;
+    public GameObject SpriteObject;
 
     // Attack var
     public Transform attackPoint;
@@ -30,7 +30,6 @@ public class CharacterController2D : MonoBehaviour
     public LayerMask enemyLayer;
     public float invincibleTime = 1.0f;
 
-    float CameraDistance = 0.0f;
     bool facingRight = true;
     float moveDirection = 0;
     bool isGrounded = false;
@@ -59,12 +58,17 @@ public class CharacterController2D : MonoBehaviour
         t = transform;
         r2d = GetComponent<Rigidbody2D>();
         mainCollider = GetComponent<BoxCollider2D>();
-        anim = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
         player = GetComponent<Player>();
-        
-        //InventoryUI.gameObject.SetActive(true);
-        //InventoryUI.gameObject.SetActive(false);
+        if (isWarrior)
+        {
+            anim = GetComponentInChildren<Animator>();
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        }
+        else
+        {
+            anim = GetComponent<Animator>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        }
 
         r2d.freezeRotation = true;
         r2d.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
@@ -99,7 +103,7 @@ public class CharacterController2D : MonoBehaviour
         // Camera follow
         if (mainCamera && !isBossStage)
         {
-            mainCamera.transform.position = new Vector3(t.position.x + CameraDistance, t.position.y + CameraUpperDistance, cameraPos.z + CameraZDistance);
+            mainCamera.transform.position = new Vector3(t.position.x, t.position.y + CameraUpperDistance, cameraPos.z + CameraZDistance);
         }
     }
 
@@ -189,19 +193,14 @@ public class CharacterController2D : MonoBehaviour
                 if (moveDirection > 0 && !facingRight)
                 {
                     facingRight = true;
-                    t.localScale = new Vector3(Mathf.Abs(t.localScale.x), t.localScale.y, transform.localScale.z);
-                    t.position = new Vector3(transform.position.x + WarriorXDistance, transform.position.y + 0.01f, 0);
-                    CameraDistance = 0.0f;
+                    spriteRenderer.flipX = false;
+                    SpriteObject.transform.localPosition = new Vector3(-SpriteObject.transform.localPosition.x, 0, 0);
                 }
                 if (moveDirection < 0 && facingRight)
                 {
                     facingRight = false;
-                    t.localScale = new Vector3(-Mathf.Abs(t.localScale.x), t.localScale.y, t.localScale.z);
-                    t.position = new Vector3(transform.position.x - WarriorXDistance, transform.position.y + 0.01f, 0);
-                    if (isWarrior)
-                    {
-                        CameraDistance = WarriorXDistance;
-                    }
+                    spriteRenderer.flipX = true;
+                    SpriteObject.transform.localPosition = new Vector3(-SpriteObject.transform.localPosition.x, 0, 0);
                 }
             }
         }

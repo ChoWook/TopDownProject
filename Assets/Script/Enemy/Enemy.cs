@@ -21,9 +21,11 @@ public class Enemy : MonoBehaviour, TakableDamage
     public bool isInvincible = false;   // 무적인 몹
     public bool isTouch = true;        // 몸빵딜 유무
     public bool isDamaged = false;
+    public GameObject SpriteObject;
 
     bool isAttack = false;
     bool isDead = false;
+    bool isSideSprite = false;
     CharacterController2D player;
     Rigidbody2D r2d;
     Animator anim;
@@ -41,6 +43,15 @@ public class Enemy : MonoBehaviour, TakableDamage
         r2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        if (!anim)
+        {
+            isSideSprite = true;
+            anim = GetComponentInChildren<Animator>();
+        }
+        if (!spriteRenderer)
+        {
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        }
 
 
         hitSound = GameObject.Find("hitSound").GetComponent<AudioSource>();
@@ -115,7 +126,14 @@ public class Enemy : MonoBehaviour, TakableDamage
         {
             if (isWatching)
             {
+                var legacy = spriteRenderer.flipX;
+
                 spriteRenderer.flipX = (facingDirection >= 0.0f) ? false ^ isFlip : true ^ isFlip;
+
+                if(legacy != spriteRenderer.flipX && isSideSprite && SpriteObject)  //스프라이트가 한쪽으로 치우쳐져 있으면
+                {
+                    SpriteObject.transform.localPosition = new Vector3(-SpriteObject.transform.localPosition.x, 0, 0);
+                }
             }
 
             if (isAttach)
