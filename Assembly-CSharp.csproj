@@ -122,6 +122,7 @@
     <None Include="Assets\Download\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\Download\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\Download\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\Download\Bringer Of Death\License.txt" />
     <None Include="Assets\Download\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
     <None Include="Assets\Download\Warrior free set\License.txt" />
     <None Include="Assets\Script\Pixel2DCastleTileset\about.txt" />
@@ -147,6 +148,7 @@
     <None Include="Assets\Download\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\Download\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\Download\Warrior free set\Contact.txt" />
+    <None Include="Assets\Download\Bringer Of Death\Contact.txt" />
     <None Include="Assets\Download\TextMesh Pro\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\Download\TextMesh Pro\Examples &amp; Extras\Fonts\Bangers - OFL.txt" />
     <Reference Include="UnityEngine">
