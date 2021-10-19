@@ -92,7 +92,6 @@ public class Enemy : MonoBehaviour, TakableDamage
             if (Hp <= 0)
             {
                 Hp = 0;
-                Debug.Log("Destroyed");
                 isDead = true;
                 DeadSound.Play();
                 Destroy(gameObject);

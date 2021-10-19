@@ -94,6 +94,7 @@
     <Compile Include="Assets\Scenes\Scripts\teleport.cs" />
     <Compile Include="Assets\Script\CharacterController2D.cs" />
     <Compile Include="Assets\Script\DataCon.cs" />
+    <Compile Include="Assets\Script\Enemy\Boss1\Boss1.cs" />
     <Compile Include="Assets\Script\Enemy\Boss2\Boss2.cs" />
     <Compile Include="Assets\Script\Enemy\Boss2\Boss2Blue.cs" />
     <Compile Include="Assets\Script\Enemy\Boss2\Boss2Red.cs" />
