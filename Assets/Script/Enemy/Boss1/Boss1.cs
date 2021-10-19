@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Boss1: MonoBehaviour
 {
-    public GameObject Cast;
+    public GameObject Spell;
 
     Enemy enemy;
     Animator animator;
@@ -42,7 +42,26 @@ public class Boss1: MonoBehaviour
     {
         enemy.isAttach = true;
         animator.SetTrigger("Spell");
-        Instantiate(Cast, player.transform).transform.SetParent(null);
+        Invoke("InstantiateSpell", 1.4f);
     }
     
+    void InstantiateSpell()
+    {
+        Instantiate(Spell, player.transform).transform.SetParent(null);
+    }
+
+    public void CountableAttack()
+    {
+        
+    }
+
+    public void Attack()
+    {
+
+    }
+
+    public void MultiSpellAttack()
+    {
+
+    }
 }

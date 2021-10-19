@@ -63423,5 +63423,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss1
       objectReference: {fileID: 0}
+    - target: {fileID: 3417327201831309689, guid: 4cf2832b4c711744b91aa8cd59003d54,
+        type: 3}
+      propertyPath: AttackRange
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cf2832b4c711744b91aa8cd59003d54, type: 3}

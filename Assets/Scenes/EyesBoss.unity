@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 467975490}
   - component: {fileID: 467975489}
   - component: {fileID: 467975488}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2281,7 +2281,7 @@ GameObject:
   - component: {fileID: 528325448}
   - component: {fileID: 528325450}
   - component: {fileID: 528325449}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5555,7 +5555,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1639870768}
   - component: {fileID: 1639870767}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5606,7 +5606,7 @@ GameObject:
   - component: {fileID: 1832046764}
   - component: {fileID: 1832046763}
   - component: {fileID: 1832046762}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15969,7 +15969,7 @@ GameObject:
   - component: {fileID: 2033670466}
   - component: {fileID: 2033670465}
   - component: {fileID: 2033670464}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ground_fake
   m_TagString: Untagged
   m_Icon: {fileID: 0}

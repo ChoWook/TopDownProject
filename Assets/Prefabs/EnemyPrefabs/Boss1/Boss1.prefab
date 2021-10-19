@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3aafde94949ad2479386bff6176ae26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cast: {fileID: 16339492083654792, guid: f25310f4eee2dca488b9fe432e6488b8, type: 3}
+  Spell: {fileID: 16339492083654792, guid: f25310f4eee2dca488b9fe432e6488b8, type: 3}
 --- !u!1001 &2249808378031930779
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -210,6 +210,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2249808377638343720}
     m_Modifications:
+    - target: {fileID: 3482448231498329314, guid: 075f9e27aadd4f84188d8183b416cc68,
+        type: 3}
+      propertyPath: Speed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3482448231498329314, guid: 075f9e27aadd4f84188d8183b416cc68,
         type: 3}
       propertyPath: isAttach

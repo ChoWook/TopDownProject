@@ -101,7 +101,7 @@ public class Enemy : MonoBehaviour, TakableDamage
                 // 피격시 뒤로 밀려나기
                 isDamaged = true;
                 spriteRenderer.color = new Color(1, 1, 1, 0.6f);
-               hitSound.Play();
+                hitSound.Play();
                 Invoke("ResetDamaged", KnockBackTime);
             }
         }

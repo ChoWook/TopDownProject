@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4438592355531894125}
   - component: {fileID: 8970479625625796860}
   - component: {fileID: 7765102798356165258}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 8688298347580109618}
   - component: {fileID: 360943530913082691}
   - component: {fileID: 4626861047461706508}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile (1)
   m_TagString: Jump_plat
   m_Icon: {fileID: 0}
@@ -1221,7 +1221,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3749082643348747897}
   - component: {fileID: 7368189344610998180}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1925,7 +1925,7 @@ GameObject:
   - component: {fileID: 4188339020873554294}
   - component: {fileID: 2048488037383271147}
   - component: {fileID: 524366297506962729}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2173,7 +2173,7 @@ GameObject:
   - component: {fileID: 4406556266822947550}
   - component: {fileID: 475542483273808008}
   - component: {fileID: 8348317309406631131}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2558,6 +2558,8 @@ MonoBehaviour:
   isWatching: 1
   isInvincible: 1
   isTouch: 0
+  isDamaged: 0
+  SpriteObject: {fileID: 0}
 --- !u!114 &8618450876068678645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2904,7 +2906,7 @@ GameObject:
   - component: {fileID: 6444454570087713299}
   - component: {fileID: 1450088709532843701}
   - component: {fileID: 4297680795981906076}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3568,7 +3570,7 @@ GameObject:
   - component: {fileID: 6430764939477059791}
   - component: {fileID: 1660778334414563464}
   - component: {fileID: 4446771956206975873}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3918,7 +3920,7 @@ GameObject:
   - component: {fileID: 6782948868862507403}
   - component: {fileID: 1817567871871122700}
   - component: {fileID: 3421270455739518111}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile (8)
   m_TagString: Dmg_trap
   m_Icon: {fileID: 0}
@@ -4508,7 +4510,7 @@ GameObject:
   - component: {fileID: 8726862535457293002}
   - component: {fileID: 5609967152060038509}
   - component: {fileID: 9041336028706915520}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4906,6 +4908,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shooter (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5302088462606204459, guid: 0d3a92772dbfebc43a518a46dd87d929,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3a92772dbfebc43a518a46dd87d929, type: 3}
 --- !u!4 &5434756168095810383 stripped
@@ -5005,6 +5012,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shooter (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5302088462606204459, guid: 0d3a92772dbfebc43a518a46dd87d929,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3a92772dbfebc43a518a46dd87d929, type: 3}
@@ -5106,6 +5118,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shooter (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 5302088462606204459, guid: 0d3a92772dbfebc43a518a46dd87d929,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3a92772dbfebc43a518a46dd87d929, type: 3}
 --- !u!4 &5721501538714652068 stripped
@@ -5201,6 +5218,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shooter (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5302088462606204459, guid: 0d3a92772dbfebc43a518a46dd87d929,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3a92772dbfebc43a518a46dd87d929, type: 3}
 --- !u!4 &4693607315188188976 stripped
@@ -5295,6 +5317,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shooter (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5302088462606204459, guid: 0d3a92772dbfebc43a518a46dd87d929,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3a92772dbfebc43a518a46dd87d929, type: 3}
@@ -5396,6 +5423,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shooter (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5302088462606204459, guid: 0d3a92772dbfebc43a518a46dd87d929,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3a92772dbfebc43a518a46dd87d929, type: 3}
 --- !u!4 &4647723352405003796 stripped
@@ -5490,6 +5522,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shooter (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5302088462606204459, guid: 0d3a92772dbfebc43a518a46dd87d929,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3a92772dbfebc43a518a46dd87d929, type: 3}
@@ -5591,6 +5628,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shooter (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 5302088462606204459, guid: 0d3a92772dbfebc43a518a46dd87d929,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3a92772dbfebc43a518a46dd87d929, type: 3}
 --- !u!4 &5070091548913902015 stripped
@@ -5690,6 +5732,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shooter (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5302088462606204459, guid: 0d3a92772dbfebc43a518a46dd87d929,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3a92772dbfebc43a518a46dd87d929, type: 3}
@@ -5791,6 +5838,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shooter (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 5302088462606204459, guid: 0d3a92772dbfebc43a518a46dd87d929,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3a92772dbfebc43a518a46dd87d929, type: 3}
 --- !u!4 &6805205472566840807 stripped
@@ -5890,6 +5942,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shooter (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5302088462606204459, guid: 0d3a92772dbfebc43a518a46dd87d929,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3a92772dbfebc43a518a46dd87d929, type: 3}
@@ -5991,6 +6048,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shooter (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 5302088462606204459, guid: 0d3a92772dbfebc43a518a46dd87d929,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3a92772dbfebc43a518a46dd87d929, type: 3}
 --- !u!4 &5861427609404888870 stripped
@@ -6010,6 +6072,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Orb (0)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325778852140426638, guid: 256bb26379c1d154f8beb3d7b72e5c5c,
+        type: 3}
+      propertyPath: isTouch
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6325778852140426639, guid: 256bb26379c1d154f8beb3d7b72e5c5c,
         type: 3}
@@ -6188,6 +6255,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shooter (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5302088462606204459, guid: 0d3a92772dbfebc43a518a46dd87d929,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3a92772dbfebc43a518a46dd87d929, type: 3}
 --- !u!4 &9165239112278696509 stripped
@@ -6282,6 +6354,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shooter
+      objectReference: {fileID: 0}
+    - target: {fileID: 5302088462606204459, guid: 0d3a92772dbfebc43a518a46dd87d929,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3a92772dbfebc43a518a46dd87d929, type: 3}
@@ -6378,6 +6455,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shooter (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5302088462606204459, guid: 0d3a92772dbfebc43a518a46dd87d929,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3a92772dbfebc43a518a46dd87d929, type: 3}
 --- !u!4 &8076126534290731947 stripped
@@ -6473,6 +6555,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shooter (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5302088462606204459, guid: 0d3a92772dbfebc43a518a46dd87d929,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3a92772dbfebc43a518a46dd87d929, type: 3}
 --- !u!4 &8619683961337256928 stripped
@@ -6492,6 +6579,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Orb (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325778852140426638, guid: 256bb26379c1d154f8beb3d7b72e5c5c,
+        type: 3}
+      propertyPath: isTouch
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6325778852140426639, guid: 256bb26379c1d154f8beb3d7b72e5c5c,
         type: 3}
@@ -6670,6 +6762,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shooter (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5302088462606204459, guid: 0d3a92772dbfebc43a518a46dd87d929,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3a92772dbfebc43a518a46dd87d929, type: 3}
 --- !u!4 &779556877173744225 stripped
@@ -6769,6 +6866,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shooter (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5302088462606204459, guid: 0d3a92772dbfebc43a518a46dd87d929,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3a92772dbfebc43a518a46dd87d929, type: 3}
@@ -6870,6 +6972,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shooter (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5302088462606204459, guid: 0d3a92772dbfebc43a518a46dd87d929,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3a92772dbfebc43a518a46dd87d929, type: 3}
 --- !u!4 &65869887724616218 stripped
@@ -6889,6 +6996,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Orb (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325778852140426638, guid: 256bb26379c1d154f8beb3d7b72e5c5c,
+        type: 3}
+      propertyPath: isTouch
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6325778852140426639, guid: 256bb26379c1d154f8beb3d7b72e5c5c,
         type: 3}
@@ -7067,6 +7179,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shooter (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5302088462606204459, guid: 0d3a92772dbfebc43a518a46dd87d929,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3a92772dbfebc43a518a46dd87d929, type: 3}
 --- !u!4 &337287411515699715 stripped
@@ -7167,6 +7284,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shooter (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 5302088462606204459, guid: 0d3a92772dbfebc43a518a46dd87d929,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3a92772dbfebc43a518a46dd87d929, type: 3}
 --- !u!4 &474095797328281369 stripped
@@ -7261,6 +7383,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shooter (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5302088462606204459, guid: 0d3a92772dbfebc43a518a46dd87d929,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3a92772dbfebc43a518a46dd87d929, type: 3}
@@ -7362,6 +7489,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shooter (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 5302088462606204459, guid: 0d3a92772dbfebc43a518a46dd87d929,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3a92772dbfebc43a518a46dd87d929, type: 3}
 --- !u!4 &1162955043061514415 stripped
@@ -7456,6 +7588,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shooter (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5302088462606204459, guid: 0d3a92772dbfebc43a518a46dd87d929,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3a92772dbfebc43a518a46dd87d929, type: 3}
@@ -7556,6 +7693,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shooter
+      objectReference: {fileID: 0}
+    - target: {fileID: 5302088462606204459, guid: 0d3a92772dbfebc43a518a46dd87d929,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3a92772dbfebc43a518a46dd87d929, type: 3}
@@ -7910,6 +8052,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shooter
       objectReference: {fileID: 0}
+    - target: {fileID: 5302088462606204459, guid: 0d3a92772dbfebc43a518a46dd87d929,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3a92772dbfebc43a518a46dd87d929, type: 3}
 --- !u!4 &4093221290363966749 stripped
@@ -7929,6 +8076,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Orb (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325778852140426638, guid: 256bb26379c1d154f8beb3d7b72e5c5c,
+        type: 3}
+      propertyPath: isTouch
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6325778852140426639, guid: 256bb26379c1d154f8beb3d7b72e5c5c,
         type: 3}
@@ -8107,6 +8259,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shooter (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5302088462606204459, guid: 0d3a92772dbfebc43a518a46dd87d929,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3a92772dbfebc43a518a46dd87d929, type: 3}
 --- !u!4 &3554710806396048095 stripped
@@ -8206,6 +8363,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shooter (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5302088462606204459, guid: 0d3a92772dbfebc43a518a46dd87d929,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3a92772dbfebc43a518a46dd87d929, type: 3}

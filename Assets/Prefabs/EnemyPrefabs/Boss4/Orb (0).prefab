@@ -67,7 +67,9 @@ MonoBehaviour:
   isAttach: 1
   isWatching: 0
   isInvincible: 0
-  isTouch: 1
+  isTouch: 0
+  isDamaged: 0
+  SpriteObject: {fileID: 0}
 --- !u!114 &-7822474287655218087
 MonoBehaviour:
   m_ObjectHideFlags: 0

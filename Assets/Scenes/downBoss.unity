@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 289246281}
   - component: {fileID: 289246280}
   - component: {fileID: 289246279}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Dmg
   m_TagString: Dmg_trap
   m_Icon: {fileID: 0}
@@ -689,7 +689,7 @@ GameObject:
   - component: {fileID: 474594301}
   - component: {fileID: 474594300}
   - component: {fileID: 474594299}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ground (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1241,6 +1241,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FallingGrid (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4504824586709147999, guid: 8c3e7326f8638c843bc1ee1605b96729,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4504824586751744601, guid: 8c3e7326f8638c843bc1ee1605b96729,
         type: 3}
       propertyPath: m_ColliderPaths.Array.size
@@ -1420,6 +1425,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[1].Array.data[5].Y
       value: -110000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504824586751744607, guid: 8c3e7326f8638c843bc1ee1605b96729,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504824586798956288, guid: 8c3e7326f8638c843bc1ee1605b96729,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4504824586798956291, guid: 8c3e7326f8638c843bc1ee1605b96729,
         type: 3}
@@ -4621,6 +4636,11 @@ PrefabInstance:
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[21].Array.data[10].Y
       value: -30000000
       objectReference: {fileID: 0}
+    - target: {fileID: 4504824587565703540, guid: 8c3e7326f8638c843bc1ee1605b96729,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4504824587565703542, guid: 8c3e7326f8638c843bc1ee1605b96729,
         type: 3}
       propertyPath: m_ColliderPaths.Array.size
@@ -5261,6 +5281,16 @@ PrefabInstance:
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[26].Array.data[3].Y
       value: -100000000
       objectReference: {fileID: 0}
+    - target: {fileID: 4504824587831081966, guid: 8c3e7326f8638c843bc1ee1605b96729,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504824588145244826, guid: 8c3e7326f8638c843bc1ee1605b96729,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8013685060853669403, guid: 8c3e7326f8638c843bc1ee1605b96729,
         type: 3}
       propertyPath: m_Enabled
@@ -5629,7 +5659,7 @@ GameObject:
   - component: {fileID: 1451504759}
   - component: {fileID: 1451504758}
   - component: {fileID: 1451504757}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ground (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6101,7 +6131,7 @@ GameObject:
   - component: {fileID: 1914296064}
   - component: {fileID: 1914296063}
   - component: {fileID: 1914296062}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Jmp
   m_TagString: Jump_plat
   m_Icon: {fileID: 0}
@@ -6673,7 +6703,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2009532273}
   - component: {fileID: 2009532272}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BossGrid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6781,6 +6811,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FallingGrid
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504824586709147999, guid: 8c3e7326f8638c843bc1ee1605b96729,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4504824586751744601, guid: 8c3e7326f8638c843bc1ee1605b96729,
         type: 3}
@@ -6961,6 +6996,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[1].Array.data[5].Y
       value: -110000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504824586751744607, guid: 8c3e7326f8638c843bc1ee1605b96729,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504824586798956288, guid: 8c3e7326f8638c843bc1ee1605b96729,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4504824586798956291, guid: 8c3e7326f8638c843bc1ee1605b96729,
         type: 3}
@@ -10162,6 +10207,11 @@ PrefabInstance:
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[21].Array.data[10].Y
       value: -30000000
       objectReference: {fileID: 0}
+    - target: {fileID: 4504824587565703540, guid: 8c3e7326f8638c843bc1ee1605b96729,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4504824587565703542, guid: 8c3e7326f8638c843bc1ee1605b96729,
         type: 3}
       propertyPath: m_ColliderPaths.Array.size
@@ -10801,6 +10851,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[26].Array.data[3].Y
       value: -100000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504824587831081966, guid: 8c3e7326f8638c843bc1ee1605b96729,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504824588145244826, guid: 8c3e7326f8638c843bc1ee1605b96729,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8013685060853669403, guid: 8c3e7326f8638c843bc1ee1605b96729,
         type: 3}
