@@ -1489,7 +1489,7 @@ GameObject:
   - component: {fileID: 546656173}
   - component: {fileID: 546656172}
   - component: {fileID: 546656178}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mov_plat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2179,7 +2179,7 @@ GameObject:
   - component: {fileID: 664417819}
   - component: {fileID: 664417818}
   - component: {fileID: 664417824}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: fall_plat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3262,7 +3262,7 @@ GameObject:
   - component: {fileID: 1114500678}
   - component: {fileID: 1114500677}
   - component: {fileID: 1114500682}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25954,7 +25954,7 @@ GameObject:
   - component: {fileID: 1246042300}
   - component: {fileID: 1246042299}
   - component: {fileID: 1246042298}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52589,7 +52589,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1380424042}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55355,7 +55355,7 @@ GameObject:
   - component: {fileID: 1999983983}
   - component: {fileID: 1999983982}
   - component: {fileID: 1999983987}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: jump_plat
   m_TagString: Jump_plat
   m_Icon: {fileID: 0}
@@ -56208,7 +56208,7 @@ GameObject:
   - component: {fileID: 2045056480}
   - component: {fileID: 2045056479}
   - component: {fileID: 2045056478}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
