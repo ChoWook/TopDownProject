@@ -1458,7 +1458,7 @@ GameObject:
   - component: {fileID: 518402728}
   - component: {fileID: 518402727}
   - component: {fileID: 518402726}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: dmg_trap
   m_TagString: Dmg_trap
   m_Icon: {fileID: 0}
@@ -28448,7 +28448,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 757562575}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60980,7 +60980,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1175868469}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67053,7 +67053,7 @@ GameObject:
   - component: {fileID: 1772658135}
   - component: {fileID: 1772658134}
   - component: {fileID: 1772658133}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: slow_trap
   m_TagString: Slow_trap
   m_Icon: {fileID: 0}
