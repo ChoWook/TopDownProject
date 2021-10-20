@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class audiosetting : MonoBehaviour
 {
@@ -43,6 +44,7 @@ public class audiosetting : MonoBehaviour
         dashAudio.volume = effectVolumn.value;
         dmgAudio.volume = effectVolumn.value;
 
+        checkBossStage();
     }
 
     // Update is called once per frame
@@ -69,5 +71,20 @@ public class audiosetting : MonoBehaviour
         
         PlayerPrefs.SetFloat("effectVol", effectVol);
 
+    }
+
+    public void checkBossStage()
+    {
+        int sceneNum = SceneManager.GetActiveScene().buildIndex;
+        switch (sceneNum)
+        {
+            case 7:
+            case 9:
+            case 11:
+            case 13:
+                bgmAudio.Stop();
+                bossMusic.Play();
+                break;
+        }
     }
 }

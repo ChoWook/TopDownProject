@@ -27,14 +27,26 @@ EditorBuildSettings:
     path: Assets/Scenes/upfloor1.unity
     guid: ebda17a6b11086540bab216164d29836
   - enabled: 1
+    path: Assets/Scenes/EyesBoss.unity
+    guid: d458959fab37a384ba23abe01529fdc0
+  - enabled: 1
     path: Assets/Scenes/upfloor2.unity
     guid: 4e503d6e3b5bd224699a2733d3927606
+  - enabled: 1
+    path: Assets/Scenes/downBoss.unity
+    guid: 15f767251022918479c96993f74e8d1d
   - enabled: 1
     path: Assets/Scenes/upfloor3.unity
     guid: 1b28a2c4b3775fe4d99ab251cf09cce6
   - enabled: 1
+    path: Assets/Scenes/Boss2.unity
+    guid: 21bdb381560abda4f82013a563dbb3bf
+  - enabled: 1
     path: Assets/Scenes/upfloor4.unity
     guid: 41a30828872ac5444a6802471aea6692
+  - enabled: 1
+    path: Assets/Scenes/Boss1.unity
+    guid: ec61a897aca0b8142ad7f42391f98693
   - enabled: 1
     path: Assets/Scenes/LoadingScene.unity
     guid: af06899efc0b44c4d98ea20188bcdcb9
