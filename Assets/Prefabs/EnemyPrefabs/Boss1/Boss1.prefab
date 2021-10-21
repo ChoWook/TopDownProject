@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2249808377133340946}
   m_Layer: 9
   m_Name: SpriteObject
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3417327201831309688}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2249808377133340947
 SpriteRenderer:
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 13
+  m_SortingOrder: 9
   m_Sprite: {fileID: -750047184722822154, guid: 1914d95466e3d4341a618c35a56d5f82,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -162,7 +162,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3417327201831309688}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2249808378925618691
 BoxCollider2D:
@@ -203,6 +203,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spell: {fileID: 16339492083654792, guid: f25310f4eee2dca488b9fe432e6488b8, type: 3}
+  CounterParticle: {fileID: 7203673240259546783, guid: 73e6181445d7d85479d5a89c484c2d50,
+    type: 3}
+  SpriteObject: {fileID: 2249808377133341164}
+  Hp: 500
+  CounterTime: 1.4
+  Speed: 1.5
+  PlayerLayer:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!1001 &2249808378031930779
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -214,6 +223,16 @@ PrefabInstance:
         type: 3}
       propertyPath: Speed
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482448231498329314, guid: 075f9e27aadd4f84188d8183b416cc68,
+        type: 3}
+      propertyPath: Hp_max
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482448231498329314, guid: 075f9e27aadd4f84188d8183b416cc68,
+        type: 3}
+      propertyPath: isTouch
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3482448231498329314, guid: 075f9e27aadd4f84188d8183b416cc68,
         type: 3}
@@ -232,12 +251,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3482448231498329314, guid: 075f9e27aadd4f84188d8183b416cc68,
         type: 3}
+      propertyPath: AttackRange
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482448231498329314, guid: 075f9e27aadd4f84188d8183b416cc68,
+        type: 3}
+      propertyPath: DetectRange
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482448231498329314, guid: 075f9e27aadd4f84188d8183b416cc68,
+        type: 3}
+      propertyPath: AttackTiming
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482448231498329314, guid: 075f9e27aadd4f84188d8183b416cc68,
+        type: 3}
       propertyPath: SpriteObject
       value: 
       objectReference: {fileID: 2249808377133341164}
     - target: {fileID: 3482448231498329314, guid: 075f9e27aadd4f84188d8183b416cc68,
         type: 3}
       propertyPath: isInvincible
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482448231498329314, guid: 075f9e27aadd4f84188d8183b416cc68,
+        type: 3}
+      propertyPath: KnockBackTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482448231498329314, guid: 075f9e27aadd4f84188d8183b416cc68,
+        type: 3}
+      propertyPath: KnockBackSpeed
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3482448231498329315, guid: 075f9e27aadd4f84188d8183b416cc68,
@@ -396,10 +440,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: BringerOfDeath
       objectReference: {fileID: 0}
+    - target: {fileID: 3482448231498329369, guid: 075f9e27aadd4f84188d8183b416cc68,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482448231498329369, guid: 075f9e27aadd4f84188d8183b416cc68,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3482448231498329317, guid: 075f9e27aadd4f84188d8183b416cc68, type: 3}
     - {fileID: 3482448231498329316, guid: 075f9e27aadd4f84188d8183b416cc68, type: 3}
     - {fileID: 3482448231498329368, guid: 075f9e27aadd4f84188d8183b416cc68, type: 3}
+    - {fileID: 3482448231498329314, guid: 075f9e27aadd4f84188d8183b416cc68, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 075f9e27aadd4f84188d8183b416cc68, type: 3}
 --- !u!1 &3417327201831309442 stripped
 GameObject:

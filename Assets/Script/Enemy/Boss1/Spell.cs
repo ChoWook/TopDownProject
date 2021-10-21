@@ -11,6 +11,8 @@ public class Spell : MonoBehaviour
     {
         boxCollider = GetComponent<BoxCollider2D>();
         Invoke("EnableColider", 0.35f);
+
+        Destroy(gameObject, 1.18f);
     }
 
 
@@ -18,4 +20,5 @@ public class Spell : MonoBehaviour
     {
         boxCollider.enabled = true;
     }
+
 }

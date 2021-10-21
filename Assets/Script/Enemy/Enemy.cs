@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour, TakableDamage
 
     bool isAttack = false;
     bool isDead = false;
-    bool isSideSprite = false;
+    float AttackTime = 0f;
     CharacterController2D player;
     Rigidbody2D r2d;
     Animator anim;
@@ -43,16 +43,6 @@ public class Enemy : MonoBehaviour, TakableDamage
         r2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        if (!anim)
-        {
-            isSideSprite = true;
-            anim = GetComponentInChildren<Animator>();
-        }
-        if (!spriteRenderer)
-        {
-            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        }
-
 
         hitSound = GameObject.Find("hitSound").GetComponent<AudioSource>();
         DeadSound = GameObject.Find("DeadSound").GetComponent<AudioSource>();
@@ -78,9 +68,13 @@ public class Enemy : MonoBehaviour, TakableDamage
 
     private void Update()
     {
-        BehaviorCheck();
         FindPlayer();
         KnockBack();
+    }
+
+    private void FixedUpdate()
+    {
+        BehaviorCheck();
     }
 
     // Update is called once per frame
@@ -125,61 +119,47 @@ public class Enemy : MonoBehaviour, TakableDamage
         {
             if (isWatching)
             {
-                var legacy = spriteRenderer.flipX;
-
                 spriteRenderer.flipX = (facingDirection >= 0.0f) ? false ^ isFlip : true ^ isFlip;
-
-                if(legacy != spriteRenderer.flipX && isSideSprite && SpriteObject)  //스프라이트가 한쪽으로 치우쳐져 있으면
-                {
-                    SpriteObject.transform.localPosition = new Vector3(-SpriteObject.transform.localPosition.x, 0, 0);
-                }
             }
 
             if (isAttach)
             {
                 return;         // 고정형 몹은 움직이지 않게 return
             }
-            if (distance <= DetectRange && distance >= AttackRange && !isDamaged)
+            if (distance <= DetectRange)
             {
-                anim.SetBool("Walk", true);
-                transform.position = Vector2.MoveTowards(transform.position, new Vector2(player.transform.position.x, transform.position.y), Speed * Time.deltaTime);
-            }
-            else
-            {
-                anim.SetBool("Walk", false);
-                if (distance <= AttackRange)
+                if (distance >= AttackRange && !isDamaged)
                 {
-                    Invoke("AttackPlayer", AttackTiming);
-                    isAttack = true;
-                    anim.SetTrigger("Attack");
+                    anim.SetBool("Walk", true);
+                    transform.position = Vector2.MoveTowards(transform.position, new Vector2(player.transform.position.x, transform.position.y), Speed * Time.deltaTime);
+                }
+                else
+                {
+                    Attack();
                 }
             }
         }
     }
 
-    private void WalkAnimation()
+    public void Attack()
     {
-        // Walk Animation
-        if (r2d.velocity.x == 0)
-        {
-            anim.SetBool("Walk", false);
-        }
-        else
-        {
-            anim.SetBool("Walk", true);
-        }
+        AttackTime = Time.time;
+        anim.SetBool("Walk", false);
+        Invoke("AttackPlayer", AttackTiming);
+        isAttack = true;
+        anim.SetTrigger("Attack");
     }
 
     private void BehaviorCheck()
     {
         // Attack Check
-        if (isAttack && !anim.GetCurrentAnimatorStateInfo(0).IsName("Attack") && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
+        if (isAttack && !anim.GetCurrentAnimatorStateInfo(0).IsName("Attack") && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack") && Time.time - AttackTime < 0.2f)
         {
             isAttack = false;
         }
     }
 
-    private void AttackPlayer()
+    public void AttackPlayer()
     {
         // Enemy를 찾아 범위 안에 있는 적들에게 대미지 입히기
         Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(AttackPoint.position, AttackRange, PlayerLayer);

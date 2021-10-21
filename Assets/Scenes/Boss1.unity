@@ -136,7 +136,7 @@ PrefabInstance:
     - target: {fileID: 3815696313547498528, guid: 529b07e1779797f4db99b84539dc1449,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 38.39
+      value: 47.3
       objectReference: {fileID: 0}
     - target: {fileID: 3815696313547498528, guid: 529b07e1779797f4db99b84539dc1449,
         type: 3}
@@ -63780,7 +63780,7 @@ PrefabInstance:
     - target: {fileID: 2249808377638343720, guid: 4cf2832b4c711744b91aa8cd59003d54,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 37.55
+      value: 38.21
       objectReference: {fileID: 0}
     - target: {fileID: 2249808377638343720, guid: 4cf2832b4c711744b91aa8cd59003d54,
         type: 3}
@@ -63834,8 +63834,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3417327201831309689, guid: 4cf2832b4c711744b91aa8cd59003d54,
         type: 3}
-      propertyPath: AttackRange
+      propertyPath: isTouch
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3417327201831309689, guid: 4cf2832b4c711744b91aa8cd59003d54,
+        type: 3}
+      propertyPath: isAttach
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3417327201831309689, guid: 4cf2832b4c711744b91aa8cd59003d54,
+        type: 3}
+      propertyPath: AttackDmg
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3417327201831309689, guid: 4cf2832b4c711744b91aa8cd59003d54,
+        type: 3}
+      propertyPath: AttackRange
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3417327201831309689, guid: 4cf2832b4c711744b91aa8cd59003d54,
+        type: 3}
+      propertyPath: DetectRange
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cf2832b4c711744b91aa8cd59003d54, type: 3}
