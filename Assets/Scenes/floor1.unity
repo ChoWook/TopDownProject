@@ -66920,22 +66920,22 @@ PrefabInstance:
     - target: {fileID: 3101384130486175128, guid: dc4090607d170f940be46513cde26246,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3101384130486175128, guid: dc4090607d170f940be46513cde26246,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3101384130486175128, guid: dc4090607d170f940be46513cde26246,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 79.5954
+      value: 81.07
       objectReference: {fileID: 0}
     - target: {fileID: 3101384130486175128, guid: dc4090607d170f940be46513cde26246,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -34.79361
+      value: -37
       objectReference: {fileID: 0}
     - target: {fileID: 3101384130486175128, guid: dc4090607d170f940be46513cde26246,
         type: 3}

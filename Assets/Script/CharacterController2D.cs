@@ -44,6 +44,9 @@ public class CharacterController2D : MonoBehaviour
     float AttackDuration = 0.0f;
     float lastDamaged = 0.0f;
 
+    AudioSource dashAudio;
+    AudioSource dmgAudio;
+
     Vector3 cameraPos;
     Rigidbody2D r2d;
     BoxCollider2D mainCollider;
@@ -55,6 +58,10 @@ public class CharacterController2D : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        dashAudio = GameObject.Find("dashSound").GetComponent<AudioSource>();
+        dmgAudio = GameObject.Find("dmgSound").GetComponent<AudioSource>();
+
+
         t = transform;
         r2d = GetComponent<Rigidbody2D>();
         mainCollider = GetComponent<BoxCollider2D>();
@@ -132,7 +139,7 @@ public class CharacterController2D : MonoBehaviour
         {
             isEvasion = true;
             anim.SetTrigger("evasionTrigger");
-
+            dashAudio.Play();
             OnInvincible();
         }
     }
@@ -175,6 +182,7 @@ public class CharacterController2D : MonoBehaviour
         if (moveDirection == 0)
         {
             anim.SetBool("isWalking", false);
+
         }
         else
         {
@@ -398,11 +406,13 @@ public class CharacterController2D : MonoBehaviour
             if (other.GetComponent<Enemy>().isTouch)
             {
                 OnDamaged(1);
+                dmgAudio.Play();
             }
         }
         else if(other.gameObject.tag == "Projectile")
         {
             OnDamaged(1);
+            dmgAudio.Play();
         }
         else if (other.gameObject.tag == "Item")
         {
@@ -457,6 +467,7 @@ public class CharacterController2D : MonoBehaviour
     public void OnDamaged(int dmg)
     {
         OnInvincible();
+        dmgAudio.Play();
         var time = Time.time;
         if(time - lastDamaged < invincibleTime)
         {
