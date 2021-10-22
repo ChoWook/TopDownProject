@@ -153,7 +153,7 @@ public class Enemy : MonoBehaviour, TakableDamage
     private void BehaviorCheck()
     {
         // Attack Check
-        if (isAttack && !anim.GetCurrentAnimatorStateInfo(0).IsName("Attack") && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack") && Time.time - AttackTime < 0.2f)
+        if (isAttack && !anim.GetCurrentAnimatorStateInfo(0).IsName("Attack") && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack") && Time.time - AttackTime > 0.2f)
         {
             isAttack = false;
         }
