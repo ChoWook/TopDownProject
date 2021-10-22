@@ -13,7 +13,26 @@ public class LoadSceneController : MonoBehaviour
     public static void LoadScene(int sceneNumber)
     {
         nextSceneNumber = sceneNumber;
-        SceneManager.LoadScene("LoadingScene");
+        switch (sceneNumber)
+        {
+            case 7:
+                SceneManager.LoadScene("Boss4Loading");
+                break;
+            case 9:
+                SceneManager.LoadScene("Boss3Loading");
+                break;
+            case 11:
+                SceneManager.LoadScene("Boss2Loading");
+                break;
+            case 13:
+                SceneManager.LoadScene("Boss1Loading");
+                break;
+            default:
+                SceneManager.LoadScene("LoadingScene");
+                break;
+        }
+
+       
     }
 
  
@@ -46,8 +65,8 @@ public class LoadSceneController : MonoBehaviour
             }
             else
             {
-                timer += Time.unscaledDeltaTime;
-                progressbar.fillAmount = Mathf.Lerp(0.9f, 1f, timer);
+                timer += Time.deltaTime;
+                progressbar.fillAmount = Mathf.Lerp(progressbar.fillAmount, 1f, timer);
                 if(progressbar.fillAmount >= 1f)
                 {
                     op.allowSceneActivation = true;

@@ -50,4 +50,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LoadingScene.unity
     guid: af06899efc0b44c4d98ea20188bcdcb9
+  - enabled: 1
+    path: Assets/Scenes/Boss1Loading.unity
+    guid: 3e9bec911b1574749ab6c2d127064c2f
+  - enabled: 1
+    path: Assets/Scenes/Boss2Loading.unity
+    guid: d79bc0d1992aac4498d315e7fc30c771
+  - enabled: 1
+    path: Assets/Scenes/Boss3Loading.unity
+    guid: 2061d049090d09441b473fca9bd9a22c
+  - enabled: 1
+    path: Assets/Scenes/Boss4Loading.unity
+    guid: f8bb63889011f324c951d4c22a14bb65
   m_configObjects: {}

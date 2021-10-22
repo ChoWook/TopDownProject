@@ -72,7 +72,7 @@ public class SceneCnt : MonoBehaviour
 
     public static void  EndGame()
     {
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
         //stageNum = SceneManager.GetActiveScene().buildIndex;
         stageNum++;
         LoadSceneController.LoadScene(stageNum);
