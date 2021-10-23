@@ -113,6 +113,7 @@
     <Compile Include="Assets\Script\Enemy\ReflectProjectile.cs" />
     <Compile Include="Assets\Script\Enemy\Shooter.cs" />
     <Compile Include="Assets\Script\Enemy\TakableDamage.cs" />
+    <Compile Include="Assets\Script\FadeEffect.cs" />
     <Compile Include="Assets\Script\GameData.cs" />
     <Compile Include="Assets\Script\LoadSceneController.cs" />
     <Compile Include="Assets\Script\PauseMenu.cs" />

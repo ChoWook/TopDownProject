@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/floor1.unity
     guid: b43a1a14285cba64ebb8c4c67e29bf03
   - enabled: 1
+    path: Assets/Scenes/ground.unity
+    guid: 922bcb1c126cf08428dd7406b5f63032
+  - enabled: 1
     path: Assets/Scenes/upfloor1.unity
     guid: ebda17a6b11086540bab216164d29836
   - enabled: 1
@@ -47,6 +50,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Boss1.unity
     guid: ec61a897aca0b8142ad7f42391f98693
+  - enabled: 1
+    path: Assets/Scenes/finalTop.unity
+    guid: 27785ebc59a83ac4d92c8ff31cee9245
   - enabled: 1
     path: Assets/Scenes/LoadingScene.unity
     guid: af06899efc0b44c4d98ea20188bcdcb9

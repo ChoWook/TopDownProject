@@ -40,7 +40,7 @@ public class SceneCnt : MonoBehaviour
     void StartGame()
     {
         Time.timeScale = 1f;
-      
+        FadeEffect.isActive=true;
         if (!PlayerPrefs.HasKey("PlayerX"))
         {
             startingPos = new Vector3(startingPos.x, startingPos.y, startingPos.z);
@@ -76,7 +76,7 @@ public class SceneCnt : MonoBehaviour
         stageNum++;
         LoadSceneController.LoadScene(stageNum);
         isClear = true;
-      
+       
        
     }
     public void GameLoad()

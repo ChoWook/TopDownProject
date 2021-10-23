@@ -15,16 +15,16 @@ public class LoadSceneController : MonoBehaviour
         nextSceneNumber = sceneNumber;
         switch (sceneNumber)
         {
-            case 7:
+            case 8:
                 SceneManager.LoadScene("Boss4Loading");
                 break;
-            case 9:
+            case 10:
                 SceneManager.LoadScene("Boss3Loading");
                 break;
-            case 11:
+            case 12:
                 SceneManager.LoadScene("Boss2Loading");
                 break;
-            case 13:
+            case 14:
                 SceneManager.LoadScene("Boss1Loading");
                 break;
             default:

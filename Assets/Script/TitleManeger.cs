@@ -54,7 +54,11 @@ public class TitleManeger : MonoBehaviour
     }
     public void clickYes()
     {
+        float backVol = PlayerPrefs.GetFloat("backVol", 1f);
+        float effectVol = PlayerPrefs.GetFloat("effectVol", 1f);
         PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetFloat("backVol", backVol);
+        PlayerPrefs.SetFloat("effectVol", effectVol);
         LoadSceneController.LoadScene(1);
     }
     public void clickNo()
