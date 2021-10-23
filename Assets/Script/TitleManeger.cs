@@ -37,6 +37,10 @@ public class TitleManeger : MonoBehaviour
         {
             GameOverCanvas.SetActive(true);
         }
+        else
+        {
+            GameOverCanvas.SetActive(false);
+        }
 
 
     }
@@ -73,7 +77,8 @@ public class TitleManeger : MonoBehaviour
     }
     public void clickMain()
     {
-        LoadSceneController.LoadScene(0);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(0);
         isDead = false;
     }
 
@@ -91,15 +96,15 @@ public class TitleManeger : MonoBehaviour
  
     public void clickContinue()
     {
+        isDead = false;
         if (!PlayerPrefs.HasKey("PlayerX"))
         {
             return;
         }
-        else
-        {
-            int sn = PlayerPrefs.GetInt("StageNum");
-            SceneManager.LoadScene(sn, LoadSceneMode.Single);
-        }
+        int sn = PlayerPrefs.GetInt("StageNum");
+        int hp = PlayerPrefs.GetInt("HP");
+        Player.HP = hp;
+        SceneManager.LoadScene(sn, LoadSceneMode.Single);
     }
 
     public void clickRetry()
