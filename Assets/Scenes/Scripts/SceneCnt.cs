@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class SceneCnt : MonoBehaviour
 {
     public GameObject player;
-
     Vector3 startingPos;
     Vector3 loadPos;
     Quaternion startingRotate;
@@ -93,6 +92,8 @@ public class SceneCnt : MonoBehaviour
       
     }
 
+
+   
    
 
 
