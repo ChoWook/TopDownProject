@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8644549909699086293}
   - component: {fileID: 8644549909699086290}
   - component: {fileID: -8662952730126569344}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: fall_plat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
