@@ -19,6 +19,10 @@ public class Boss3 : MonoBehaviour
     public Boss3Shooters BothPatternShooters;
     public int[] StateHp = {50, 50, 100};
     public float AttackDelay = 1.8f;
+    public GameObject parent;
+    public GameObject EndPoint;
+    public FallingGrid[] FallingGrids;
+    public GameObject DmgGrid;
 
     bool isPlayerFound = false;
     Boss3State state = Boss3State.Left;
@@ -130,6 +134,13 @@ public class Boss3 : MonoBehaviour
                 break;
             case Boss3State.Both:
                 // 보스 클리어시 할 행동
+                foreach(var FallingGrid in FallingGrids)
+                {
+                    FallingGrid.FallingSpeed = 0;
+                }
+                EndPoint.SetActive(true);
+                DmgGrid.SetActive(false);
+                Destroy(parent);
                 break;
         }
     }

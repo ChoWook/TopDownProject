@@ -224,6 +224,10 @@ MonoBehaviour:
   BothPatternShooters: {fileID: 5586176716441631273}
   StateHp: 320000003200000064000000
   AttackDelay: 1.8
+  parent: {fileID: 5547089800303480001}
+  EndPoint: {fileID: 0}
+  FallingGrids: []
+  DmgGrid: {fileID: 0}
 --- !u!1 &5547089800303480001
 GameObject:
   m_ObjectHideFlags: 0

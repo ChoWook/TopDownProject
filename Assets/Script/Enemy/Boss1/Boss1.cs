@@ -7,6 +7,8 @@ public class Boss1: MonoBehaviour, TakableDamage
     public GameObject Spell;
     public GameObject CounterParticle;
     public GameObject SpriteObject;
+    public GameObject EndPoint;
+    public GameObject Parent;
     public int Hp = 500;
     public float CounterTime = 1.3f;
     public float Speed = 1.5f;
@@ -17,6 +19,7 @@ public class Boss1: MonoBehaviour, TakableDamage
     bool isHurt = false;
     float AttackRange = 0;
     float facingDirection = 0;
+    float AttackTime = 0;
     Animator animator;
     CharacterController2D player;
     SpriteRenderer spriteRenderer;
@@ -56,6 +59,7 @@ public class Boss1: MonoBehaviour, TakableDamage
     public void SpellAttack()
     {
         isAttack = true;
+        AttackTime = Time.time;
         animator.SetBool("Walk", false);
         animator.SetTrigger("Spell");
 
@@ -86,6 +90,7 @@ public class Boss1: MonoBehaviour, TakableDamage
     public void BaseAttack()
     {
         isAttack = true;
+        AttackTime = Time.time;
         AttackRange = 5.0f;
         animator.SetBool("Walk", false);
         animator.SetTrigger("Attack");
@@ -98,6 +103,7 @@ public class Boss1: MonoBehaviour, TakableDamage
         AttackRange = 7.0f;
         isAttack = true;
         isCountable = true;
+        AttackTime = Time.time;
         spriteRenderer.color = new Color(1.0f, 0.5f, 0.5f);
         animator.SetBool("Walk", false);
         animator.SetTrigger("CountableAttack");
@@ -108,13 +114,6 @@ public class Boss1: MonoBehaviour, TakableDamage
 
     private void FixedUpdate()
     {
-        if (!animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
-        {
-            isAttack = false;
-            AttackRange = 2.0f;
-            spriteRenderer.color = new Color(1f, 1f, 1f);
-        }
-
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Hurt"))
         {
             spriteRenderer.color = new Color(1f, 1f, 1f, 0.6f);
@@ -123,6 +122,14 @@ public class Boss1: MonoBehaviour, TakableDamage
         {
             isHurt = false;
         }
+
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack") && Time.time - AttackTime > 0.2f)
+        {
+            isAttack = false;
+            AttackRange = 2.0f;
+            spriteRenderer.color = new Color(1f, 1f, 1f);
+        }
+
         Walk();
     }
 
@@ -147,13 +154,17 @@ public class Boss1: MonoBehaviour, TakableDamage
             isCountable = false;
             isHurt = true;
             CancelInvoke();
+            Invoke("Attack", CounterTime + 1.0f);
             animator.SetTrigger("Countered");
         }
 
         if(Hp < 0)
         {
             // 보스가 죽었을 때 연출
+            EndPoint.SetActive(true);
+            EndPoint.transform.SetParent(null);
             DeadSound.Play();
+            Destroy(Parent);
         }
         else
         {
@@ -169,7 +180,6 @@ public class Boss1: MonoBehaviour, TakableDamage
         {
             var player = FindObjectOfType<CharacterController2D>();
 
-            
             facingDirection = player.transform.position.x - transform.position.x;
 
             var lagacy = spriteRenderer.flipX;
@@ -181,9 +191,11 @@ public class Boss1: MonoBehaviour, TakableDamage
                 SpriteObject.transform.localPosition = new Vector3(-SpriteObject.transform.localPosition.x, 0, 0);
             }
 
-            animator.SetBool("Walk", true);
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2(player.transform.position.x, transform.position.y), Speed * Time.deltaTime);
-
+            if(Mathf.Abs(facingDirection) > 1.0f)
+            {
+                animator.SetBool("Walk", true);
+                transform.position = Vector2.MoveTowards(transform.position, new Vector2(player.transform.position.x, transform.position.y), Speed * Time.deltaTime);
+            }
         }
     }
 
@@ -198,6 +210,6 @@ public class Boss1: MonoBehaviour, TakableDamage
             SpellAttack();
         }
 
-        Invoke("Attack", 5.0f);
+        Invoke("Attack", 3.5f);
     }
 }

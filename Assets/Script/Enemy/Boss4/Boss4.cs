@@ -11,6 +11,8 @@ public class Boss4 : MonoBehaviour
     public Transform[] OrbTransform;
     public Transform PlayerStartTransform;
     public Orb OrbPrefab;
+    public GameObject[] HPToach;
+    public GameObject EndPoint;
 
     Player player;
     bool[] isClearStates = new bool[4];
@@ -84,6 +86,12 @@ public class Boss4 : MonoBehaviour
             default:
                 break;
         }
+
+
+        for(int i = 0; i < 4; i++)
+        {
+            HPToach[i].SetActive(!isClearStates[i]);
+        }
     }
 
     public void ResetState()
@@ -125,6 +133,9 @@ public class Boss4 : MonoBehaviour
         if (CheckClearAllState())
         {
             // 보스 클리어시 행할 행동들
+            EndPoint.SetActive(true);
+            EndPoint.transform.SetParent(null);
+            Destroy(gameObject);
         }
         else
         {

@@ -206,6 +206,8 @@ MonoBehaviour:
   CounterParticle: {fileID: 7203673240259546783, guid: 73e6181445d7d85479d5a89c484c2d50,
     type: 3}
   SpriteObject: {fileID: 2249808377133341164}
+  EndPoint: {fileID: 0}
+  Parent: {fileID: 2249808377638343723}
   Hp: 500
   CounterTime: 1.4
   Speed: 1.5

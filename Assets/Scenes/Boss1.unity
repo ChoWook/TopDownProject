@@ -342,7 +342,7 @@ Transform:
   - {fileID: 1265156250}
   - {fileID: 2001250008}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &521949748
 GameObject:
@@ -408,7 +408,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &708733593
 GameObject:
@@ -536,7 +536,7 @@ Transform:
   - {fileID: 1407460345}
   - {fileID: 1217701641}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1063391370
 GameObject:
@@ -34691,6 +34691,86 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &1178922315
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3101384130486175128, guid: dc4090607d170f940be46513cde26246,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3101384130486175128, guid: dc4090607d170f940be46513cde26246,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 86.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3101384130486175128, guid: dc4090607d170f940be46513cde26246,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.700682
+      objectReference: {fileID: 0}
+    - target: {fileID: 3101384130486175128, guid: dc4090607d170f940be46513cde26246,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3101384130486175128, guid: dc4090607d170f940be46513cde26246,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3101384130486175128, guid: dc4090607d170f940be46513cde26246,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3101384130486175128, guid: dc4090607d170f940be46513cde26246,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3101384130486175128, guid: dc4090607d170f940be46513cde26246,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3101384130486175128, guid: dc4090607d170f940be46513cde26246,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3101384130486175128, guid: dc4090607d170f940be46513cde26246,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3101384130486175128, guid: dc4090607d170f940be46513cde26246,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3101384130486175129, guid: dc4090607d170f940be46513cde26246,
+        type: 3}
+      propertyPath: m_Name
+      value: endPnt
+      objectReference: {fileID: 0}
+    - target: {fileID: 3101384130486175129, guid: dc4090607d170f940be46513cde26246,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dc4090607d170f940be46513cde26246, type: 3}
+--- !u!1 &1178922316 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3101384130486175129, guid: dc4090607d170f940be46513cde26246,
+    type: 3}
+  m_PrefabInstance: {fileID: 1178922315}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1217701640
 GameObject:
   m_ObjectHideFlags: 0
@@ -63832,6 +63912,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss1
       objectReference: {fileID: 0}
+    - target: {fileID: 2249808377680425655, guid: 4cf2832b4c711744b91aa8cd59003d54,
+        type: 3}
+      propertyPath: EndPoint
+      value: 
+      objectReference: {fileID: 1178922316}
     - target: {fileID: 3417327201831309689, guid: 4cf2832b4c711744b91aa8cd59003d54,
         type: 3}
       propertyPath: isTouch
