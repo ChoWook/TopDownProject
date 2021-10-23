@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5661062166533128691}
   - component: {fileID: -865376089218318763}
   - component: {fileID: 4130239623410682205}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: fall_trap
   m_TagString: Fall_trap
   m_Icon: {fileID: 0}

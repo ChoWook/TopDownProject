@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7661348179630199662}
   - component: {fileID: 7661348179630199661}
   - component: {fileID: 7661348179630199660}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: jump_plat
   m_TagString: Jump_plat
   m_Icon: {fileID: 0}
