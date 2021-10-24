@@ -281,7 +281,14 @@ public class CharacterController2D : MonoBehaviour
     private void FindEnemy()
     {
         // Enemy를 찾아 범위 안에 있는 적들에게 대미지 입히기
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
+
+        var Range = attackRange;
+        if (SetItemCheck.getChecked(11))        // 전설 세트
+        {
+            Range *= 1.5f;
+        }
+
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, Range, enemyLayer);
 
         foreach (Collider2D enemy in hitEnemies)
         {
@@ -294,16 +301,23 @@ public class CharacterController2D : MonoBehaviour
                     dmg *= 2;
                 }
 
-                if(SetItemCheck.getChecked(10))                     // 대마법사 세트
+                if(SetItemCheck.getChecked(10) && Random.Range(0, 100) < 50)        // 대마법사 세트 && 발동확률 50퍼
                 {
                     for(int i = 0; i < ArcmageProjectilePoints.Length; i++)
                     {
-                        Instantiate(ArcmageProjectile, ArcmageProjectilePoints[i]).GetComponent<PlayerProjectile>().SetEnemy(enemy.GetComponent<Enemy>());
-                    }
-                    
+                        var projectile = Instantiate(ArcmageProjectile, ArcmageProjectilePoints[i]).GetComponent<PlayerProjectile>();
+                        projectile.SetEnemy(enemy.GetComponent<Enemy>());
+                        projectile.SetDmg(player.getAttack());
+                        projectile.transform.SetParent(null);
+                    }   
                 }
-                Debug.Log(SetItemCheck.getChecked(10));
 
+                if (SetItemCheck.getChecked(11))                    // 전설 세트
+                {
+                    dmg *= 2;
+                }
+
+                // 대미지 입히기
                 int enemy_hp = enemy.GetComponent<TakableDamage>().TakeDamage(dmg);
 
                 if (SetItemCheck.getChecked(8))  // 흡혈귀 세트

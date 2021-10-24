@@ -261,7 +261,10 @@ public class Player : MonoBehaviour
                 {
                     if (equipment.GetSlots[(int)setItem.Items[j].type - 1].item.Id != setItem.Items[j].data.Id)
                     {
-                        Debug.Log(setItemDatabase.SetItems[setItem.Id].Name + false);
+                        Debug.Log(setItemDatabase.SetItems[setItem.Id].Name + " : " 
+                            + equipment.GetSlots[(int)setItem.Items[j].type - 1].item.Id + " != "
+                            + setItem.Items[j].data.Id + " => Slot Item Name "
+                            + slot.item.SetItemId);
                         isSet = false;
                         break;
                     }

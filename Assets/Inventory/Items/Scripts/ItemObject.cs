@@ -84,6 +84,7 @@ public class Item
     {
         Name = item.name;
         Id = item.data.Id;
+        SetItemId = item.data.SetItemId;
         buffs = new ItemBuff[item.data.buffs.Length];
         description = item.description;
         for (int i = 0; i < buffs.Length; i++)

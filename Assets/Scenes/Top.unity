@@ -11056,6 +11056,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Head
       objectReference: {fileID: 0}
+    - target: {fileID: 2900039972427190797, guid: 364d6497b7ba1494fa24f003554e250a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2900039972427191286, guid: 364d6497b7ba1494fa24f003554e250a,
         type: 3}
       propertyPath: Hp_max
