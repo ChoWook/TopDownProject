@@ -38,10 +38,7 @@ public class TalkManager : MonoBehaviour
         {
             Time.timeScale = 0f;
         }
-        else
-        {
-            Time.timeScale = 1f;
-        }
+       
 
         if (Input.GetKeyDown(KeyCode.UpArrow)){
             Action();
