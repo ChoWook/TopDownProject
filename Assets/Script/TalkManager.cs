@@ -12,9 +12,10 @@ public class TalkManager : MonoBehaviour
     public GameObject txtPanel;
     public GameObject remindImage;
     public GameObject reminder2;
+    public GameObject thankyou;
     Dictionary<int, string[]> talkData;
     public bool isActivate;
-   
+    public bool isEnd=false;
 
 
 
@@ -45,6 +46,12 @@ public class TalkManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow)){
             Action();
         }
+
+        if (isEnd)
+        {
+            thankyou.SetActive(true);
+            Time.timeScale = 0f;
+        }
     }
     public void Action()
     {
@@ -61,7 +68,7 @@ public class TalkManager : MonoBehaviour
         talkData.Add(10, new string[] {"탑에 어떻게 이런 공간이..?","바닥에 닿으면 위험할 것 같다." });
         talkData.Add(12, new string[] { "덤벼라!" });
         talkData.Add(14, new string[] { "뿜어내는 기운이 심상치 않다.","저 녀석만 잡으면 이제 보석이..!" });
-        talkData.Add(15, new string[] { "드디어 보석이..!","..?","갑자기 보석이 밝게 빛난다.","","", "...", "......?", "난 누구지..?" });
+        talkData.Add(15, new string[] { "드디어 보석이..!","..?","갑자기 보석이 밝게 빛난다.","","", "...", "......?", "난 누구지..?" ,""});
     }
 
     public string GetTalk(int id, int talkIndex)
@@ -89,7 +96,11 @@ public class TalkManager : MonoBehaviour
         if(id==15 && tIndex == 3)
         {
             reminder2.SetActive(true);
-            
+
+        }
+        else if(id==15 && tIndex >= 8)
+        {
+            isEnd = true;
         }
         else
         {
