@@ -55,15 +55,15 @@ public class SceneCnt : MonoBehaviour
                 startingPos = new Vector3(startingPos.x, startingPos.y, startingPos.z);
                 Instantiate(player, startingPos, startingRotate);
                 isClear = false;
-               
-
             }
             else
             {
                 float x = PlayerPrefs.GetFloat("PlayerX");
                 float y = PlayerPrefs.GetFloat("PlayerY");
                 loadPos = new Vector3(x, y, 0);
-                Instantiate(player, loadPos, startingRotate);
+                var Player = Instantiate(player, loadPos, startingRotate).GetComponent<Player>();
+                Player.equipment.Load();
+                Player.inventory.Load();
             }
 
         }
@@ -92,10 +92,5 @@ public class SceneCnt : MonoBehaviour
       
     }
 
-
-   
-   
-
-
-    }
+ }
 

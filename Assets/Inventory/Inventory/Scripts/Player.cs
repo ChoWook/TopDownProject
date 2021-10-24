@@ -243,11 +243,14 @@ public class Player : MonoBehaviour
         //Debug.Log(string.Concat(attribute.type, " was updated! Value is now ", attribute.value.ModifiedValue));
     }
 
-
+    
     private void OnApplicationQuit()
     {
+        /*
+        디버그용 장비 초기화 코드
         inventory.Clear();
         equipment.Clear();
+        */
     }
 
     public int getAttack()
