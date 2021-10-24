@@ -10,6 +10,7 @@ public class Boss2 : MonoBehaviour
     public GameObject GroundWave;
     public GameObject SpreadSpark;
     public GameObject TargetDown;
+    public BossDestroyCheck bossDestroyCheck;
     public float Speed = 3f;
 
     protected int target = 0;
@@ -92,7 +93,7 @@ public class Boss2 : MonoBehaviour
         isAttack = true;
 
         Invoke(AttackName[Random.Range(0, AttackWeight)], 1.1f);
-        Invoke("NextPattern", 5.0f);
+        Invoke("NextPattern", 4.0f);
     }
 
     public void WaveAttack()
@@ -183,5 +184,10 @@ public class Boss2 : MonoBehaviour
         {
             Attack();
         }
+    }
+
+    private void OnDestroy()
+    {
+        bossDestroyCheck.BossCnt--;
     }
 }
