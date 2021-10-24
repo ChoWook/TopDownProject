@@ -23,7 +23,7 @@ public class Boss2 : MonoBehaviour
     bool isAttack = false;
     int AttackWeight = 3;
     int TargetDownCnt = 0;
-    Player player;
+    CharacterController2D player;
 
     string[] AttackName = { "WaveAttack", "SpreadSparkAttack", "TargetDownAttack", "GroundWaveAttack", "GroundWaveAttack", "GroundWaveAttack" };
 
@@ -139,7 +139,7 @@ public class Boss2 : MonoBehaviour
     {
         if (!player)
         {
-            player = FindObjectOfType<Player>();
+            player = FindObjectOfType<CharacterController2D>();
         }
 
         Instantiate(TargetDown, player.GetComponent<Collider2D>().transform).transform.SetParent(null);
@@ -167,9 +167,10 @@ public class Boss2 : MonoBehaviour
     {
         if (!player)
         {
-            player = FindObjectOfType<Player>();
+            player = FindObjectOfType<CharacterController2D>();
         }
 
+        player.isBossStage = true;
         AttackWeight = 4;                                           // 1:1:1:1 비율
         if(player.transform.position.y - transform.position.y < 3 && r2d.rotation != 90 && r2d.rotation != -90)
         {

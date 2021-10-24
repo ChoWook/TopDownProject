@@ -19,10 +19,13 @@ public class CharacterController2D : MonoBehaviour
     public float CameraUpperDistance = 1.0f;
     public float EvasionCoolTime = 0.5f;
     public bool isWarrior = false;
+    public bool isFixedBossCamera = false;
     public bool isBossStage = false;
     public Camera mainCamera;
     public Canvas InventoryUI;
     public GameObject SpriteObject;
+    public GameObject ArcmageProjectile;
+    public Transform[] ArcmageProjectilePoints;
 
     // Attack var
     public Transform attackPoint;
@@ -38,7 +41,7 @@ public class CharacterController2D : MonoBehaviour
     bool isAttack = false;
     bool isOpenInventory = false;
     bool isOnSlowTrap = false;
-    int KillCount = 0;
+    int HitCount = 0;
     bool isDoubleJump = false;
     bool isEvasionCoolTime = false;
     float AttackDuration = 0.0f;
@@ -108,7 +111,7 @@ public class CharacterController2D : MonoBehaviour
     private void CameraFlow()
     {
         // Camera follow
-        if (mainCamera && !isBossStage)
+        if (mainCamera && !isFixedBossCamera)
         {
             mainCamera.transform.position = new Vector3(t.position.x, t.position.y + CameraUpperDistance, cameraPos.z + CameraZDistance);
         }
@@ -286,29 +289,36 @@ public class CharacterController2D : MonoBehaviour
             {
                 var dmg = player.getAttack();
 
-                if (SetItemCheck.getChecked(9))     // 선택받은 자 세트
+                if (SetItemCheck.getChecked(9) && isBossStage)     // 선택받은 자 세트
                 {
-
+                    dmg *= 2;
                 }
+
+                if(SetItemCheck.getChecked(10))                     // 대마법사 세트
+                {
+                    for(int i = 0; i < ArcmageProjectilePoints.Length; i++)
+                    {
+                        Instantiate(ArcmageProjectile, ArcmageProjectilePoints[i]).GetComponent<PlayerProjectile>().SetEnemy(enemy.GetComponent<Enemy>());
+                    }
+                    
+                }
+                Debug.Log(SetItemCheck.getChecked(10));
 
                 int enemy_hp = enemy.GetComponent<TakableDamage>().TakeDamage(dmg);
-                if (enemy_hp == 0)
+
+                if (SetItemCheck.getChecked(8))  // 흡혈귀 세트
                 {
-                    if (SetItemCheck.getChecked(8))  // 흡혈귀 세트
+                    HitCount++;
+                    if (HitCount >= 12)          // 12 번 공격할 때 마다 피 1 회복
                     {
-                        KillCount++;
-                        if(KillCount >= 8)          // 8 마리 잡을 때 마다 피 1 회복
-                        {
-                            Player.HP += 1;
-                            KillCount = 0;
-                        }
-                    }
-                    else
-                    {
-                        KillCount = 0;
+                        Player.HP += 1;
+                        HitCount = 0;
                     }
                 }
-                
+                else
+                {
+                    HitCount = 0;
+                }
             }
         }
     }
@@ -385,9 +395,6 @@ public class CharacterController2D : MonoBehaviour
             }
         }
 
-        // Simple debug
-        Debug.DrawLine(groundCheckPos, groundCheckPos - new Vector3(0, colliderRadius, 0), isGrounded ? Color.green : Color.red);
-        Debug.DrawLine(groundCheckPos, groundCheckPos - new Vector3(colliderRadius, 0, 0), isGrounded ? Color.green : Color.red);
     }
 
     void OnDrawGizmosSelected()
@@ -561,7 +568,6 @@ public class CharacterController2D : MonoBehaviour
         
     }
 
-
     //GameSave
     public void GameSave()
     {
@@ -572,14 +578,10 @@ public class CharacterController2D : MonoBehaviour
         PlayerPrefs.SetFloat("PlayerX", player.transform.position.x);
         PlayerPrefs.SetFloat("PlayerY", player.transform.position.y);
         PlayerPrefs.SetInt("HP", Player.HP);
-        //item save code 추가 할 부분!!!-----
         player.equipment.Save();
         player.inventory.Save();
         
-        //-----------------------------------
-
         PlayerPrefs.Save();
-
     }
 
     bool IsGroundTagCheck(Collider2D collider)
@@ -591,7 +593,6 @@ public class CharacterController2D : MonoBehaviour
                 return false;
             }
         }
-        
         return true;
     }
     

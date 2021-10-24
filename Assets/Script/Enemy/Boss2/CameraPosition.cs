@@ -18,7 +18,7 @@ public class CameraPosition : MonoBehaviour
         CharacterController2D player = FindObjectOfType<CharacterController2D>();
         if (player)
         {
-            player.isBossStage = true;
+            player.isFixedBossCamera = true;
             player.mainCamera.transform.position = transform.position;
             player.mainCamera.transform.SetParent(null);
             isPlayerFound = true;

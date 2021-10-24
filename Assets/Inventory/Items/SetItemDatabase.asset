@@ -81,8 +81,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: c2dafd21246670f419c1adb605deae35, type: 2}
     Id: 8
     Name: "\uD761\uD608\uADC0"
-    SetBuffDescription: "\uC77C\uC815 \uD69F\uC218\uC758 \uBAB9 \uCC98\uCE58 \uC2DC
-      \uCCB4\uB825 \uD68C\uBCF5"
+    SetBuffDescription: "12 \uBC88 \uACF5\uACA9 \uC2DC \uCCB4\uB825 \uD68C\uBCF5"
   - Items:
     - {fileID: 11400000, guid: 13de8a8d31cf59e4e81e95be2d47ddab, type: 2}
     - {fileID: 11400000, guid: e5f912e84b800f94eb4b07924482b67d, type: 2}

@@ -50,6 +50,7 @@ public class Boss1: MonoBehaviour, TakableDamage
             if (player)
             {
                 player.CameraUpperDistance = 2.0f;
+                player.isBossStage = true;
             }
         }
 

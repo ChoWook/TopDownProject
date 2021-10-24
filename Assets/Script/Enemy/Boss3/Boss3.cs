@@ -28,6 +28,7 @@ public class Boss3 : MonoBehaviour
     Boss3State state = Boss3State.Left;
     Animator animator;
     AudioSource audioSource;
+    CharacterController2D player;
 
     // Start is called before the first frame update
     void Start()
@@ -37,8 +38,6 @@ public class Boss3 : MonoBehaviour
         AttackTrriger();
 
         LeftPatternShooters.gameObject.SetActive(true);
-        //RightPatternShooters.gameObject.SetActive(true);
-        //BothPatternShooters.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
@@ -48,6 +47,16 @@ public class Boss3 : MonoBehaviour
         {
             PlayerCameraFound();
         }
+
+        if (!player)
+        {
+            player = FindObjectOfType<CharacterController2D>();
+        }
+
+        if (player)
+        {
+            player.isBossStage = true;
+        }
     }
 
     public void PlayerCameraFound()
@@ -55,7 +64,7 @@ public class Boss3 : MonoBehaviour
         CharacterController2D player = FindObjectOfType<CharacterController2D>();
         if (player)
         {
-            player.isBossStage = true;
+            player.isFixedBossCamera = true;
             player.mainCamera.transform.position = new Vector3(CameraPosition.position.x, CameraPosition.position.y, player.CameraZDistance);
             player.mainCamera.transform.SetParent(null);
             player.jumpHeight *= 0.9f;

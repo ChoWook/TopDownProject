@@ -30,12 +30,8 @@ public class Player : MonoBehaviour
     public static int HP = 20;
     static bool isGameStart = true;
 
-
-    //private BoneCombiner boneCombiner;
-
     private void Start()
     {
-        //boneCombiner = new BoneCombiner(gameObject);
         setItemCheck = new SetItemCheck(setItemDatabase);
 
         for (int i = 0; i < attributes.Length; i++)
@@ -67,8 +63,6 @@ public class Player : MonoBehaviour
             case InterfaceType.Inventory:
                 break;
             case InterfaceType.Equipment:
-                //print(string.Concat("Removed ", _slot.ItemObject, " on ", _slot.parent.inventory.type,
-                //    ", Allowed Items: ", string.Join(", ", _slot.AllowedItems)));
 
                 for (int i = 0; i < _slot.item.buffs.Length; i++)
                 {
@@ -78,28 +72,6 @@ public class Player : MonoBehaviour
                             attributes[j].value.RemoveModifier(_slot.item.buffs[i]);
                     }
                 }
-
-                //if (_slot.ItemObject.characterDisplay != null)
-                //{
-                //    switch (_slot.AllowedItems[0])
-                //    {
-                //        case ItemType.Helmet:
-                //            Destroy(helmet.gameObject);
-                //            break;
-                //        case ItemType.Weapon:
-                //            Destroy(weapon.gameObject);
-                //            break;
-                //        case ItemType.Glove:
-                //            Destroy(glove.gameObject);
-                //            break;
-                //        case ItemType.Boots:
-                //            Destroy(boots.gameObject);
-                //            break;
-                //        case ItemType.Chest:
-                //            Destroy(chest.gameObject);
-                //            break;
-                //    }
-                //}
 
                 OnSetItemCheck(_slot, true);
 
@@ -118,8 +90,6 @@ public class Player : MonoBehaviour
             case InterfaceType.Inventory:
                 break;
             case InterfaceType.Equipment:
-                //print(
-                //    $"Placed {_slot.ItemObject}  on {_slot.parent.inventory.type}, Allowed Items: {string.Join(", ", _slot.AllowedItems)}");
 
                 for (int i = 0; i < _slot.item.buffs.Length; i++)
                 {
@@ -130,42 +100,6 @@ public class Player : MonoBehaviour
                     }
                 }
 
-                if (_slot.ItemObject.characterDisplay != null)
-                {
-                    // 여기는 착용된 장비를 스프라이트에 표시할 때 사용
-
-                    //switch (_slot.AllowedItems[0])
-                    //{
-                    //    case ItemType.Helmet:
-                    //        helmet = boneCombiner.AddLimb(_slot.ItemObject.characterDisplay,
-                    //            _slot.ItemObject.boneNames);
-                    //        break;
-                    //    case ItemType.Weapon:
-                    //        weapon = Instantiate(_slot.ItemObject.characterDisplay, weaponTransform).transform;
-                    //        break;
-                    //    case ItemType.Glove:
-                    //        switch (_slot.ItemObject.type)
-                    //        {
-                    //            case ItemType.Weapon:
-                    //                glove = Instantiate(_slot.ItemObject.characterDisplay, offhandHandTransform)
-                    //                    .transform;
-                    //                break;
-                    //            case ItemType.Glove:
-                    //                glove = Instantiate(_slot.ItemObject.characterDisplay, offhandWristTransform)
-                    //                    .transform;
-                    //                break;
-                    //        }
-
-                    //        break;
-                    //    case ItemType.Boots:
-                    //        boots = boneCombiner.AddLimb(_slot.ItemObject.characterDisplay, _slot.ItemObject.boneNames);
-                    //        break;
-                    //    case ItemType.Chest:
-                    //        chest = boneCombiner.AddLimb(_slot.ItemObject.characterDisplay, _slot.ItemObject.boneNames);
-                    //        break;
-                    //}
-                }
-
                 OnSetItemCheck(_slot, false);
 
                 break;
@@ -174,35 +108,8 @@ public class Player : MonoBehaviour
         }
     }
 
-    /*
-    public void OnTriggerEnter(Collider other)
-    {
-        var groundItem = other.GetComponent<GroundItem>();
-        if (groundItem)
-        {
-            Item _item = new Item(groundItem.item);
-            if (inventory.AddItem(_item, 1))
-            {
-                Destroy(other.gameObject);
-            }
-        }
-    }
-    */
-
     private void Update()
     {
-
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    inventory.Save();
-        //    equipment.Save();
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.KeypadEnter))
-        //{
-        //    inventory.Load();
-        //    equipment.Load();
-        //}
 
         if (HP > getHealth())
         {
@@ -420,23 +327,6 @@ public class SetItemCheck
         if(Checked[id] != isChecked)
         {
             Checked[id] = isChecked;
-            Debug.Log(setItemDatabase.SetItems[id].Name + isChecked);
-            if (isChecked)
-            {
-                //세트효과 발동
-                switch (id)
-                {
-                    default:break;
-                }
-            }
-            else
-            {
-                //세트효과 제거
-                switch (id)
-                {
-                    default: break;
-                }
-            }
         }
     }
 
