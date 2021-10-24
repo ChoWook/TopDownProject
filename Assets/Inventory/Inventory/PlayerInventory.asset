@@ -19,94 +19,174 @@ MonoBehaviour:
     Slots:
     - AllowedItems: 
       item:
-        Name: 
-        Id: -1
-        buffs: []
+        Name: 37_ArchmageWeapon
+        Id: 37
+        buffs:
+        - attribute: 0
+          value: 8
+          min: 8
+          max: 8
+        - attribute: 3
+          value: 1
+          min: 1
+          max: 1
         SetItemId: 0
         ValidFloor: 5
         description: 
-      amount: 0
+      amount: 1
     - AllowedItems: 
       item:
-        Name: 
-        Id: -1
-        buffs: []
+        Name: 38_ArchmageGlove
+        Id: 38
+        buffs:
+        - attribute: 0
+          value: 1
+          min: 1
+          max: 1
+        - attribute: 3
+          value: 4
+          min: 4
+          max: 4
         SetItemId: 0
         ValidFloor: 5
         description: 
-      amount: 0
+      amount: 1
     - AllowedItems: 
       item:
-        Name: 
-        Id: -1
-        buffs: []
+        Name: 36_ArchmageHelmet
+        Id: 36
+        buffs:
+        - attribute: 0
+          value: 1
+          min: 1
+          max: 1
+        - attribute: 1
+          value: 2
+          min: 2
+          max: 2
         SetItemId: 0
         ValidFloor: 5
         description: 
-      amount: 0
+      amount: 1
     - AllowedItems: 
       item:
-        Name: 
-        Id: -1
-        buffs: []
+        Name: 39_ArchmageBoots
+        Id: 39
+        buffs:
+        - attribute: 0
+          value: 1
+          min: 1
+          max: 1
+        - attribute: 2
+          value: 4
+          min: 4
+          max: 4
         SetItemId: 0
         ValidFloor: 5
         description: 
-      amount: 0
+      amount: 1
     - AllowedItems: 
       item:
-        Name: 
-        Id: -1
-        buffs: []
+        Name: 40_ArchmageChest
+        Id: 40
+        buffs:
+        - attribute: 0
+          value: 1
+          min: 1
+          max: 1
+        - attribute: 1
+          value: 3
+          min: 3
+          max: 3
         SetItemId: 0
         ValidFloor: 5
         description: 
-      amount: 0
+      amount: 1
     - AllowedItems: 
       item:
-        Name: 
-        Id: -1
-        buffs: []
+        Name: 37_ArchmageWeapon
+        Id: 37
+        buffs:
+        - attribute: 0
+          value: 8
+          min: 8
+          max: 8
+        - attribute: 3
+          value: 1
+          min: 1
+          max: 1
         SetItemId: 0
         ValidFloor: 5
         description: 
-      amount: 0
+      amount: 1
     - AllowedItems: 
       item:
-        Name: 
-        Id: -1
-        buffs: []
+        Name: 38_ArchmageGlove
+        Id: 38
+        buffs:
+        - attribute: 0
+          value: 1
+          min: 1
+          max: 1
+        - attribute: 3
+          value: 4
+          min: 4
+          max: 4
         SetItemId: 0
         ValidFloor: 5
         description: 
-      amount: 0
+      amount: 1
     - AllowedItems: 
       item:
-        Name: 
-        Id: -1
-        buffs: []
+        Name: 36_ArchmageHelmet
+        Id: 36
+        buffs:
+        - attribute: 0
+          value: 1
+          min: 1
+          max: 1
+        - attribute: 1
+          value: 2
+          min: 2
+          max: 2
         SetItemId: 0
         ValidFloor: 5
         description: 
-      amount: 0
+      amount: 1
     - AllowedItems: 
       item:
-        Name: 
-        Id: -1
-        buffs: []
+        Name: 39_ArchmageBoots
+        Id: 39
+        buffs:
+        - attribute: 0
+          value: 1
+          min: 1
+          max: 1
+        - attribute: 2
+          value: 4
+          min: 4
+          max: 4
         SetItemId: 0
         ValidFloor: 5
         description: 
-      amount: 0
+      amount: 1
     - AllowedItems: 
       item:
-        Name: 
-        Id: -1
-        buffs: []
+        Name: 40_ArchmageChest
+        Id: 40
+        buffs:
+        - attribute: 0
+          value: 1
+          min: 1
+          max: 1
+        - attribute: 1
+          value: 3
+          min: 3
+          max: 3
         SetItemId: 0
         ValidFloor: 5
         description: 
-      amount: 0
+      amount: 1
     - AllowedItems: 
       item:
         Name: 

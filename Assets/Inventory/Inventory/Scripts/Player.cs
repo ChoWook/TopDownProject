@@ -29,6 +29,8 @@ public class Player : MonoBehaviour
     public SetItemCheck setItemCheck;
     public static int HP = 20;
     static bool isGameStart = true;
+    public static bool isInvenStart=false;
+
 
     private void Start()
     {
@@ -110,6 +112,14 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if (isInvenStart == true)
+        {
+            inventory.Clear();
+            equipment.Clear();
+
+            isInvenStart = false;
+        }
+
 
         if (HP > getHealth())
         {

@@ -10,8 +10,7 @@ public class TitleManeger : MonoBehaviour
     public GameObject GameOverCanvas;
     public static bool isSetWin = false;
     public static bool isDead = false;
-
-
+  
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +32,8 @@ public class TitleManeger : MonoBehaviour
            
         }
         checkHP();
-        if (isDead)
+
+        if (isDead==true)
         {
             GameOverCanvas.SetActive(true);
         }
@@ -49,7 +49,12 @@ public class TitleManeger : MonoBehaviour
         if (Player.HP <= 0)
         {
             isDead = true;
-            
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            isDead = false;
+            Time.timeScale = 1f;
         }
     }
     public void clickStart()
@@ -58,8 +63,11 @@ public class TitleManeger : MonoBehaviour
     }
     public void clickYes()
     {
+        Time.timeScale = 1f;
         float backVol = PlayerPrefs.GetFloat("backVol", 1f);
         float effectVol = PlayerPrefs.GetFloat("effectVol", 1f);
+        Player.HP = 10;
+        Player.isInvenStart = true;
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetFloat("backVol", backVol);
         PlayerPrefs.SetFloat("effectVol", effectVol);
@@ -114,6 +122,7 @@ public class TitleManeger : MonoBehaviour
         if (!PlayerPrefs.HasKey("HP"))
         {
             isDead = false;
+            Player.HP = 10;
             LoadSceneController.LoadScene(1);
         }
         else
