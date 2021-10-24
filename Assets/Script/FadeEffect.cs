@@ -8,7 +8,9 @@ public class FadeEffect : MonoBehaviour
 
     public Image img;
     public static bool isActive=false;
+    public static bool isFadeOut = false;
     public bool isPlaying;
+    
     float fadeCount = 1f;
 
     // Start is called before the first frame update
@@ -23,8 +25,7 @@ public class FadeEffect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        
+       
     }
 
  
@@ -43,11 +44,13 @@ public class FadeEffect : MonoBehaviour
         }
     }
 
+  
+
 
     public void FadeInEffect()
     {
       
         StartCoroutine("FadeIn");
     }
-    
+  
 }

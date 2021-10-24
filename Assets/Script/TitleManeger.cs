@@ -49,7 +49,7 @@ public class TitleManeger : MonoBehaviour
         if (Player.HP <= 0)
         {
             isDead = true;
-            Time.timeScale = 0f;
+            
         }
     }
     public void clickStart()
@@ -77,6 +77,7 @@ public class TitleManeger : MonoBehaviour
     }
     public void clickMain()
     {
+
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
         isDead = false;
@@ -113,7 +114,6 @@ public class TitleManeger : MonoBehaviour
         if (!PlayerPrefs.HasKey("HP"))
         {
             isDead = false;
-            Player.HP = 6;
             LoadSceneController.LoadScene(1);
         }
         else
