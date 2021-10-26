@@ -111,6 +111,10 @@ public class InventoryObject : ScriptableObject
             }
             stream.Close();
         }
+        else
+        {
+            Debug.Log("File Not Exist");
+        }
     }
     [ContextMenu("Clear")]
     public void Clear()

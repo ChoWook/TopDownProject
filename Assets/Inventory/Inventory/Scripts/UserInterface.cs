@@ -31,13 +31,13 @@ public abstract class UserInterface : MonoBehaviour//, IPointerClickHandler
         AddEvent(gameObject, EventTriggerType.PointerEnter, delegate { OnEnterInterface(gameObject); });
         AddEvent(gameObject, EventTriggerType.PointerExit, delegate { OnExitInterface(gameObject); });
         inventory.Load();
-        inventory.Load();
+        //inventory.Load();
         //InventoryUI.gameObject.SetActive(true);
         if (firstOpen)
         {
             //Debug.Log(firstOpen);
             //gameObject.SetActive(false);
-            gameObject.GetComponentInParent<Canvas>().gameObject.SetActive(false);
+            //gameObject.GetComponentInParent<Canvas>().gameObject.SetActive(false);
             firstOpen = false;
         }
     }

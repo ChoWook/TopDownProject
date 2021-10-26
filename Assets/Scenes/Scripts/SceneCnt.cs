@@ -62,9 +62,9 @@ public class SceneCnt : MonoBehaviour
                 float y = PlayerPrefs.GetFloat("PlayerY");
                 loadPos = new Vector3(x, y, 0);
                 var Player = Instantiate(player, loadPos, startingRotate).GetComponent<Player>();
-                Player.getHealth();
                 Player.equipment.Load();
                 Player.inventory.Load();
+                //Player.HP = Player.getHealth();
             }
 
         }
