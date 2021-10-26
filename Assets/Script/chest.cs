@@ -19,8 +19,6 @@ public class chest : MonoBehaviour
             {
                 if (other.gameObject.tag.Equals("player"))
                     Debug.Log("Destroyed");
-                var player = other.GetComponent<Player>();
-                Player.HP = player.getHealth();
                 Destroy(gameObject);
             }
         }
