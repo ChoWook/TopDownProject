@@ -13,6 +13,7 @@ public class SceneCnt : MonoBehaviour
     static int stageNum = 0;
     static bool isClear = false;
 
+    Player MyPlayer;
     private void Awake()
     {
       Time.timeScale = 0f;
@@ -50,10 +51,11 @@ public class SceneCnt : MonoBehaviour
         }
         else
         {
-            if (isClear == true)
+            if (isClear)
             {
                 startingPos = new Vector3(startingPos.x, startingPos.y, startingPos.z);
-                Instantiate(player, startingPos, startingRotate);
+                MyPlayer = Instantiate(player, startingPos, startingRotate).GetComponent<Player>();
+                Invoke("FullHealth", 0.1f);
                 isClear = false;
             }
             else
@@ -61,10 +63,10 @@ public class SceneCnt : MonoBehaviour
                 float x = PlayerPrefs.GetFloat("PlayerX");
                 float y = PlayerPrefs.GetFloat("PlayerY");
                 loadPos = new Vector3(x, y, 0);
-                var Player = Instantiate(player, loadPos, startingRotate).GetComponent<Player>();
-                Player.equipment.Load();
-                Player.inventory.Load();
-                //Player.HP = Player.getHealth();
+                MyPlayer = Instantiate(player, loadPos, startingRotate).GetComponent<Player>();
+                MyPlayer.equipment.Load();
+                MyPlayer.inventory.Load();
+
             }
 
         }
@@ -92,6 +94,11 @@ public class SceneCnt : MonoBehaviour
         SceneManager.LoadScene(sn, LoadSceneMode.Single);
       
     }
-
+    
+    public void FullHealth()
+    {
+        Debug.Log("GetHealth : " + MyPlayer.getHealth());
+        Player.HP = MyPlayer.getHealth();
+    }
  }
 

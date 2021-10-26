@@ -31,13 +31,12 @@ public abstract class UserInterface : MonoBehaviour//, IPointerClickHandler
         AddEvent(gameObject, EventTriggerType.PointerEnter, delegate { OnEnterInterface(gameObject); });
         AddEvent(gameObject, EventTriggerType.PointerExit, delegate { OnExitInterface(gameObject); });
         inventory.Load();
-        //inventory.Load();
-        //InventoryUI.gameObject.SetActive(true);
+
         if (firstOpen)
         {
             //Debug.Log(firstOpen);
             //gameObject.SetActive(false);
-            //gameObject.GetComponentInParent<Canvas>().gameObject.SetActive(false);
+            Invoke("HideInventory", 0.1f);
             firstOpen = false;
         }
     }
@@ -139,6 +138,11 @@ public abstract class UserInterface : MonoBehaviour//, IPointerClickHandler
     {
         if (MouseData.tempItemBeingDragged != null)
             MouseData.tempItemBeingDragged.GetComponent<RectTransform>().position = Input.mousePosition;
+    }
+
+    public void HideInventory()
+    {
+        gameObject.GetComponentInParent<Canvas>().gameObject.SetActive(false);
     }
 
 }
