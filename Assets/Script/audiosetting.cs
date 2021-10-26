@@ -78,10 +78,10 @@ public class audiosetting : MonoBehaviour
         int sceneNum = SceneManager.GetActiveScene().buildIndex;
         switch (sceneNum)
         {
-            case 8:
             case 10:
             case 12:
             case 14:
+            case 16:
                 bgmAudio.Stop();
                 bossMusic.Play();
                 break;

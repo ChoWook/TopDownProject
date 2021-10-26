@@ -60,12 +60,13 @@ public class TalkManager : MonoBehaviour
     public void GenerateData()
     {
         talkData.Add(1, new string[] { "윽..","기억이..", "여긴.. 뭐지..?" ,"일단 빠져나가자"});
-        talkData.Add(6, new string[] {"윽.. 드디어 탈출했다...",".....?!","기억이..!","","탑에서 심상치않은 기운이 느껴진다.","본래의 모습으로 돌아가려는 듯하다" });
-        talkData.Add(8, new string[] { "저게.. 뭐야??"});
-        talkData.Add(10, new string[] {"탑에 어떻게 이런 공간이..?","바닥에 닿으면 위험할 것 같다." });
-        talkData.Add(12, new string[] { "덤벼라!" });
-        talkData.Add(14, new string[] { "뿜어내는 기운이 심상치 않다.","저 녀석만 잡으면 이제 보석이..!" });
-        talkData.Add(15, new string[] { "드디어 보석이..!","..?","갑자기 보석이 밝게 빛난다.","","", "...", "......?", "난 누구지..?" ,""});
+        talkData.Add(6, new string[] {"..? 무언가가 벽에 쓰여있다. ","..." ," '두 눈을 주시하라' \n 00 01 10 11 ","이게 무슨 소리지..?"});
+        talkData.Add(8, new string[] {"윽.. 드디어 탈출했다...",".....?!","기억이..!","","탑에서 심상치않은 기운이 느껴진다.","본래의 모습으로 돌아가려는 듯하다" });
+        talkData.Add(10, new string[] { "저게.. 뭐야??"});
+        talkData.Add(12, new string[] {"탑에 어떻게 이런 공간이..?","바닥에 닿으면 위험할 것 같다." });
+        talkData.Add(14, new string[] { "덤벼라!" });
+        talkData.Add(16, new string[] { "뿜어내는 기운이 심상치 않다.","저 녀석만 잡으면 이제 보석이..!" });
+        talkData.Add(17, new string[] { "드디어 보석이..!","..?","갑자기 보석이 밝게 빛난다.","","", "...", "......?", "난 누구지..?" ,""});
     }
 
     public string GetTalk(int id, int talkIndex)
@@ -82,7 +83,7 @@ public class TalkManager : MonoBehaviour
     {
         int temp = id;
 
-        if(id==6 && tIndex == 3)
+        if(id==8 && tIndex == 3)
         {
             remindImage.SetActive(true);
         }
@@ -90,12 +91,12 @@ public class TalkManager : MonoBehaviour
         {
             remindImage.SetActive(false);
         }
-        if(id==15 && tIndex == 3)
+        if(id==17 && tIndex == 3)
         {
             reminder2.SetActive(true);
 
         }
-        else if(id==15 && tIndex >= 8)
+        else if(id==17 && tIndex >= 8)
         {
             isEnd = true;
         }
