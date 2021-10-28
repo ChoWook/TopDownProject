@@ -3929,8 +3929,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 429809880439724615, guid: ce67ab0969cb24046a158e7eda6d81ca,
         type: 3}
+      propertyPath: Hp_max
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 429809880439724615, guid: ce67ab0969cb24046a158e7eda6d81ca,
+        type: 3}
       propertyPath: isTouch
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429809881523972644, guid: ce67ab0969cb24046a158e7eda6d81ca,
+        type: 3}
+      propertyPath: Hp_max
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 429809881523972644, guid: ce67ab0969cb24046a158e7eda6d81ca,
         type: 3}

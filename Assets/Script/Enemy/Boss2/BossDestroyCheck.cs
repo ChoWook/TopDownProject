@@ -10,7 +10,7 @@ public class BossDestroyCheck : MonoBehaviour
     public void DisCountBossCnt()
     {
         BossCnt--;
-        if(BossCnt <= 0)
+        if(BossCnt <= 0 && EndPoint)
         {
             EndPoint.SetActive(true);
         }

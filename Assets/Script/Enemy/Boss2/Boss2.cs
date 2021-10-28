@@ -189,6 +189,6 @@ public class Boss2 : MonoBehaviour
 
     private void OnDestroy()
     {
-        bossDestroyCheck.BossCnt--;
+        bossDestroyCheck.DisCountBossCnt();
     }
 }
