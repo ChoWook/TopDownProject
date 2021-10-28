@@ -13,9 +13,9 @@ public class Boss4 : MonoBehaviour
     public Orb OrbPrefab;
     public GameObject[] HPToach;
     public GameObject EndPoint;
+    public bool[] isClearStates = new bool[4];
 
     Player player;
-    bool[] isClearStates = new bool[4];
 
     void Awake()
     {
@@ -33,7 +33,7 @@ public class Boss4 : MonoBehaviour
             return;
         }
 
-        player = GameObject.FindObjectOfType<Player>();
+        player = FindObjectOfType<Player>();
         if (player != null)
         {
             player.transform.SetParent(null);
@@ -53,6 +53,7 @@ public class Boss4 : MonoBehaviour
         {
             Orbs[i] = Instantiate(OrbPrefab, OrbTransform[i].position, OrbTransform[i].rotation);
             Orbs[i].boss = this;
+            Orbs[i].index = i;
             if (i == state)
             {
                 tilemaps[i].gameObject.SetActive(true);
@@ -128,13 +129,14 @@ public class Boss4 : MonoBehaviour
         return true;
     }
 
-    public void NextState()
-    {
+    public void NextState() { 
         if (CheckClearAllState())
         {
             // 보스 클리어시 행할 행동들
             EndPoint.SetActive(true);
             EndPoint.transform.SetParent(null);
+            player.transform.SetParent(null);
+            player.gameObject.transform.position = PlayerStartTransform.position;
             Destroy(gameObject);
         }
         else

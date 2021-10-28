@@ -7,6 +7,7 @@ public class Orb : MonoBehaviour
     public Boss4 boss;
     public bool isCorrectOrb = false;
     public Enemy enemy;
+    public int index;
 
     private void OnDestroy()
     {
@@ -22,6 +23,7 @@ public class Orb : MonoBehaviour
 
         if (isCorrectOrb)
         {
+            boss.isClearStates[index] = true;
             boss.NextState();
         }
         else
